@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class TestPlayerMovement : MonoBehaviour
 {
+    bool isGhost = false;
+    List<PointInTime> ghostPath = new List<PointInTime>();
+    int currentGhostPoint = 0;
+
+    public GameObject playerCamera;
+    
     public CharacterController controller;
     
     public float speed = 12f;
@@ -21,26 +27,44 @@ public class TestPlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        
+        if (!isGhost) {
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0) {
-            velocity.y = -2f;
+            if (isGrounded && velocity.y < 0) {
+                velocity.y = -2f;
+            }
+            
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded) {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+
+            controller.Move(velocity * Time.deltaTime);
+        } else {
+            if (currentGhostPoint < ghostPath.Count) {
+                PointInTime currentPointInTime = ghostPath[currentGhostPoint];
+                controller.transform.position = currentPointInTime.position;
+                controller.transform.rotation = currentPointInTime.rotation;
+                currentGhostPoint++;
+            }
         }
         
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+    }
 
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move * speed * Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded) {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-
+    public void SetAsGhost (List<PointInTime> path) {
+        isGhost = true;
+        controller.enabled = false;
+        ghostPath = path;
+        playerCamera.SetActive(false);
+        // TODO: change color to be transparent
     }
 }
