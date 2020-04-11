@@ -1,14 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class MonsterMovement : MonoBehaviour {
     public GameObject checkpointsObject;
     public NavMeshAgent agent;
+    public MonsterBehaviour behaviour;
     private Transform[] checkpoints;
     private int destPoint = 0;
-    
+    private GameObject target;
+
     // Start is called before the first frame update
     void Start() {
         checkpoints = checkpointsObject.GetComponentsInChildren<Transform>();
@@ -18,10 +18,19 @@ public class MonsterMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        // Choose the next destination point when the agent gets
-        // close to the current one.
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
-            GotoNextPoint();
+        switch (behaviour.GetState()) {
+            case MonsterBehaviour.MonsterState.ROAM:
+                if (!agent.pathPending && agent.remainingDistance < 0.5f)
+                    GotoNextPoint();
+
+                break;
+            case MonsterBehaviour.MonsterState.PREY:
+                    PreyTarget();
+
+                break;
+            default:
+                break;
+        }
     }
 
     void GotoNextPoint() {
@@ -35,5 +44,17 @@ public class MonsterMovement : MonoBehaviour {
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
         destPoint = (destPoint + 1) % checkpoints.Length;
+    }
+
+    void PreyTarget() {
+        agent.destination = target.transform.position;
+    }
+
+    public void SetTarget(GameObject target) {
+        this.target = target;
+    }
+
+    public void ResumeRoaming() {
+        agent.destination = checkpoints[destPoint].position;
     }
 }

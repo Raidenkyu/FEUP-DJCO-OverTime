@@ -1695,7 +1695,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2636660311095627573}
   - component: {fileID: 2636660311095627578}
-  - component: {fileID: 2636660311095627577}
   - component: {fileID: 2636660311095627576}
   - component: {fileID: 2636660311095627575}
   - component: {fileID: 2636660311095627574}
@@ -1742,20 +1741,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2636660311095627577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2636660311095627572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb2e628c3bbdad4d78baee8fcf93adbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointsObject: {fileID: 2636660310929250526}
-  agent: {fileID: 2636660311095627576}
 --- !u!195 &2636660311095627576
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1790,6 +1775,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 176f091adebc1a02bb156d31eff4aa7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2636660311095627578}
+  agent: {fileID: 2636660311095627576}
+  movement: {fileID: 2636660311095627574}
+  visionLength: 5
+  roamingSpeed: 1
+  preyingSpeed: 5
 --- !u!114 &2636660311095627574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1804,6 +1795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointsObject: {fileID: 2636660310929250526}
   agent: {fileID: 2636660311095627576}
+  behaviour: {fileID: 2636660311095627575}
 --- !u!1 &2636660311141994019
 GameObject:
   m_ObjectHideFlags: 0

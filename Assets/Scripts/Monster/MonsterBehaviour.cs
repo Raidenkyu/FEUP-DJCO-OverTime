@@ -1,12 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterBehaviour : MonoBehaviour
 {
+    public Animator animator;
+    public NavMeshAgent agent;
+    public MonsterMovement movement;
+    public float visionLength = 5.0f;
+    public float roamingSpeed = 1.0f;
+    public float preyingSpeed = 2.0f;
     public enum MonsterState {ROAM, PREY, ATTACK, FREEZE };
     private MonsterState state;
-    public float visionLength = 5.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,16 +29,16 @@ public class MonsterBehaviour : MonoBehaviour
 
         src.y = 1;
 
-        // This would cast rays only against colliders in layer 8.
-        // But instead we want to collide against everything except layer 8. The ~ operator does this, it inverts a bitmask.
-        layerMask = ~layerMask;
-
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(src, dest, out hit, visionLength, layerMask))
         {
             Debug.DrawRay(src, dest * hit.distance, Color.yellow);
-            Debug.Log("Did Hit");
+            Debug.Log("Did Hit " + hit.collider.tag);
+
+            if (hit.collider.tag == "Player") {
+                Prey(hit.collider.gameObject);
+            }
         }
         else
         {
@@ -41,7 +46,31 @@ public class MonsterBehaviour : MonoBehaviour
         }
     }
 
-    MonsterState GetState() {
+    public MonsterState GetState() {
         return state;
+    }
+
+    void Prey(GameObject target) {
+        this.state = MonsterState.PREY;
+        animator.SetTrigger("Run");
+        agent.speed = preyingSpeed;
+        movement.SetTarget(target);
+    }
+
+    public void Attack() {
+        this.state = MonsterState.ATTACK;
+        animator.SetTrigger("Attack");
+    }
+
+    void Roam() {
+        this.state = MonsterState.ROAM;
+        animator.SetTrigger("Roam");
+        agent.speed = roamingSpeed;
+        movement.ResumeRoaming();
+    }
+
+    void Freeze() {
+        this.state = MonsterState.FREEZE;
+        animator.SetTrigger("Freeze");
     }
 }
