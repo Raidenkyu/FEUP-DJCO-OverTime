@@ -25,8 +25,10 @@ public class MonsterMovement : MonoBehaviour {
 
                 break;
             case MonsterBehaviour.MonsterState.PREY:
-                    PreyTarget();
-
+                PreyTarget();
+                break;
+            case MonsterBehaviour.MonsterState.ATTACK:
+                PreyTarget();
                 break;
             default:
                 break;
@@ -47,7 +49,15 @@ public class MonsterMovement : MonoBehaviour {
     }
 
     void PreyTarget() {
+        float distance = Vector3.Distance(target.transform.position, transform.position);
         agent.destination = target.transform.position;
+
+        if (distance <= agent.stoppingDistance) {
+            behaviour.Attack();
+            FaceTarget();
+        } else {
+
+        }
     }
 
     public void SetTarget(GameObject target) {
@@ -56,5 +66,17 @@ public class MonsterMovement : MonoBehaviour {
 
     public void ResumeRoaming() {
         agent.destination = checkpoints[destPoint].position;
+    }
+
+    public void AttackController() {
+        // TODO: Verify if target is dead
+        behaviour.ReturnPreying();
+    }
+
+    public void FaceTarget() {
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        direction.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 }
