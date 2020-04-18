@@ -11301,6 +11301,11 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1436592908}
+    - target: {fileID: 2642154485759064951, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: maxRecordingTime
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada74473d94d14499960d6c3fddc1b4d, type: 3}
 --- !u!1001 &1817785040

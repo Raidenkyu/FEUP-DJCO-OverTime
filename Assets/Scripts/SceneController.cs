@@ -7,9 +7,10 @@ public class SceneController : MonoBehaviour
     
     public CharacterController playerController;
     public bool isReseting = false;
+    public float maxRecordingTime = 30f;
+    public float timeRecorded = 0f;
     
     List<PointInTime> playerPositions;
-
     List<List<PointInTime>> ghostPaths;
 
     // Start is called before the first frame update
@@ -26,7 +27,10 @@ public class SceneController : MonoBehaviour
             CreateGhost();
             SetupScene();
         } 
-        RecordCurrentPosition();
+        if (timeRecorded <= maxRecordingTime) {
+            RecordCurrentPosition();
+        }
+        timeRecorded += Time.fixedDeltaTime;
     }
 
     void RecordCurrentPosition () {
@@ -47,14 +51,16 @@ public class SceneController : MonoBehaviour
 
 
     void SetupScene () {
+        timeRecorded = 0f;
+        
         playerPositions = new List<PointInTime>();
         playerController.enabled = false;
         playerController.transform.position = new Vector3(3.2f, 5.9f, -1f);
         playerController.enabled = true;
-        Invoke("allowReset", 2f);
+        Invoke("AllowReset", 2f);
     }
 
-    void allowReset () {
+    void AllowReset () {
         isReseting = false;
     }
 }
