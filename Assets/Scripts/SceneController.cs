@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class TestGameController : MonoBehaviour
+public class SceneController : MonoBehaviour
 {
     public GameObject playerPrefab;
     
-    public CharacterController testPlayerController;
+    public CharacterController playerController;
     public bool isReseting = false;
     
     List<PointInTime> playerPositions;
@@ -30,8 +30,8 @@ public class TestGameController : MonoBehaviour
     }
 
     void RecordCurrentPosition () {
-        playerPositions.Add(new PointInTime(testPlayerController.transform.position,
-                                            testPlayerController.transform.rotation));
+        playerPositions.Add(new PointInTime(playerController.transform.position,
+                                            playerController.transform.rotation));
     }
 
     void SavePositions () {
@@ -48,9 +48,9 @@ public class TestGameController : MonoBehaviour
 
     void SetupScene () {
         playerPositions = new List<PointInTime>();
-        testPlayerController.enabled = false;
-        testPlayerController.transform.position = new Vector3(3.2f, 5.9f, -1f);
-        testPlayerController.enabled = true;
+        playerController.enabled = false;
+        playerController.transform.position = new Vector3(3.2f, 5.9f, -1f);
+        playerController.enabled = true;
         Invoke("allowReset", 2f);
     }
 

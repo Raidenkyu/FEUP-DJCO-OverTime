@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 7206664294443281154}
   - component: {fileID: 7206664294443281156}
   m_Layer: 8
-  m_Name: TestPlayer
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 7206664294984986189}
   - component: {fileID: 7206664294984986186}
   - component: {fileID: 7206664294984986187}
-  - component: {fileID: 7206664294984986188}
+  - component: {fileID: 2012806375177327973}
   m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -269,7 +269,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7206664294984986184}
   m_Enabled: 1
---- !u!114 &7206664294984986188
+--- !u!114 &2012806375177327973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

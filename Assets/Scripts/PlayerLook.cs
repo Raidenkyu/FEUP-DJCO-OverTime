@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TestPlayerLook : MonoBehaviour
+public class PlayerLook : MonoBehaviour
 {
     public float mouseSensitivity = 100f;
 
