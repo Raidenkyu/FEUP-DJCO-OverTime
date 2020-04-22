@@ -24,8 +24,7 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
         
         if (!isGhost) {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -42,13 +41,19 @@ public class PlayerMovement : MonoBehaviour
             controller.Move(move * speed * Time.deltaTime);
 
             if (Input.GetButtonDown("Jump") && isGrounded) {
+                Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
-        } else {
+        } 
+    }
+
+    void FixedUpdate () {
+
+        if (isGhost) {
             if (currentGhostPoint < ghostPath.Count) {
                 PointInTime currentPointInTime = ghostPath[currentGhostPoint];
                 controller.transform.position = currentPointInTime.position;
@@ -56,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
                 currentGhostPoint++;
             }
         }
-        
     }
 
     public void SetAsGhost (List<PointInTime> path) {
