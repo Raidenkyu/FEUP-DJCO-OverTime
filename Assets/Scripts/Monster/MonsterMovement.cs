@@ -70,13 +70,11 @@ public class MonsterMovement : MonoBehaviour {
     }
 
     public void AttackController() {
-        // TODO: Rotate Player
-        target.gameObject.GetComponent<PlayerMovement>().Die();
+
+        target.gameObject.GetComponent<PlayerMovement>().Preyed(transform);
+
         if (target.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.DEAD) {
             behaviour.Roam();
-        }
-        else {
-            behaviour.ReturnPreying();
         }
     }
 

@@ -9,6 +9,8 @@ public class MonsterBehaviour : MonoBehaviour {
     public float visionLength = 5.0f;
     public float roamingSpeed = 1.0f;
     public float preyingSpeed = 2.0f;
+    public float stopingDistance = 1.5f;
+
     public enum MonsterState { ROAM, PREY, ATTACK, FREEZE };
     private MonsterState state;
 
@@ -39,6 +41,8 @@ public class MonsterBehaviour : MonoBehaviour {
 
     void Prey(GameObject target) {
         this.state = MonsterState.PREY;
+        this.agent.stoppingDistance = this.stopingDistance;
+        this.agent.autoBraking = true;
         animator.SetTrigger("Run");
         agent.speed = preyingSpeed;
         movement.SetTarget(target);
@@ -51,6 +55,8 @@ public class MonsterBehaviour : MonoBehaviour {
 
     public void Roam() {
         this.state = MonsterState.ROAM;
+        this.agent.stoppingDistance = 0;
+        this.agent.autoBraking = false;
         animator.SetTrigger("Roam");
         agent.speed = roamingSpeed;
         movement.ResumeRoaming();
@@ -84,7 +90,6 @@ public class MonsterBehaviour : MonoBehaviour {
 
             if (collided.tag == "Player"
             && collided.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.PLAY) {
-                Debug.Log("Did Hit " + hit.collider.tag);
                 Prey(hit.collider.gameObject);
             }
         } else {

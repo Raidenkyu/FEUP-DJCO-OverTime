@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isGroundedCheckActive = false;
     List<PointInTime> ghostPath = new List<PointInTime>();
     int currentGhostPoint = 0;
+    Transform deathView;
 
     public GameObject playerCamera;
     
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
-    public enum PlayerState { PLAY, DEAD};
+    public enum PlayerState { PLAY, PREYED, DEAD};
 
     private PlayerState state;
 
@@ -48,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
             Vector3 move = transform.right * x + transform.forward * z;
 
             controller.Move(move * speed * Time.deltaTime);
+
+            if (state != PlayerState.PLAY) return;
 
             if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
                 Debug.Log("JUMP");
@@ -84,8 +87,23 @@ public class PlayerMovement : MonoBehaviour
         return this.state;
     }
 
+    public void Preyed(Transform deathView) {
+        if (state != PlayerState.PLAY) return;
+        this.state = PlayerState.PREYED;
+        this.deathView = deathView;
+        FaceDeath();
+        Invoke("Die", 1.5f);
+    }
+
     public void Die(){
         this.state = PlayerState.DEAD;
         Debug.Log("Player is Dead");
+    }
+
+    public void FaceDeath() {
+        Vector3 direction = (deathView.position - transform.position).normalized;
+        direction.y = 0;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = lookRotation;
     }
 }
