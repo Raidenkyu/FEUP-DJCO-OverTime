@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using PlayerState = PlayerMovement.PlayerState;
 
 public class MonsterMovement : MonoBehaviour {
     public GameObject checkpointsObject;
@@ -28,7 +29,7 @@ public class MonsterMovement : MonoBehaviour {
                 PreyTarget();
                 break;
             case MonsterBehaviour.MonsterState.ATTACK:
-                PreyTarget();
+                AttackController();
                 break;
             default:
                 break;
@@ -69,8 +70,14 @@ public class MonsterMovement : MonoBehaviour {
     }
 
     public void AttackController() {
-        // TODO: Verify if target is dead
-        behaviour.ReturnPreying();
+        // TODO: Rotate Player
+        target.gameObject.GetComponent<PlayerMovement>().Die();
+        if (target.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.DEAD) {
+            behaviour.Roam();
+        }
+        else {
+            behaviour.ReturnPreying();
+        }
     }
 
     public void FaceTarget() {

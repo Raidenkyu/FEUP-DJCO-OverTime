@@ -24,6 +24,14 @@ public class PlayerMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    public enum PlayerState { PLAY, DEAD};
+
+    private PlayerState state;
+
+    void Start() {
+        state = PlayerState.PLAY;
+    }
+
     // Update is called once per frame
     void Update () {
         
@@ -70,5 +78,14 @@ public class PlayerMovement : MonoBehaviour
         ghostPath = path;
         playerCamera.SetActive(false);
         // TODO: change color to be transparent
+    }
+
+    public PlayerState GetState() {
+        return this.state;
+    }
+
+    public void Die(){
+        this.state = PlayerState.DEAD;
+        Debug.Log("Player is Dead");
     }
 }

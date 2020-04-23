@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using PlayerState = PlayerMovement.PlayerState;
 
 public class MonsterBehaviour : MonoBehaviour {
     public Animator animator;
@@ -18,25 +19,17 @@ public class MonsterBehaviour : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        // Bit shift the index of the layer (8) to get a bit mask
-        int layerMask = 1 << 8;
-
-        Vector3 src = transform.position;
-        Vector3 dest = transform.TransformDirection(Vector3.forward);
-
-        src.y = 1;
-
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(src, dest, out hit, visionLength, layerMask)) {
-            Debug.DrawRay(src, dest * hit.distance, Color.yellow);
-            Debug.Log("Did Hit " + hit.collider.tag);
-
-            if (hit.collider.tag == "Player") {
-                Prey(hit.collider.gameObject);
-            }
-        } else {
-            Debug.DrawRay(src, dest * visionLength, Color.white);
+        switch (state) {
+            case MonsterState.ROAM:
+                RoamBehaviour();
+                break;
+            case MonsterState.PREY:
+                break;
+            case MonsterState.ATTACK:
+                break;
+            default:
+                RoamBehaviour();
+                break;
         }
     }
 
@@ -45,7 +38,6 @@ public class MonsterBehaviour : MonoBehaviour {
     }
 
     void Prey(GameObject target) {
-        this.agent.autoBraking = true;
         this.state = MonsterState.PREY;
         animator.SetTrigger("Run");
         agent.speed = preyingSpeed;
@@ -57,8 +49,7 @@ public class MonsterBehaviour : MonoBehaviour {
         animator.SetTrigger("Attack");
     }
 
-    void Roam() {
-        this.agent.autoBraking = false;
+    public void Roam() {
         this.state = MonsterState.ROAM;
         animator.SetTrigger("Roam");
         agent.speed = roamingSpeed;
@@ -73,5 +64,31 @@ public class MonsterBehaviour : MonoBehaviour {
     public void ReturnPreying() {
         this.state = MonsterState.PREY;
         animator.SetTrigger("Run");
+    }
+
+    void RoamBehaviour() {
+        // Bit shift the index of the layer (8) to get a bit mask
+        int layerMask = 1 << 8;
+
+        Vector3 src = transform.position;
+        Vector3 dest = transform.TransformDirection(Vector3.forward);
+
+        src.y = 1;
+
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(src, dest, out hit, visionLength, layerMask)) {
+            Debug.DrawRay(src, dest * hit.distance, Color.yellow);
+
+            Collider collided = hit.collider;
+
+            if (collided.tag == "Player"
+            && collided.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.PLAY) {
+                Debug.Log("Did Hit " + hit.collider.tag);
+                Prey(hit.collider.gameObject);
+            }
+        } else {
+            Debug.DrawRay(src, dest * visionLength, Color.white);
+        }
     }
 }

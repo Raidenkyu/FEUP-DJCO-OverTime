@@ -5759,6 +5759,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 859160371}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &859724954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7206664294443281155, guid: f62a8e3c4a3034dd19cfeaf6683acb99,
+    type: 3}
+  m_PrefabInstance: {fileID: 1436592907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &863011857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9151,17 +9157,17 @@ PrefabInstance:
     - target: {fileID: 7206664294443281157, guid: f62a8e3c4a3034dd19cfeaf6683acb99,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.7327707
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7206664294443281157, guid: f62a8e3c4a3034dd19cfeaf6683acb99,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.9908514
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7206664294443281157, guid: f62a8e3c4a3034dd19cfeaf6683acb99,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.3798494
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7206664294443281157, guid: f62a8e3c4a3034dd19cfeaf6683acb99,
         type: 3}
@@ -12055,6 +12061,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneController
       objectReference: {fileID: 0}
+    - target: {fileID: 2642154485759064950, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2642154485759064951, guid: ada74473d94d14499960d6c3fddc1b4d,
         type: 3}
       propertyPath: playerController
@@ -12065,6 +12076,11 @@ PrefabInstance:
       propertyPath: maxRecordingTime
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 2642154485759064951, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 859724954}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada74473d94d14499960d6c3fddc1b4d, type: 3}
 --- !u!1001 &1817785040
