@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     bool isGhost = false;
+    public bool isGroundedCheckActive = false;
     List<PointInTime> ghostPath = new List<PointInTime>();
     int currentGhostPoint = 0;
 
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
             controller.Move(move * speed * Time.deltaTime);
 
-            if (Input.GetButtonDown("Jump") && isGrounded) {
+            if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
                 Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
