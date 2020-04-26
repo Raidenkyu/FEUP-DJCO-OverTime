@@ -56,8 +56,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7206664293847156465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: -2}
-  m_LocalScale: {x: 1.49, y: 1.5999998, z: 1.4200001}
+  m_LocalPosition: {x: 0.99999905, y: 0.8709284, z: -1.7499995}
+  m_LocalScale: {x: 1.49, y: 2.29, z: 1.4200001}
   m_Children: []
   m_Father: {fileID: 7206664294443281157}
   m_RootOrder: 1
@@ -135,7 +135,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7206664294443281155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.28, y: 0.7, z: 2.35}
+  m_LocalPosition: {x: 6.28, y: 0, z: 2.35}
   m_LocalScale: {x: 0.2, y: 0.34446, z: 0.2}
   m_Children:
   - {fileID: 6404194517622113192}
@@ -156,13 +156,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.8
+  m_Height: 5.98
   m_Radius: 0.6
   m_SlopeLimit: 30
   m_StepOffset: 0.7
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1.45, z: 0}
 --- !u!114 &7206664294443281156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,9 +178,9 @@ MonoBehaviour:
   isGroundedCheckActive: 0
   playerCamera: {fileID: 7206664294984986184}
   controller: {fileID: 7206664294443281154}
-  speed: 12
+  speed: 5
   gravity: -18
-  jumpHeight: 3
+  jumpHeight: 1.5
   groundCheck: {fileID: 7206664293514739560}
   groundDistance: 0.4
   groundMask:
@@ -400,15 +400,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d013e8a5223ed27499c42efac5e2fc22, type: 3}
---- !u!4 &6404194517622113192 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d013e8a5223ed27499c42efac5e2fc22,
-    type: 3}
-  m_PrefabInstance: {fileID: 2133281484453669042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7979003202870194619 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d013e8a5223ed27499c42efac5e2fc22,
+    type: 3}
+  m_PrefabInstance: {fileID: 2133281484453669042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6404194517622113192 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d013e8a5223ed27499c42efac5e2fc22,
     type: 3}
   m_PrefabInstance: {fileID: 2133281484453669042}
   m_PrefabAsset: {fileID: 0}
