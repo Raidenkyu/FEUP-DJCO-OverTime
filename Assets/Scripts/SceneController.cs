@@ -11,6 +11,7 @@ public class SceneController : MonoBehaviour
     public bool isReseting = false;
     public float maxRecordingTime = 30f;
     public float timeRecorded = 0f;
+    bool isActiveSceneController = false;
 
     List<PointInTime> playerPositions;
     List<List<PointInTime>> ghostPaths;
@@ -21,6 +22,7 @@ public class SceneController : MonoBehaviour
         }
 
         Debug.Log("AWAKE");
+        isActiveSceneController = true;
         ghostPaths = new List<List<PointInTime>>();
         levelSpawnpoint = gameObject.transform.GetChild(0).transform;
 
@@ -61,7 +63,6 @@ public class SceneController : MonoBehaviour
         // ANIM - screen goes black/white/etc to indicate the use of the gun
 
         ReloadScene();
-        Invoke("CreateGhosts", 2f);     // TODO: change this to be call onSceneLoaded from GameController
     }
 
     void RecordCurrentPosition () {
@@ -100,12 +101,6 @@ public class SceneController : MonoBehaviour
         playerController.enabled = true;
     }
 
-    void SetupScene () {
-        timeRecorded = 0f;
-        playerPositions = new List<PointInTime>();
-        Invoke("AllowReset", 2f);
-    }
-
     void AllowReset () {
         isReseting = false;
     }
@@ -122,6 +117,19 @@ public class SceneController : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    // public methods
+
+    public void SetupScene () {
+        timeRecorded = 0f;
+        CreateGhosts();
+        playerPositions = new List<PointInTime>();
+        Invoke("AllowReset", 2f);
+    }
+
+    public bool isMainSceneController () {
+        return isActiveSceneController;
     }
 
 }
