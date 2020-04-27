@@ -67,6 +67,7 @@ public class MonsterMovement : MonoBehaviour {
 
     public void ResumeRoaming() {
         agent.destination = checkpoints[destPoint].position;
+        target = null;
     }
 
     public void AttackController() {
@@ -83,5 +84,9 @@ public class MonsterMovement : MonoBehaviour {
         direction.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
+
+    public GameObject GetTarget() {
+        return this.target;
     }
 }

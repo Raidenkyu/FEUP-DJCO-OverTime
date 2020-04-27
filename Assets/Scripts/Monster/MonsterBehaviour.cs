@@ -29,6 +29,9 @@ public class MonsterBehaviour : MonoBehaviour {
                 break;
             case MonsterState.ATTACK:
                 break;
+            case MonsterState.FREEZE:
+                FreezeBehaviour();
+                break;
             default:
                 RoamBehaviour();
                 break;
@@ -62,9 +65,21 @@ public class MonsterBehaviour : MonoBehaviour {
         movement.ResumeRoaming();
     }
 
-    void Freeze() {
-        this.state = MonsterState.FREEZE;
-        animator.SetTrigger("Freeze");
+    public void Freeze() {
+        state = MonsterState.FREEZE;
+        animator.enabled = false;
+        agent.isStopped = true;
+    }
+
+    void Defreeze() {
+        if (movement.GetTarget() != null) {
+            state = MonsterState.PREY;
+        } else {
+            state = MonsterState.ROAM;
+        }
+
+        animator.enabled = true;
+        agent.isStopped = false;
     }
 
     public void ReturnPreying() {
@@ -95,5 +110,9 @@ public class MonsterBehaviour : MonoBehaviour {
         } else {
             Debug.DrawRay(src, dest * visionLength, Color.white);
         }
+    }
+
+    void FreezeBehaviour() {
+
     }
 }
