@@ -21,17 +21,16 @@ public class LevelController : MonoBehaviour
     }
 
     // called first
-    void OnEnable()
-    {
-        Debug.Log("OnEnable called");
+    void OnEnable() {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     // called second
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {        
         sceneController.GetComponent<SceneController>().SetupScene();
     }
 

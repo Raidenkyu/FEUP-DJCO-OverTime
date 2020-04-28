@@ -35,7 +35,7 @@ public class SceneController : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        SetupScene();
+
     }
 
     void FixedUpdate() {
@@ -77,9 +77,7 @@ public class SceneController : MonoBehaviour
     }
 
     void CreateGhosts () {
-        Debug.Log("Create " + ghostPaths.Count + " ghosts");
         foreach (List<PointInTime> path in ghostPaths) {
-            Debug.Log(path.Count);
             CreateGhost(path);
         }
     }
