@@ -7,6 +7,7 @@ public class SceneController : MonoBehaviour
     public GameObject playerPrefab;
 
     public Transform levelSpawnpoint;
+    PlayerMovement playerMovement;
     public CharacterController playerController;
     public bool isReseting = false;
     public float maxRecordingTime = 30f;
@@ -27,6 +28,7 @@ public class SceneController : MonoBehaviour
         levelSpawnpoint = gameObject.transform.GetChild(0).transform;
 
         GameObject playerObject = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
+        playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerController = playerObject.GetComponent<CharacterController>();
 
         DontDestroyOnLoad(this);
@@ -67,7 +69,11 @@ public class SceneController : MonoBehaviour
 
     void RecordCurrentPosition () {
         playerPositions.Add(new PointInTime(playerController.transform.position,
-                                            playerController.transform.rotation));
+                                            playerController.transform.rotation,
+                                            playerMovement.hasClickedE,
+                                            playerMovement.hasClickedLeftClick));
+        playerMovement.hasClickedE = false;
+        playerMovement.hasClickedLeftClick = false;
     }
 
     void SavePositions () {

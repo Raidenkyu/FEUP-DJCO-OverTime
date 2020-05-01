@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGroundedCheckActive: 0
   playerCamera: {fileID: 7206664294984986184}
+  playerGun: {fileID: 7979003202870194619}
   controller: {fileID: 7206664294443281154}
   speed: 5
   gravity: -18

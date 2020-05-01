@@ -6,15 +6,11 @@ public class Gun : MonoBehaviour
     public GameObject gun;
 
     // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetButtonDown("Fire1")){
-            Debug.Log("SHOOT");
-            Shoot();
-        }
+    void Update() {
+
     }
 
-    void Shoot() {
+    public void Shoot() {
         FreezeMonster();
         ResetTime();
     }
@@ -27,7 +23,7 @@ public class Gun : MonoBehaviour
         Vector3 dest = gun.transform.forward;
 
         RaycastHit Hit;        
-        if(Physics.Raycast(src, dest, out Hit, range, layerMask)){
+        if (Physics.Raycast(src, dest, out Hit, range, layerMask)) {
             Debug.DrawRay(src, dest * Hit.distance, Color.white);
             Debug.Log(Hit.collider.tag);
             Hit.collider.gameObject.GetComponent<MonsterBehaviour>().Freeze();
