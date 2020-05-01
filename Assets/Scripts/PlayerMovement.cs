@@ -10,9 +10,12 @@ public class PlayerMovement : MonoBehaviour
     Transform deathView;
 
     public GameObject playerCamera;
-    
+    public GameObject playerGun;
     public CharacterController controller;
-    
+
+    public bool hasClickedE = false;
+    public bool hasClickedLeftClick = false;
+
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
@@ -57,6 +60,20 @@ public class PlayerMovement : MonoBehaviour
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
+            if (Input.GetButtonDown("Fire1")) {
+                hasClickedLeftClick = true;
+                Debug.Log("PLAYER LEFT CLICK!");
+                playerGun.GetComponent<Gun>().Shoot();
+                // TODO: add logic
+            }
+            if (Input.GetKeyDown(KeyCode.E)) {
+                hasClickedE = true;
+                Debug.Log("PLAYER CLICKED E");
+                // TODO: add logic
+            }
+
+            // TODO: ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
+
             velocity.y += gravity * Time.deltaTime;
 
             controller.Move(velocity * Time.deltaTime);
@@ -71,6 +88,14 @@ public class PlayerMovement : MonoBehaviour
                 controller.transform.position = currentPointInTime.position;
                 controller.transform.rotation = currentPointInTime.rotation;
                 currentGhostPoint++;
+                if (currentPointInTime.clickE) {
+                    Debug.Log("GHOST PRESSED E!");
+                    // TODO: add ghost logic
+                }
+                if (currentPointInTime.clickLeftClick) {
+                    Debug.Log("GHOST LEFT CLICK!");
+                    // TODO: add ghost logic
+                }
             }
         }
     }
