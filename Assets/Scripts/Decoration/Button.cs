@@ -19,8 +19,10 @@ public class Button : MonoBehaviour {
     public void InteractButton() {
         if (isPressed) {
             UnpressedButton.Invoke();
+            //TODO: Turn off light
         } else {
             PressedButton.Invoke();
+            //TODO: Iluminate
         }
 
         isPressed = !isPressed;

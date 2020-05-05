@@ -89,7 +89,7 @@ public class PlayerMovement : MonoBehaviour {
                 currentGhostPoint++;
                 if (currentPointInTime.clickE) {
                     Debug.Log("GHOST PRESSED E!");
-                    // TODO: add ghost logic
+                    Interact();
                 }
                 if (currentPointInTime.clickLeftClick) {
                     Debug.Log("GHOST LEFT CLICK!");
