@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6219662260416903809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 397720206250725800}
+  - component: {fileID: 5691610468287323068}
+  - component: {fileID: 6948139667369971970}
+  m_Layer: 8
+  m_Name: VisionField
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &397720206250725800
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219662260416903809}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5499997, y: 2.76, z: 7.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7206664294443281157}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5691610468287323068
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219662260416903809}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1798067, y: 1.9889191, z: 8.826025}
+  m_Center: {x: -0.58990335, y: -0.4491752, z: -1.7682993}
+--- !u!114 &6948139667369971970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6219662260416903809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5c958e231e0e281a7ab599b2983a75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7206664293514739561
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,6 +118,7 @@ Transform:
   m_Children:
   - {fileID: 7206664294984986189}
   - {fileID: 7206664293514739560}
+  - {fileID: 397720206250725800}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -96,7 +154,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGroundedCheckActive: 0
   playerCamera: {fileID: 7206664294984986184}
+  playerGun: {fileID: 0}
   controller: {fileID: 7206664294443281154}
+  hasClickedE: 0
+  hasClickedLeftClick: 0
   speed: 5
   gravity: -18
   jumpHeight: 1.5
