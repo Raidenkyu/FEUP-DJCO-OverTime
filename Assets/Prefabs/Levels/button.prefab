@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: -6599336632590568291}
   m_Layer: 0
   m_Name: button
-  m_TagString: Button
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

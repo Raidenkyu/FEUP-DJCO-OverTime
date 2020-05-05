@@ -9,7 +9,7 @@ public class InteractionsScript : MonoBehaviour
     {
         GameObject obj = collider.gameObject;
         Debug.Log("Found object " + obj.name);
-        if (obj.tag == "Button") {
+        if (obj.tag == "Interactive") {
             Debug.Log("Found button");
             InteractiveObject = obj;
         }

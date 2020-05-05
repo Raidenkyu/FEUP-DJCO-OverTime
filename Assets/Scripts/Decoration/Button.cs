@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-public class Button : MonoBehaviour {
+public class Button : Interactable {
 
     public enum Color { RED, GREEN, BLUE, YELLOW }
 
@@ -16,7 +16,7 @@ public class Button : MonoBehaviour {
         isPressed = false;
     }
 
-    public void InteractButton() {
+   override  public void Interact() {
         if (isPressed) {
             UnpressedButton.Invoke();
             //TODO: Turn off light

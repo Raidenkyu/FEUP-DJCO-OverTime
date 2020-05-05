@@ -134,7 +134,7 @@ public class PlayerMovement : MonoBehaviour {
     void Interact() {
         GameObject obj = vision.GetInteractiveObject();
         if (obj != null) {
-            obj.GetComponent<Button>().InteractButton();
+            obj.GetComponent<Interactable>().Interact();
         }
     }
 }
