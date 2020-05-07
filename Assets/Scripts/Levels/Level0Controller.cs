@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Level1Controller : MonoBehaviour
+public class Level0Controller : MonoBehaviour
 {
     public GameObject Object;
 

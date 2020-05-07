@@ -155,6 +155,7 @@ MonoBehaviour:
   isGroundedCheckActive: 0
   playerCamera: {fileID: 7206664294984986184}
   playerGun: {fileID: 0}
+  vision: {fileID: 6948139667369971970}
   controller: {fileID: 7206664294443281154}
   hasClickedE: 0
   hasClickedLeftClick: 0
