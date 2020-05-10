@@ -156,13 +156,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3484f17560685594abbdc9803747a46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor: 0
+  sphere: {fileID: 7977819192417808284}
+  buttonColor: {r: 0.81960785, g: 0.105882324, b: 0.1381205, a: 0.9137255}
   PressedButton:
     m_PersistentCalls:
       m_Calls: []
   UnpressedButton:
     m_PersistentCalls:
       m_Calls: []
+  materialOn: {fileID: 0}
+  materialOff: {fileID: 0}
+  cylinder: {fileID: -4425609515867240179}
+  onColor: {r: 0, g: 0.22745098, b: 0, a: 1}
 --- !u!1 &7977819192417808284
 GameObject:
   m_ObjectHideFlags: 0
