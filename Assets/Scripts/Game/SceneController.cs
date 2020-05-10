@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public GameObject playerPrefab;
+    public GameObject ghostPrefab;
 
     public Transform levelSpawnpoint;
     PlayerMovement playerMovement;
@@ -90,7 +91,7 @@ public class SceneController : MonoBehaviour
 
     void CreateGhost (List<PointInTime> path) {
         // create instance of ghost player
-        GameObject newGhost = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
+        GameObject newGhost = Instantiate(ghostPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         newGhost.SendMessage("SetAsGhost", path);
     }
 

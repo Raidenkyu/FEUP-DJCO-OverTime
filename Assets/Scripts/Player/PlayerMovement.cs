@@ -2,35 +2,36 @@
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    bool isGhost = false;
-    public bool isGroundedCheckActive = false;
-    List<PointInTime> ghostPath = new List<PointInTime>();
-    int currentGhostPoint = 0;
-    Transform deathView;
-
+    // external references
     public GameObject playerCamera;
     public GameObject playerGun;
     public InteractionsScript vision;
     public CharacterController controller;
 
-    public bool hasClickedE = false;
-    public bool hasClickedLeftClick = false;
+    // jump variables
+    public bool isGroundedCheckActive = false;
+    public Transform groundCheck;
+    bool isGrounded;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
 
+    // movement variables
+    Vector3 velocity;
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
 
-    public Transform groundCheck;
+    // ghost specific variables
+    bool isGhost = false;
+    List<PointInTime> ghostPath = new List<PointInTime>();
+    int currentGhostPoint = 0;
+    public bool hasClickedE = false;
+    public bool hasClickedLeftClick = false;
 
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
-
-    Vector3 velocity;
-    bool isGrounded;
-
+    // state variables
     public enum PlayerState { PLAY, PREYED, DEAD };
-
     private PlayerState state;
+    Transform deathView;
 
     void Start() {
         state = PlayerState.PLAY;
@@ -84,8 +85,8 @@ public class PlayerMovement : MonoBehaviour {
         if (isGhost) {
             if (currentGhostPoint < ghostPath.Count) {
                 PointInTime currentPointInTime = ghostPath[currentGhostPoint];
-                controller.transform.position = currentPointInTime.position;
-                controller.transform.rotation = currentPointInTime.rotation;
+                this.transform.position = currentPointInTime.position;
+                this.transform.rotation = currentPointInTime.rotation;
                 currentGhostPoint++;
                 if (currentPointInTime.clickE) {
                     Debug.Log("GHOST PRESSED E!");
@@ -101,7 +102,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public void SetAsGhost(List<PointInTime> path) {
         isGhost = true;
-        controller.enabled = false;
+        // controller.enabled = false;
         ghostPath = path;
         playerCamera.SetActive(false);
         // TODO: change color to be transparent
