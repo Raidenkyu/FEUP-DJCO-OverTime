@@ -39,6 +39,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        // do nothing if the run can't start yet
+        if (!SceneController.Instance.CanStartRun()) return;
 
         if (!isGhost) {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -81,6 +83,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FixedUpdate() {
+        // do nothing if the run can't start yet
+        if (!SceneController.Instance.CanStartRun()) return;
 
         if (isGhost) {
             if (currentGhostPoint < ghostPath.Count) {
@@ -95,6 +99,7 @@ public class PlayerMovement : MonoBehaviour {
                 if (currentPointInTime.clickLeftClick) {
                     Debug.Log("GHOST LEFT CLICK!");
                     // TODO: add ghost logic
+                    playerGun.GetComponent<Gun>().Shoot();
                 }
             }
         }
