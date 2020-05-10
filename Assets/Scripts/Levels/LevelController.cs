@@ -10,7 +10,7 @@ public class LevelController : MonoBehaviour
         if (sceneControllers.Length > 1) {
             // if there are more than 1 scene controllers, choose the "main" one
             for (int index = 0; index < sceneControllers.Length; index++) {
-                if (sceneControllers[index].GetComponent<SceneController>().isMainSceneController()) {
+                if (sceneControllers[index].GetComponent<SceneController>().IsMainSceneController()) {
                     sceneController = sceneControllers[index];
                     break;
                 }

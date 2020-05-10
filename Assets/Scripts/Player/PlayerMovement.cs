@@ -112,6 +112,10 @@ public class PlayerMovement : MonoBehaviour {
         return this.state;
     }
 
+    public void SetState(PlayerState newState) {
+        this.state = newState;
+    }
+
     public void Preyed(Transform deathView) {
         if (state != PlayerState.PLAY) return;
         this.state = PlayerState.PREYED;
@@ -123,6 +127,8 @@ public class PlayerMovement : MonoBehaviour {
     public void Die() {
         this.state = PlayerState.DEAD;
         Debug.Log("Player is Dead");
+        GameObject sceneController = GameObject.FindGameObjectWithTag("SceneController");
+        sceneController.GetComponent<SceneController>().PlayerDied();
     }
 
     public void FaceDeath() {

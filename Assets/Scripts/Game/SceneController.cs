@@ -133,9 +133,17 @@ public class SceneController : MonoBehaviour
         Invoke("AllowReset", 2f);
     }
 
-    public bool isMainSceneController () {
+    public bool IsMainSceneController () {
         return isActiveSceneController;
     }
 
+    public void PlayerDied () {
+        // TODO: maybe show "Game Over" or "You Died" or something like that
+        // clear previous recordings, reload scene and set player as "PLAY"
+        ghostPaths = new List<List<PointInTime>>();
+        playerPositions.Clear();
+        ReloadScene();
+        playerMovement.SetState(PlayerMovement.PlayerState.PLAY);
+    }
 }
 
