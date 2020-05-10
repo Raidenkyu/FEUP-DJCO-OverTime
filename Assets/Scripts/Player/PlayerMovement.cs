@@ -95,6 +95,7 @@ public class PlayerMovement : MonoBehaviour {
                 if (currentPointInTime.clickLeftClick) {
                     Debug.Log("GHOST LEFT CLICK!");
                     // TODO: add ghost logic
+                    playerGun.GetComponent<Gun>().Shoot();
                 }
             }
         }

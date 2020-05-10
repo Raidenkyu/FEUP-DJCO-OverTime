@@ -8,19 +8,20 @@ public class SceneController : MonoBehaviour
     private static SceneController _instance = null;
     public static SceneController Instance { get { return _instance; } }
 
+    // external references
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
-
-    public Transform levelSpawnpoint;
     PlayerMovement playerMovement;
-    public CharacterController playerController;
-    public bool isReseting = false;
-    public float maxRecordingTime = 30f;
-    public float timeRecorded = 0f;
-    bool isActiveSceneController = false;
+    CharacterController playerController;
 
+    // variables for ghost/clone logic
+    Transform levelSpawnpoint;
     List<PointInTime> playerPositions;
     List<List<PointInTime>> ghostPaths;
+    public float timeRecorded = 0f;
+    public float maxRecordingTime = 30f;
+
+    public bool isReseting = false;
 
     private void Awake() {
         if (CheckForExistingSceneController()) {
@@ -28,7 +29,6 @@ public class SceneController : MonoBehaviour
         }
 
         Debug.Log("AWAKE");
-        isActiveSceneController = true;
         ghostPaths = new List<List<PointInTime>>();
         levelSpawnpoint = gameObject.transform.GetChild(0).transform;
 
@@ -136,10 +136,6 @@ public class SceneController : MonoBehaviour
         CreateGhosts();
         playerPositions = new List<PointInTime>();
         Invoke("AllowReset", 2f);
-    }
-
-    public bool IsMainSceneController () {
-        return isActiveSceneController;
     }
 
     public void PlayerDied () {
