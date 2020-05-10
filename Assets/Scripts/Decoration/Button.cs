@@ -4,9 +4,12 @@ using UnityEngine.Events;
 public class Button : Interactable {
 
     public enum Color { RED, GREEN, BLUE, YELLOW }
-
+    public Color buttonColor = Color.RED;
     public UnityEvent PressedButton;
     public UnityEvent UnpressedButton;
+
+    public Material materialOn;
+    public Material materialOff;
 
     private bool isPressed;
 
@@ -16,7 +19,7 @@ public class Button : Interactable {
         isPressed = false;
     }
 
-   override  public void Interact() {
+   override public void Interact() {
         if (isPressed) {
             UnpressedButton.Invoke();
             //TODO: Turn off light

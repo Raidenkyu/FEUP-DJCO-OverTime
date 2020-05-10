@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: -2700194178795864487}
   - component: {fileID: -753779226381616779}
   - component: {fileID: 4063835366044962077}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 2352924686718664153}
   - component: {fileID: 4063215309945678797}
   - component: {fileID: -6599336632590568291}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: button
   m_TagString: Interactive
   m_Icon: {fileID: 0}
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3484f17560685594abbdc9803747a46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonColor: 0
   PressedButton:
     m_PersistentCalls:
       m_Calls: []
@@ -173,7 +174,7 @@ GameObject:
   - component: {fileID: 6922340161142340309}
   - component: {fileID: -7948346728038662935}
   - component: {fileID: 1318462475825722627}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6676521528936194557}
   - component: {fileID: 5604827476212041345}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

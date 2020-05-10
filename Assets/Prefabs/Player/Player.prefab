@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8165951527969027289}
   - component: {fileID: 4539137566190574147}
   - component: {fileID: 6279677384289882232}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: VisionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,21 +233,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3af38e99fd374600abb29686e7dad79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGroundedCheckActive: 0
   playerCamera: {fileID: 7206664294984986184}
   playerGun: {fileID: 7979003202870194619}
   vision: {fileID: 6279677384289882232}
   controller: {fileID: 7206664294443281154}
-  hasClickedE: 0
-  hasClickedLeftClick: 0
-  speed: 5
-  gravity: -18
-  jumpHeight: 1.5
+  isGroundedCheckActive: 0
   groundCheck: {fileID: 7206664293514739560}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 512
+  speed: 5
+  gravity: -18
+  jumpHeight: 1.5
+  hasClickedE: 0
+  hasClickedLeftClick: 0
 --- !u!1 &7206664294984986184
 GameObject:
   m_ObjectHideFlags: 0
