@@ -127,8 +127,7 @@ public class PlayerMovement : MonoBehaviour {
     public void Die() {
         this.state = PlayerState.DEAD;
         Debug.Log("Player is Dead");
-        GameObject sceneController = GameObject.FindGameObjectWithTag("SceneController");
-        sceneController.GetComponent<SceneController>().PlayerDied();
+        SceneController.Instance.PlayerDied();
     }
 
     public void FaceDeath() {

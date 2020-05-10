@@ -4,6 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    // Singleton methods
+    private static SceneController _instance = null;
+    public static SceneController Instance { get { return _instance; } }
+
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
 
@@ -116,12 +120,13 @@ public class SceneController : MonoBehaviour
 
     bool CheckForExistingSceneController () {
         // checks if a scene controller already exists, if so, destroy self
-        GameObject[] sceneControllers = GameObject.FindGameObjectsWithTag("SceneController");
-        if (sceneControllers.Length > 1) {
+        if (_instance != null && _instance != this) {
             Destroy(this.gameObject);
             return true;
+        } else {
+            _instance = this;
+            return false;
         }
-        return false;
     }
 
     // public methods
