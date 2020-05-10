@@ -21,7 +21,9 @@ public class SceneController : MonoBehaviour
     public float timeRecorded = 0f;
     public float maxRecordingTime = 30f;
 
-    public bool isReseting = false;
+    // control variables
+    private bool isReseting = false;
+    private bool canStartRun = false;
 
     private void Awake() {
         if (CheckForExistingSceneController()) {
@@ -40,12 +42,10 @@ public class SceneController : MonoBehaviour
         DontDestroyOnLoad(playerObject);
     }
 
-    // Start is called before the first frame update
-    void Start() {
-
-    }
-
     void FixedUpdate() {
+        // do nothing if the run can't start yet
+        if (!CanStartRun()) return;
+
         // always increase the timer
         timeRecorded += Time.fixedDeltaTime;
 
@@ -64,11 +64,27 @@ public class SceneController : MonoBehaviour
 
     }
 
+    // save current list of position and reload scene
     void ResetWithSave () {
-        SavePositions();                // save current list of position
+        SavePositions();
+        // TODO: ANIM - screen goes black/white/etc to indicate the use of the gun
+        ReloadScene();
+    }
 
-        // ANIM - screen goes black/white/etc to indicate the use of the gun
+    // reload scene without saving current list of position
+    void ResetWithoutSave () {
 
+    }
+
+    // reload scene and delete last recording (if any)
+    void ResetAndDeletePrevious () {
+
+    }
+
+    // hard reset of the scene (clearing all recordings)
+    void ResetHard () {
+        ghostPaths.Clear();
+        playerPositions.Clear();
         ReloadScene();
     }
 
@@ -93,22 +109,28 @@ public class SceneController : MonoBehaviour
         }
     }
 
+    // create instance of ghost player with given path
     void CreateGhost (List<PointInTime> path) {
-        // create instance of ghost player
         GameObject newGhost = Instantiate(ghostPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         newGhost.SendMessage("SetAsGhost", path);
     }
 
     void ReloadScene () {
-        // TODO: Might change to build index
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        canStartRun = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // TODO: Might change to build index
+        RepositionPlayer();
+        playerMovement.SetState(PlayerMovement.PlayerState.PLAY);
+    }
 
-        // Reposition the player
+    // Reposition the player in the spawnpoint
+    void RepositionPlayer () {
         playerController.enabled = false;
         playerController.transform.position = levelSpawnpoint.position;
         playerController.transform.rotation = levelSpawnpoint.rotation;
         playerController.enabled = true;
     }
+
+    // helper methods
 
     void AllowReset () {
         isReseting = false;
@@ -131,8 +153,18 @@ public class SceneController : MonoBehaviour
 
     // public methods
 
+    public bool CanStartRun () {
+        return canStartRun;
+    }
+
+    public void StartRun () {
+        canStartRun = true;
+    }
+
     public void SetupScene () {
+        Invoke("StartRun", 0.5f); // TODO: adjust this
         timeRecorded = 0f;
+        RepositionPlayer();
         CreateGhosts();
         playerPositions = new List<PointInTime>();
         Invoke("AllowReset", 2f);
@@ -140,11 +172,7 @@ public class SceneController : MonoBehaviour
 
     public void PlayerDied () {
         // TODO: maybe show "Game Over" or "You Died" or something like that
-        // clear previous recordings, reload scene and set player as "PLAY"
-        ghostPaths = new List<List<PointInTime>>();
-        playerPositions.Clear();
-        ReloadScene();
-        playerMovement.SetState(PlayerMovement.PlayerState.PLAY);
+        ResetHard();
     }
 }
 
