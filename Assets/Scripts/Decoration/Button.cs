@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Button : Interactable {
     public GameObject sphere;
     MeshRenderer sphereMesh;
     public Color buttonColor;
-    
-    public UnityEvent PressedButton;
-    public UnityEvent UnpressedButton;
 
     public Material materialOn;
     public Material materialOff;
@@ -33,10 +29,10 @@ public class Button : Interactable {
 
    override public void Interact() {
         if (isPressed) {
-            UnpressedButton.Invoke();
+            Activated.Invoke();
             SetCylinderColor(offColor);
         } else {
-            PressedButton.Invoke();
+            Deactivated.Invoke();
             SetCylinderColor(onColor);
         }
 
