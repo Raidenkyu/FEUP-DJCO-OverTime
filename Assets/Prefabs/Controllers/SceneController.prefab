@@ -76,7 +76,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 8216594248780378483, guid: 91099152906a9b344a55a45235ad0cb0,
     type: 3}
-  ghostPrefab: {fileID: 6196148746602453470, guid: 50d835336fec34606967554e8772a64b,
+  ghostPrefab: {fileID: 5436280896225670756, guid: 4434da7bcb73e4efeb62a157db5432ce,
     type: 3}
   timeRecorded: 0
   maxRecordingTime: 30
