@@ -1,12 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 
 public class Button : Interactable {
+    public GameObject sphere;
+    MeshRenderer sphereMesh;
+    public Color buttonColor;
 
-    public enum Color { RED, GREEN, BLUE, YELLOW }
+    public Material materialOn;
+    public Material materialOff;
+    public GameObject cylinder;
 
-    public UnityEvent PressedButton;
-    public UnityEvent UnpressedButton;
+    MeshRenderer mesh;
+    Color offColor;
+    public Color onColor;
 
     private bool isPressed;
 
@@ -14,17 +19,29 @@ public class Button : Interactable {
 
     void Start() {
         isPressed = false;
+        
+        mesh = cylinder.GetComponent<MeshRenderer>();
+        offColor = mesh.material.color;
+
+        sphereMesh = sphere.GetComponent<MeshRenderer>();
+        sphereMesh.material.color = buttonColor;
     }
 
-   override  public void Interact() {
+   override public void Interact() {
         if (isPressed) {
-            UnpressedButton.Invoke();
-            //TODO: Turn off light
+            Activated.Invoke();
+            SetCylinderColor(offColor);
         } else {
-            PressedButton.Invoke();
-            //TODO: Iluminate
+            Deactivated.Invoke();
+            SetCylinderColor(onColor);
         }
 
         isPressed = !isPressed;
+    }
+
+    void SetCylinderColor(Color color) {
+        Material material = mesh.material;
+        material.color = color;
+        mesh.material = material;
     }
 }

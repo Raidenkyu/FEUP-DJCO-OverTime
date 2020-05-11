@@ -7,6 +7,7 @@ TagManager:
   - SceneController
   - Monster
   - Button
+  - Interactive
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - 
   - Player
   - Environment
-  - 
-  - 
-  - 
+  - Vision
+  - Interactable
+  - PressurePlate
   - 
   - 
   - 

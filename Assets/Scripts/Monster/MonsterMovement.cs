@@ -19,6 +19,9 @@ public class MonsterMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        // do nothing if the run can't start yet
+        if (!SceneController.Instance.CanStartRun()) return;
+
         switch (behaviour.GetState()) {
             case MonsterBehaviour.MonsterState.ROAM:
                 if (!agent.pathPending && agent.remainingDistance < 0.5f)

@@ -10,10 +10,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1
+  m_Radius: 0.40000004
+  m_Height: 4.6840553
   m_Direction: 1
-  m_Center: {x: 0, y: 1.45, z: 0}
+  m_Center: {x: 0, y: 0.9137132, z: 0}
 --- !u!1001 &1461290736520490061
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96,7 +96,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7206664294443281154, guid: f62a8e3c4a3034dd19cfeaf6683acb99, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f62a8e3c4a3034dd19cfeaf6683acb99, type: 3}
 --- !u!1 &8089796237376030542 stripped
 GameObject:
