@@ -74,10 +74,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c4984c9f3a04fc6bcb252e63f62a62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 7206664294443281155, guid: f62a8e3c4a3034dd19cfeaf6683acb99,
+  playerPrefab: {fileID: 8216594248780378483, guid: 91099152906a9b344a55a45235ad0cb0,
     type: 3}
-  levelSpawnpoint: {fileID: 0}
-  playerController: {fileID: 0}
-  isReseting: 0
-  maxRecordingTime: 30
+  ghostPrefab: {fileID: 6196148746602453470, guid: 50d835336fec34606967554e8772a64b,
+    type: 3}
   timeRecorded: 0
+  maxRecordingTime: 30

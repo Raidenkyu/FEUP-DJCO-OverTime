@@ -1,12 +1,42 @@
 ﻿using UnityEngine;
+using TMPro;
 
 public class Gun : MonoBehaviour
 {
     public float range = 100f;
     public GameObject gun;
+    public float totalTime = 60;
+    private float currentTime;
+
+    public float totalShifts = 2;
+    public float currentShifts;
+
+    
+    public TextMeshPro tmp;
 
     // Update is called once per frame
+    void Start(){
+        currentShifts = totalShifts;
+        currentTime = totalTime;
+    }
     void Update() {
+
+    }
+
+    private void FixedUpdate() {
+        if(currentTime > 0)
+        clockTicks();
+
+
+        lightUpWires();
+    }
+
+    public void clockTicks(){
+        currentTime--;
+        tmp.text = currentTime.ToString();
+    }
+
+    public void lightUpWires(){
 
     }
 
