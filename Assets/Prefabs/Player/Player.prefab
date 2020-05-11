@@ -455,19 +455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3af38e99fd374600abb29686e7dad79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  playerCamera: {fileID: 7206664294984986184}
-  playerGun: {fileID: 7979003202870194619}
-  vision: {fileID: 6279677384289882232}
-  controller: {fileID: 7206664294443281154}
-  isGroundedCheckActive: 0
-  groundCheck: {fileID: 7206664293514739560}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
-  speed: 5
-=======
   playerCamera: {fileID: 8216594249312384056}
   playerGun: {fileID: 8700707307447790539}
   vision: {fileID: 4693286679782165000}
@@ -479,16 +466,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   speed: 6
->>>>>>> 5bcf2910abd084d4b37c755ccc03acc77920aecf
   gravity: -18
   jumpHeight: 1.5
   hasClickedE: 0
   hasClickedLeftClick: 0
-<<<<<<< HEAD
---- !u!1 &7206664294984986184
-=======
 --- !u!1 &8216594249312384056
->>>>>>> 5bcf2910abd084d4b37c755ccc03acc77920aecf
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
