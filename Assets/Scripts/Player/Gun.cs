@@ -47,7 +47,7 @@ public class Gun : MonoBehaviour
 
     void FreezeMonster() {
         // Bit shift the index of the layer (8) to get a bit mask
-        int layerMask = 1 << 10;
+        int layerMask = 1 << 13;
         
         Vector3 src = gun.transform.position;
         Vector3 dest = gun.transform.forward;

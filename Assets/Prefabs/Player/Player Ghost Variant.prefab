@@ -56,6 +56,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Ghost Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8216594248780378484, guid: 91099152906a9b344a55a45235ad0cb0,
+        type: 3}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8216594248780378485, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -111,7 +116,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8216594248780378482, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
 --- !u!1 &5436280896225670756 stripped
 GameObject:
