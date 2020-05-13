@@ -279,13 +279,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0.57281834, z: 1.4547253, w: 1.1843089}
   m_textInfo:
     textComponent: {fileID: 5931819808024385500}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -685,6 +685,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d013e8a5223ed27499c42efac5e2fc22,
+        type: 3}
+      propertyPath: m_TagString
+      value: TimeGun
       objectReference: {fileID: 0}
     - target: {fileID: 9198108806834853968, guid: d013e8a5223ed27499c42efac5e2fc22,
         type: 3}

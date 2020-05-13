@@ -17,6 +17,8 @@ public class PressurePlate : Interactable {
     void OnTriggerEnter(Collider collider) {
         GameObject obj = collider.gameObject;
 
+        if (obj.tag == "TimeGun") return;
+
         if (!weights.Contains(obj)) {
             weights.Add(obj);
 
@@ -28,6 +30,8 @@ public class PressurePlate : Interactable {
 
     void OnTriggerExit(Collider collider) {
         GameObject obj = collider.gameObject;
+
+        if (obj.tag == "TimeGun") return;
 
         if (weights.Contains(obj)) {
             weights.Remove(obj);
