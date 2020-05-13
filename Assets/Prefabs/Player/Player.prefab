@@ -279,13 +279,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0.57281834, z: 1.4547253, w: 1.1843089}
   m_textInfo:
     textComponent: {fileID: 5931819808024385500}
-    characterCount: 0
+    characterCount: 2
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -359,6 +359,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5c958e231e0e281a7ab599b2983a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7817880225520265838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3197168634242340570}
+  m_Layer: 8
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3197168634242340570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7817880225520265838}
+  m_LocalRotation: {x: 0.08087524, y: 0.06389388, z: -0.07203998, w: 0.99206203}
+  m_LocalPosition: {x: 0.004, y: 0.655, z: 2.161}
+  m_LocalScale: {x: 1.9929912, y: 1.6796478, z: 1.9885502}
+  m_Children: []
+  m_Father: {fileID: 5684746601768475096}
+  m_RootOrder: 67
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8216594248780378483
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,6 +629,7 @@ MonoBehaviour:
   totalShifts: 2
   currentShifts: 0
   tmp: {fileID: 5931819808024385500}
+  firePoint: {fileID: 7817880225520265838}
 --- !u!1001 &837372820611494594
 PrefabInstance:
   m_ObjectHideFlags: 0
