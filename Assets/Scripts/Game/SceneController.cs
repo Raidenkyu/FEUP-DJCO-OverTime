@@ -11,8 +11,12 @@ public class SceneController : MonoBehaviour
     // external references
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
+
+    
     PlayerMovement playerMovement;
     CharacterController playerController;
+
+    Gun playerClock;
 
     // variables for ghost/clone logic
     Transform levelSpawnpoint;
@@ -37,6 +41,7 @@ public class SceneController : MonoBehaviour
         GameObject playerObject = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerController = playerObject.GetComponent<CharacterController>();
+        playerClock = playerObject.transform.Find("Main Camera").transform.Find("timegun").GetComponent<Gun>();
 
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(playerObject);
@@ -48,10 +53,13 @@ public class SceneController : MonoBehaviour
 
         // always increase the timer
         timeRecorded += Time.fixedDeltaTime;
+       
+       
 
         // if it still is a valid frame, record
         if (timeRecorded <= maxRecordingTime) {
             RecordCurrentPosition();
+            playerClock.currentTime = maxRecordingTime - timeRecorded;
         }
 
         // receives input to reset scene saving the current run

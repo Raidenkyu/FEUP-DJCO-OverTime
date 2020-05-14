@@ -4,8 +4,8 @@ using TMPro;
 public class Gun : MonoBehaviour {
     public float range = 100f;
     public GameObject gun;
-    public float totalTime = 60;
-    private float currentTime;
+
+    public float currentTime;
 
     public float totalShifts = 2;
     public float currentShifts;
@@ -20,14 +20,14 @@ public class Gun : MonoBehaviour {
     // Update is called once per frame
     void Start() {
         currentShifts = totalShifts;
-        currentTime = totalTime;
+     
     }
     void Update() {
 
     }
 
     private void FixedUpdate() {
-        if (currentTime > 0)
+       
             clockTicks();
 
         lightUpWires();
@@ -36,7 +36,7 @@ public class Gun : MonoBehaviour {
     public void clockTicks() {
         if (Time.time >= nextTime) {
 
-            currentTime--;
+       
             tmp.text = currentTime.ToString();
             nextTime += interval;
 
