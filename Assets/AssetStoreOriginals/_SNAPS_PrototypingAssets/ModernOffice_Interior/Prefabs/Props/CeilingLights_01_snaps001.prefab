@@ -92,9 +92,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8c8289a7d2c48694088387edf71ac345, type: 2}
 --- !u!1 &7700362702773432542
 GameObject:
@@ -121,7 +121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7700362702773432542}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.001, y: -0.029, z: -0.002}
+  m_LocalPosition: {x: 0.001, y: -0.068, z: -0.002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4113349799039148}
@@ -136,10 +136,10 @@ Light:
   m_GameObject: {fileID: 7700362702773432542}
   m_Enabled: 1
   serializedVersion: 10
-  m_Type: 0
+  m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0.9277712, b: 0.8349056, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.5
   m_Range: 10
   m_SpotAngle: 106
   m_InnerSpotAngle: 21.80208
@@ -149,7 +149,7 @@ Light:
     m_Resolution: 2
     m_CustomResolution: -1
     m_Strength: 1
-    m_Bias: 0.15
+    m_Bias: 0
     m_NormalBias: 0.27
     m_NearPlane: 1
     m_CullingMatrixOverride:
