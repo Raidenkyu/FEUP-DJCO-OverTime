@@ -21,6 +21,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1002876281790664469, guid: 91099152906a9b344a55a45235ad0cb0,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5931819808024385500, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -55,6 +60,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player Ghost Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8216594248780378484, guid: 91099152906a9b344a55a45235ad0cb0,
+        type: 3}
+      propertyPath: controller
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8216594248780378485, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
@@ -111,7 +121,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8216594248780378482, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
+    - {fileID: 8216594249312384058, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
+    - {fileID: 8216594249312384059, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
+    - {fileID: 1002876281790664469, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 91099152906a9b344a55a45235ad0cb0, type: 3}
 --- !u!1 &5436280896225670756 stripped
 GameObject:

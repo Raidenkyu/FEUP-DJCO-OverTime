@@ -109,7 +109,8 @@ public class PlayerMovement : MonoBehaviour {
         isGhost = true;
         // controller.enabled = false;
         ghostPath = path;
-        playerCamera.SetActive(false);
+        // TODO: Maybe erase this line
+        //playerCamera.SetActive(false);
         // TODO: change color to be transparent
     }
 

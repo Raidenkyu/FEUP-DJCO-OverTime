@@ -8,6 +8,7 @@ TagManager:
   - Monster
   - Button
   - Interactive
+  - TimeGun
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Vision
   - Interactable
   - PressurePlate
-  - 
+  - Monster
   - 
   - 
   - 
