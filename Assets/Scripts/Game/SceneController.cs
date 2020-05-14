@@ -12,7 +12,7 @@ public class SceneController : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
 
-    
+    GameObject playerObject;
     PlayerMovement playerMovement;
     CharacterController playerController;
 
@@ -38,7 +38,7 @@ public class SceneController : MonoBehaviour
         ghostPaths = new List<List<PointInTime>>();
         levelSpawnpoint = gameObject.transform.GetChild(0).transform;
 
-        GameObject playerObject = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
+        playerObject = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerController = playerObject.GetComponent<CharacterController>();
         playerClock = playerObject.transform.Find("Main Camera").transform.Find("timegun").GetComponent<Gun>();
@@ -181,6 +181,20 @@ public class SceneController : MonoBehaviour
     public void PlayerDied () {
         // TODO: maybe show "Game Over" or "You Died" or something like that
         ResetHard();
+    }
+
+    public void LevelComplete () {
+        Debug.Log("Level Complete");
+        // TODO: show some effect in between camaras 
+        // (maybe add a camera to scenecontroller that just shows black and activate it here) 
+        // (maybe don't delete player here, do the delete on awake)
+        Destroy(playerObject);
+        Destroy(this.gameObject);
+
+        // TODO: adjust exception for final level (return to menu)
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }
 
