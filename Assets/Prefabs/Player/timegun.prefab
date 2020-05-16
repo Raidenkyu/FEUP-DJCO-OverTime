@@ -823,9 +823,8 @@ Transform:
   - {fileID: 9128812833648891512}
   - {fileID: 9067865648732428507}
   - {fileID: 4918126602373325388}
-  - {fileID: 3085831048028333167}
   m_Father: {fileID: 5217925916429413229}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1323001384382806963
 GameObject:
@@ -1325,13 +1324,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0.57281834, z: 1.4547253, w: 1.1843089}
   m_textInfo:
     textComponent: {fileID: 6115751662829954409}
-    characterCount: 2
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -4773,10 +4772,10 @@ Transform:
   m_GameObject: {fileID: 7706571243805153499}
   m_LocalRotation: {x: 0.08087524, y: 0.06389388, z: -0.07203998, w: 0.99206203}
   m_LocalPosition: {x: 0.0039999783, y: 0.655, z: 2.161}
-  m_LocalScale: {x: 1.992991, y: 1.6796477, z: 1.9885501}
+  m_LocalScale: {x: 1.9929907, y: 1.6796476, z: 1.98855}
   m_Children: []
-  m_Father: {fileID: 8187559775480017169}
-  m_RootOrder: 67
+  m_Father: {fileID: 5217925916429413229}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7821228725155022337
 GameObject:
@@ -5599,6 +5598,7 @@ Transform:
   m_LocalPosition: {x: 0.45, y: -0.79, z: 0.01}
   m_LocalScale: {x: 0.5, y: 0.6, z: 0.5}
   m_Children:
+  - {fileID: 3085831048028333167}
   - {fileID: 8187559775480017169}
   m_Father: {fileID: 0}
   m_RootOrder: 0
