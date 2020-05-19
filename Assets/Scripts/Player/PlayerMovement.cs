@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour {
     private PlayerState state;
     Transform deathView;
 
+    // control variables
+    bool firedGun = false;
+
     void Start() {
         state = PlayerState.PLAY;
     }
@@ -63,11 +66,6 @@ public class PlayerMovement : MonoBehaviour {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
-            if (Input.GetButtonDown("Fire1")) {
-                hasClickedLeftClick = true;
-                Debug.Log("PLAYER LEFT CLICK!");
-                playerGun.GetComponent<Gun>().Shoot();
-            }
             if (Input.GetKeyDown(KeyCode.E)) {
                 hasClickedE = true;
                 Debug.Log("PLAYER CLICKED E");
@@ -75,6 +73,38 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             // TODO: ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
+
+
+            // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
+
+            if (!firedGun && Input.GetButtonDown("Fire1")) {
+                // firedGun = true; // TODO: uncomment this for final version
+                hasClickedLeftClick = true;
+                Debug.Log("PLAYER LEFT CLICK!");
+                playerGun.GetComponent<Gun>().Shoot();
+                // SceneController.Instance.ResetWithSave(); // TODO: uncomment this for final version
+            }
+            if (!firedGun && Input.GetKeyDown(KeyCode.U)) {
+                // TODO: remove this case for final version, only here for easier testing
+                firedGun = true;
+                Debug.Log("PLAYER CLICKED U!");
+                SceneController.Instance.ResetWithSave();
+            }
+            if (!firedGun && Input.GetButtonDown("Fire2")) {
+                firedGun = true;
+                Debug.Log("PLAYER RIGHT CLICK!");
+                SceneController.Instance.ResetWithoutSave();
+            }
+            if (!firedGun && Input.GetKeyDown(KeyCode.R)) {
+                firedGun = true;
+                Debug.Log("PLAYER CLICKED R!");
+                SceneController.Instance.ResetAndDeletePrevious();
+            }
+            if (!firedGun && Input.GetKeyDown(KeyCode.L)) {
+                firedGun = true;
+                Debug.Log("PLAYER CLICKED L!");
+                SceneController.Instance.ResetHard();
+            }
 
             velocity.y += gravity * Time.deltaTime;
 
@@ -112,6 +142,10 @@ public class PlayerMovement : MonoBehaviour {
         // TODO: Maybe erase this line
         //playerCamera.SetActive(false);
         // TODO: change color to be transparent
+    }
+
+    public void ResetPlayer () {
+        firedGun = false;
     }
 
     public PlayerState GetState() {

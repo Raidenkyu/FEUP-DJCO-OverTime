@@ -53,8 +53,6 @@ public class SceneController : MonoBehaviour
 
         // always increase the timer
         timeRecorded += Time.fixedDeltaTime;
-       
-       
 
         // if it still is a valid frame, record
         if (timeRecorded <= maxRecordingTime) {
@@ -62,38 +60,14 @@ public class SceneController : MonoBehaviour
             playerClock.currentTime = maxRecordingTime - timeRecorded;
         }
 
-        // receives input to reset scene saving the current run
-        if (Input.GetKeyDown(KeyCode.U) && !isReseting) {
-            Debug.Log("RESET SCENE!");
-            BlockReset();
-            ResetWithSave();
-            Invoke("AllowReset", 2f);   // TODO: may change this
+    }
+
+    void DeleteLastRun () {
+        if (ghostPaths.Count == 0) {
+            Debug.Log("No run to delete");
+            return;
         }
-
-    }
-
-    // save current list of position and reload scene
-    void ResetWithSave () {
-        SavePositions();
-        // TODO: ANIM - screen goes black/white/etc to indicate the use of the gun
-        ReloadScene();
-    }
-
-    // reload scene without saving current list of position
-    void ResetWithoutSave () {
-
-    }
-
-    // reload scene and delete last recording (if any)
-    void ResetAndDeletePrevious () {
-
-    }
-
-    // hard reset of the scene (clearing all recordings)
-    void ResetHard () {
-        ghostPaths.Clear();
-        playerPositions.Clear();
-        ReloadScene();
+        ghostPaths.RemoveAt(ghostPaths.Count - 1);
     }
 
     void RecordCurrentPosition () {
@@ -142,6 +116,7 @@ public class SceneController : MonoBehaviour
 
     void AllowReset () {
         isReseting = false;
+        playerMovement.ResetPlayer();
     }
 
     void BlockReset () {
@@ -185,8 +160,8 @@ public class SceneController : MonoBehaviour
 
     public void LevelComplete () {
         Debug.Log("Level Complete");
-        // TODO: show some effect in between camaras 
-        // (maybe add a camera to scenecontroller that just shows black and activate it here) 
+        // TODO: show some effect in between camaras
+        // (maybe add a camera to scenecontroller that just shows black and activate it here)
         // (maybe don't delete player here, do the delete on awake)
         Destroy(playerObject);
         Destroy(this.gameObject);
@@ -196,5 +171,51 @@ public class SceneController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
+
+    // save current list of position and reload scene
+    public void ResetWithSave () {
+        if (isReseting) return;
+
+        BlockReset();
+        Invoke("AllowReset", 3f);   // TODO: may change this
+
+        SavePositions();
+        // TODO: ANIM - screen goes black/white/etc to indicate the use of the gun
+        ReloadScene();
+    }
+
+    // reload scene without saving current list of position
+    public void ResetWithoutSave () {
+        if (isReseting) return;
+
+        BlockReset();
+        Invoke("AllowReset", 3f);   // TODO: may change this
+
+        ReloadScene();
+    }
+
+    // reload scene and delete last recording (if any)
+    public void ResetAndDeletePrevious () {
+        if (isReseting) return;
+
+        BlockReset();
+        Invoke("AllowReset", 3f);   // TODO: may change this
+
+        DeleteLastRun();
+        ReloadScene();
+    }
+
+    // hard reset of the scene (clearing all recordings)
+    public void ResetHard () {
+        if (isReseting) return;
+
+        BlockReset();
+        Invoke("AllowReset", 3f);   // TODO: may change this
+
+        ghostPaths.Clear();
+        playerPositions.Clear();
+        ReloadScene();
+    }
+
 }
 
