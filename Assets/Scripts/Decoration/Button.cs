@@ -29,10 +29,10 @@ public class Button : Interactable {
 
    override public void Interact() {
         if (isPressed) {
-            Activated.Invoke();
+            Deactivated.Invoke();
             SetCylinderColor(offColor);
         } else {
-            Deactivated.Invoke();
+            Activated.Invoke();
             SetCylinderColor(onColor);
         }
 

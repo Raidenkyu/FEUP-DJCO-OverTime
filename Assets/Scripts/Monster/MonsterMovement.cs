@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
+using Unity.Collections;
 using PlayerState = PlayerMovement.PlayerState;
 
 public class MonsterMovement : MonoBehaviour {
