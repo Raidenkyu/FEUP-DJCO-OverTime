@@ -89,7 +89,8 @@ public class MonsterBehaviour : MonoBehaviour {
 
     void RoamBehaviour() {
         // Bit shift the index of the layer (8) to get a bit mask
-        int layerMask = 1 << 8;
+        string[] layerArray = {"Player", "Ghost"};
+        int layerMask = LayerMask.GetMask(layerArray);
 
         Vector3 src = transform.position;
         Vector3 dest = transform.TransformDirection(Vector3.forward);
