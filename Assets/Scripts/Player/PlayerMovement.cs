@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour {
             if (state != PlayerState.PLAY) return;
 
             if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
-                Debug.Log("JUMP");
+                // Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
 
@@ -87,22 +87,22 @@ public class PlayerMovement : MonoBehaviour {
             if (!firedGun && Input.GetKeyDown(KeyCode.U)) {
                 // TODO: remove this case for final version, only here for easier testing
                 firedGun = true;
-                Debug.Log("PLAYER CLICKED U!");
+                // Debug.Log("PLAYER CLICKED U!");
                 SceneController.Instance.ResetWithSave();
             }
             if (!firedGun && Input.GetButtonDown("Fire2")) {
                 firedGun = true;
-                Debug.Log("PLAYER RIGHT CLICK!");
+                // Debug.Log("PLAYER RIGHT CLICK!");
                 SceneController.Instance.ResetWithoutSave();
             }
             if (!firedGun && Input.GetKeyDown(KeyCode.R)) {
                 firedGun = true;
-                Debug.Log("PLAYER CLICKED R!");
+                // Debug.Log("PLAYER CLICKED R!");
                 SceneController.Instance.ResetAndDeletePrevious();
             }
             if (!firedGun && Input.GetKeyDown(KeyCode.L)) {
                 firedGun = true;
-                Debug.Log("PLAYER CLICKED L!");
+                // Debug.Log("PLAYER CLICKED L!");
                 SceneController.Instance.ResetHard();
             }
 

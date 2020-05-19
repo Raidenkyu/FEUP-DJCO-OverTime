@@ -175,6 +175,7 @@ public class SceneController : MonoBehaviour
     // save current list of position and reload scene
     public void ResetWithSave () {
         if (isReseting) return;
+        Debug.Log("RESETING LEVEL WITH SAVE");
 
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
@@ -187,6 +188,7 @@ public class SceneController : MonoBehaviour
     // reload scene without saving current list of position
     public void ResetWithoutSave () {
         if (isReseting) return;
+        Debug.Log("RESETING LEVEL WITHOUT SAVE");
 
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
@@ -197,6 +199,7 @@ public class SceneController : MonoBehaviour
     // reload scene and delete last recording (if any)
     public void ResetAndDeletePrevious () {
         if (isReseting) return;
+        Debug.Log("RESETING LEVEL AND DELETING PREVIOUS RUN");
 
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
@@ -208,6 +211,7 @@ public class SceneController : MonoBehaviour
     // hard reset of the scene (clearing all recordings)
     public void ResetHard () {
         if (isReseting) return;
+        Debug.Log("HARD LEVEL RESET");
 
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
