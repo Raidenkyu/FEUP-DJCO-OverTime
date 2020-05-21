@@ -95,7 +95,7 @@ public class MonsterBehaviour : MonoBehaviour {
         Vector3 src = transform.position;
         Vector3 dest = transform.TransformDirection(Vector3.forward);
 
-        src.y = 1;
+        src.y += 1;
 
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
