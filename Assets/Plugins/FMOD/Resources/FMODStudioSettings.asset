@@ -15,8 +15,8 @@ MonoBehaviour:
   SwitchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: 
-  sourceBankPath: 
+  sourceProjectPath: C:/Users/joaoa/Documents/FMOD Studio/test/test.fspro
+  sourceBankPath: C:\Users\joaoa\Documents\FMOD Studio\test\Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
