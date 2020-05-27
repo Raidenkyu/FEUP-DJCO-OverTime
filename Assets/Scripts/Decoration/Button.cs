@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using FMODUnity;
 
 public class Button : Interactable {
     public GameObject sphere;
@@ -15,7 +16,7 @@ public class Button : Interactable {
 
     private bool isPressed;
 
-    // Update is called once per frame
+    public StudioEventEmitter soundEvent;
 
     void Start() {
         isPressed = false;
@@ -28,6 +29,7 @@ public class Button : Interactable {
     }
 
    override public void Interact() {
+       soundEvent.Play();
         if (isPressed) {
             Deactivated.Invoke();
             SetCylinderColor(offColor);

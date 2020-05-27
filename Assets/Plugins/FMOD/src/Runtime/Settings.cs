@@ -34,6 +34,8 @@ namespace FMODUnity
         Switch,
         WebGL,
         Stadia,
+        Reserved_1,
+        Reserved_2,
         Count,
     }
 
@@ -89,8 +91,10 @@ namespace FMODUnity
     #endif
     public class Settings : ScriptableObject
     {
+        #if UNITY_EDITOR
         [SerializeField]
         bool SwitchSettingsMigration = false;
+        #endif
 
         const string SettingsAssetName = "FMODStudioSettings";
 
@@ -232,6 +236,9 @@ namespace FMODUnity
 
         [SerializeField]
         public ushort LiveUpdatePort = 9264;
+
+        [SerializeField]
+        public bool EnableMemoryTracking;
 
         public static FMODPlatform GetParent(FMODPlatform platform)
         {
@@ -411,6 +418,7 @@ namespace FMODUnity
             ImportType = ImportType.StreamingAssets;
             AutomaticEventLoading = true;
             AutomaticSampleLoading = false;
+            EnableMemoryTracking = false;
         }
 
         #if UNITY_EDITOR

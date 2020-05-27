@@ -21,8 +21,12 @@ namespace FMODUnity
         FMODPlatform fmodPlatform;
 
         [AOT.MonoPInvokeCallback(typeof(FMOD.DEBUG_CALLBACK))]
-        static FMOD.RESULT DEBUG_CALLBACK(FMOD.DEBUG_FLAGS flags, FMOD.StringWrapper file, int line, FMOD.StringWrapper func, FMOD.StringWrapper message)
+        static FMOD.RESULT DEBUG_CALLBACK(FMOD.DEBUG_FLAGS flags, IntPtr filePtr, int line, IntPtr funcPtr, IntPtr messagePtr)
         {
+            FMOD.StringWrapper file = new FMOD.StringWrapper(filePtr);
+            FMOD.StringWrapper func = new FMOD.StringWrapper(funcPtr);
+            FMOD.StringWrapper message = new FMOD.StringWrapper(messagePtr);
+            
             if (flags == FMOD.DEBUG_FLAGS.ERROR)
             {
                 Debug.LogError(string.Format(("[FMOD] {0} : {1}"), (string)func, (string)message));
@@ -245,6 +249,11 @@ retry:
                 FMOD.Studio.ADVANCEDSETTINGS studioAdvancedSettings = new FMOD.Studio.ADVANCEDSETTINGS();
                 result = studioSystem.setAdvancedSettings(studioAdvancedSettings, Settings.Instance.EncryptionKey);
                 CheckInitResult(result, "FMOD.Studio.System.setAdvancedSettings");
+            }
+
+            if (Settings.Instance.EnableMemoryTracking)
+            {
+                studioInitFlags |= FMOD.Studio.INITFLAGS.MEMORY_TRACKING;
             }
 
             result = studioSystem.initialize(virtualChannels, studioInitFlags, FMOD.INITFLAGS.NORMAL, IntPtr.Zero);
@@ -560,8 +569,8 @@ retry:
                     coreSystem.getChannelsPlaying(out channels, out realchannels);
                     debug.AppendFormat("CHANNELS: real = {0}, total = {1}\n", realchannels, channels);
 
-                    FMOD.DSP_METERING_INFO outputMetering;
-                    mixerHead.getMeteringInfo(IntPtr.Zero, out outputMetering);
+                    FMOD.DSP_METERING_INFO inputMetering, outputMetering;
+                    mixerHead.getMeteringInfo(out inputMetering, out outputMetering);
                     float rms = 0;
                     for (int i = 0; i < outputMetering.numchannels; i++)
                     {
@@ -1023,34 +1032,58 @@ retry:
         public static List<StudioListener> Listeners = new List<StudioListener>();
         private static int numListeners = 0;
 
-        public static void SetListenerLocation(GameObject gameObject, Rigidbody rigidBody = null)
+        public static void SetListenerLocation(GameObject gameObject, Rigidbody rigidBody = null, GameObject attenuationObject = null)
         {
-            Instance.studioSystem.setListenerAttributes(0, RuntimeUtils.To3DAttributes(gameObject, rigidBody));
+            SetListenerLocation3D(0, gameObject.transform, rigidBody, attenuationObject);
         }
         
-        public static void SetListenerLocation(GameObject gameObject, Rigidbody2D rigidBody2D)
+        public static void SetListenerLocation(GameObject gameObject, Rigidbody2D rigidBody2D, GameObject attenuationObject = null)
         {
-            Instance.studioSystem.setListenerAttributes(0, RuntimeUtils.To3DAttributes(gameObject, rigidBody2D));
+            SetListenerLocation2D(0, gameObject.transform, rigidBody2D, attenuationObject);
         }
 
-        public static void SetListenerLocation(Transform transform)
+        public static void SetListenerLocation(Transform transform, GameObject attenuationObject = null)
         {
-            Instance.studioSystem.setListenerAttributes(0, transform.To3DAttributes());
+            SetListenerLocation3D(0, transform, null, attenuationObject);
         }
 
-        public static void SetListenerLocation(int listenerIndex, GameObject gameObject, Rigidbody rigidBody = null)
+        public static void SetListenerLocation(int listenerIndex, GameObject gameObject, Rigidbody rigidBody = null, GameObject attenuationObject = null)
         {
-            Instance.studioSystem.setListenerAttributes(listenerIndex, RuntimeUtils.To3DAttributes(gameObject, rigidBody));
+            SetListenerLocation3D(listenerIndex, gameObject.transform, rigidBody, attenuationObject);
         }
         
-        public static void SetListenerLocation(int listenerIndex, GameObject gameObject, Rigidbody2D rigidBody2D)
+        public static void SetListenerLocation(int listenerIndex, GameObject gameObject, Rigidbody2D rigidBody2D, GameObject attenuationObject = null)
         {
-            Instance.studioSystem.setListenerAttributes(listenerIndex, RuntimeUtils.To3DAttributes(gameObject, rigidBody2D));
+            SetListenerLocation2D(listenerIndex, gameObject.transform, rigidBody2D, attenuationObject);
         }
 
-        public static void SetListenerLocation(int listenerIndex, Transform transform)
+        public static void SetListenerLocation(int listenerIndex, Transform transform, GameObject attenuationObject = null)
         {
-            Instance.studioSystem.setListenerAttributes(listenerIndex, transform.To3DAttributes());
+            SetListenerLocation3D(0, transform, null, attenuationObject);
+        }
+
+        private static void SetListenerLocation3D(int listenerIndex, Transform transform, Rigidbody rigidBody = null, GameObject attenuationObject = null)
+        {
+            if (attenuationObject)
+            {
+                Instance.studioSystem.setListenerAttributes(0, RuntimeUtils.To3DAttributes(transform, rigidBody), RuntimeUtils.ToFMODVector(attenuationObject.transform.position));
+            }
+            else
+            {
+                Instance.studioSystem.setListenerAttributes(0, RuntimeUtils.To3DAttributes(transform, rigidBody));
+            }
+        }
+
+        private static void SetListenerLocation2D(int listenerIndex, Transform transform, Rigidbody2D rigidBody = null, GameObject attenuationObject = null)
+        {
+            if (attenuationObject)
+            {
+                Instance.studioSystem.setListenerAttributes(0, RuntimeUtils.To3DAttributes(transform, rigidBody), RuntimeUtils.ToFMODVector(attenuationObject.transform.position));
+            }
+            else
+            {
+                Instance.studioSystem.setListenerAttributes(0, RuntimeUtils.To3DAttributes(transform, rigidBody));
+            }
         }
 
         public static FMOD.Studio.Bus GetBus(string path)
@@ -1148,48 +1181,18 @@ retry:
 
         private void SetThreadAffinity()
         {
-            #if UNITY_PS4 && !UNITY_EDITOR
-            FMOD.PS4.THREADAFFINITY affinity = new FMOD.PS4.THREADAFFINITY
-            {
-                mixer = FMOD.PS4.THREAD.CORE2,
-                studioUpdate = FMOD.PS4.THREAD.CORE4,
-                studioLoadBank = FMOD.PS4.THREAD.CORE4,
-                studioLoadSample = FMOD.PS4.THREAD.CORE4
-            };
-            FMOD.RESULT result = FMOD.PS4.setThreadAffinity(ref affinity);
-            CheckInitResult(result, "FMOD.PS4.setThreadAffinity");
+            #if (UNITY_PS4 || UNITY_XBOXONE) && !UNITY_EDITOR
+            FMOD.RESULT result = FMOD.Thread.SetAttributes(FMOD.THREAD_TYPE.MIXER, FMOD.THREAD_AFFINITY.CORE_2);
+            CheckInitResult(result, "FMOD.Thread.SetAttributes(Mixer)");
 
-            #elif UNITY_XBOXONE && !UNITY_EDITOR
-            FMOD.XboxOne.THREADAFFINITY affinity = new FMOD.XboxOne.THREADAFFINITY
-            {
-                mixer = FMOD.XboxOne.THREAD.CORE2,
-                studioUpdate = FMOD.XboxOne.THREAD.CORE4,
-                studioLoadBank = FMOD.XboxOne.THREAD.CORE4,
-                studioLoadSample = FMOD.XboxOne.THREAD.CORE4
-            };
-            FMOD.RESULT result = FMOD.XboxOne.setThreadAffinity(ref affinity);
-            CheckInitResult(result, "FMOD.XboxOne.setThreadAffinity");
+            result = FMOD.Thread.SetAttributes(FMOD.THREAD_TYPE.STUDIO_UPDATE, FMOD.THREAD_AFFINITY.CORE_4);
+            CheckInitResult(result, "FMOD.Thread.SetAttributes(Update)");
 
-            #elif UNITY_SWITCH && !UNITY_EDITOR
-            FMOD.Switch.THREADAFFINITY affinity = new FMOD.Switch.THREADAFFINITY
-            {
-                mixer = FMOD.Switch.THREAD.DEFAULT,
-                studioUpdate = FMOD.Switch.THREAD.DEFAULT,
-                studioLoadBank = FMOD.Switch.THREAD.DEFAULT,
-                studioLoadSample = FMOD.Switch.THREAD.DEFAULT
-            };
-            FMOD.RESULT result = FMOD.Switch.setThreadAffinity(ref affinity);
-            CheckInitResult(result, "FMOD.Switch.setThreadAffinity");
-            #elif UNITY_ANDROID && !UNITY_EDITOR
-            FMOD.Android.THREADAFFINITY affinity = new FMOD.Android.THREADAFFINITY
-            {
-                mixer = FMOD.Android.THREAD.DEFAULT,
-                studioUpdate = FMOD.Android.THREAD.DEFAULT,
-                studioLoadBank = FMOD.Android.THREAD.DEFAULT,
-                studioLoadSample = FMOD.Android.THREAD.DEFAULT
-            };
-            FMOD.RESULT result = FMOD.Android.setThreadAffinity(ref affinity);
-            CheckInitResult(result, "FMOD.Android.setThreadAffinity");
+            result = FMOD.Thread.SetAttributes(FMOD.THREAD_TYPE.STUDIO_LOAD_BANK, FMOD.THREAD_AFFINITY.CORE_4);
+            CheckInitResult(result, "FMOD.Thread.SetAttributes(Load_Bank)");
+
+            result = FMOD.Thread.SetAttributes(FMOD.THREAD_TYPE.STUDIO_LOAD_SAMPLE, FMOD.THREAD_AFFINITY.CORE_4);
+            CheckInitResult(result, "FMOD.Thread.SetAttributes(Load_Sample)");
             #endif
         }
 
