@@ -41,7 +41,7 @@ public class SceneController : MonoBehaviour
         playerObject = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerController = playerObject.GetComponent<CharacterController>();
-        playerClock = playerObject.transform.Find("Main Camera").transform.Find("timegun").GetComponent<Gun>();
+        playerClock = playerObject.transform.Find("Main Camera").transform.Find("timegun")?.GetComponent<Gun>();
 
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(playerObject);

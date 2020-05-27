@@ -42,9 +42,9 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        // do nothing if the run can't start yet
+        Debug.Log("Will start");
         if (!SceneController.Instance.CanStartRun()) return;
-
+        Debug.Log("Started");
         if (!isGhost) {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour {
         // TODO: change color to be transparent
     }
 
-    public void ResetPlayer () {
+    public void ResetPlayer() {
         firedGun = false;
     }
 
