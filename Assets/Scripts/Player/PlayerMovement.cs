@@ -42,9 +42,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        Debug.Log("Will start");
         if (!SceneController.Instance.CanStartRun()) return;
-        Debug.Log("Started");
+
         if (!isGhost) {
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
