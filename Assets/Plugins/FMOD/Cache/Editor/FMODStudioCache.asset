@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9088362663828033774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: sound/Fmod_doc/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637262718580000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-8915830554261880623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Creature.bank
+  m_EditorClassIdentifier: 
+  Path: sound/Fmod_doc/Build/Desktop/Creature.bank
+  SubDir: 
+  lastModified: 637262718580000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7283199826873518910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,7 +51,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_shortcircuit
   guid: 7ba56dfd34f8bf4fb532c5622cb30271
   Banks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -38,7 +74,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_timetravel
   guid: 0e3502d1c7dd174d930aee4ababba6ce
   Banks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -79,15 +115,38 @@ MonoBehaviour:
   Path: event:/SFX/SFX_portal
   guid: 69a5797f1abf3f4cb184f13f7a7b0ad7
   Banks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 3042759312682687164}
+  - {fileID: 2390052582681281812}
   MinDistance: 1
   MaxDistance: 70
   Length: 18741
+--- !u!114 &-4378533945998212480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiences/office_room
+  m_EditorClassIdentifier: 
+  Path: event:/Ambiences/office_room
+  guid: 784c58286283434092692032ab8444a9
+  Banks:
+  - {fileID: -964191051571199696}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 77575
 --- !u!114 &-2622635792057306850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,7 +162,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_butao
   guid: 0e6273cd1ec45f4da5c883c3a4861417
   Banks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -129,6 +188,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-964191051571199696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: sound/Fmod_doc/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637262718580000000
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-197567517229130436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +221,8 @@ MonoBehaviour:
   Path: event:/Player/arma
   guid: d49723c162cc3643b61e867faf3814c5
   Banks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
+  - {fileID: -9088362663828033774}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -166,7 +244,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 7268159762624381477}
-  - {fileID: 7812434231068410641}
+  - {fileID: -8915830554261880623}
+  - {fileID: -964191051571199696}
+  - {fileID: -9088362663828033774}
   EditorEvents:
   - {fileID: -5992069757478428943}
   - {fileID: -2622635792057306850}
@@ -174,13 +254,34 @@ MonoBehaviour:
   - {fileID: -7283199826873518910}
   - {fileID: 2484157894567899901}
   - {fileID: -197567517229130436}
+  - {fileID: 5512484562998690313}
+  - {fileID: 6312525085158726303}
+  - {fileID: -4378533945998212480}
+  - {fileID: 3118216606747427407}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
   StringsBanks:
   - {fileID: 7268159762624381477}
-  stringsBankWriteTime: 637262619699149316
+  stringsBankWriteTime: 637262718580000000
   cacheVersion: 3
+--- !u!114 &2390052582681281812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_portal/ReverbWET
+  m_EditorClassIdentifier: 
+  Name: ReverbWET
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &2484157894567899901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +297,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_butao 2
   guid: bf0bbcaa6ca710438672590e15cbef1f
   Banks:
-  - {fileID: 7812434231068410641}
+  - {fileID: -964191051571199696}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -221,6 +322,29 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 1
+--- !u!114 &3118216606747427407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Player/player_footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Player/player_footsteps
+  guid: cb23e81885a1d145a5342ffef1aea331
+  Banks:
+  - {fileID: -9088362663828033774}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 650
 --- !u!114 &5048356234900664333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +362,52 @@ MonoBehaviour:
   Max: 1
   Default: 0
   Exists: 0
+--- !u!114 &5512484562998690313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Creature/creature_footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Creature/creature_footsteps
+  guid: 33d459a685a15e4eaabe5eacfc1023ec
+  Banks:
+  - {fileID: -8915830554261880623}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2600
+--- !u!114 &6312525085158726303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/futuristic_door.sound
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/futuristic_door.sound
+  guid: 109b04f516769a4ea33785223494ca74
+  Banks:
+  - {fileID: -964191051571199696}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3333
 --- !u!114 &7063744548284187606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,11 +439,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: sound/Fmod_doc/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637262619699149316
+  lastModified: 637262718580000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1032
+    Value: 1354
   Exists: 1
 --- !u!114 &7812434231068410641
 MonoBehaviour:
