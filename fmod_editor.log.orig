@@ -1,0 +1,25 @@
+[LOG] System::create                           : Header version = 2.01.01. Current version = 2.01.01.
+[LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata (nil).
+[LOG] SystemI::init                            : Initialize version=20101 (109257), maxchannels=256, flags=0x00020000
+[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD PulseAudio Output'
+[LOG] OutputPulseAudio::registerLib            : Loaded PulseAudio version 13.99.0.
+[LOG] OutputPulseAudio::enumOutput             : Found output device NAME:alsa_output.pci-0000_00_1f.3.analog-stereo DESC:Áudio Interno Estéreo Analógico CHANNELS:2 RATE:44100.
+[LOG] OutputPulseAudio::enumInput              : Found input device NAME:alsa_output.pci-0000_00_1f.3.analog-stereo.monitor DESC:Monitor of Áudio Interno Estéreo Analógico CHANNELS:2 RATE:44100.
+[LOG] OutputPulseAudio::enumInput              : Found input device NAME:alsa_input.pci-0000_00_1f.3.analog-stereo DESC:Áudio Interno Estéreo Analógico CHANNELS:2 RATE:44100.
+[LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
+[WRN] FMOD_OS_Thread_Callback                  : Cannot set real-time thread priorities due to insufficient privileges
+[LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
+[WRN] FMOD_OS_Thread_Callback                  : Cannot set real-time thread priorities due to insufficient privileges
+[LOG] AsyncManager::init                       : manager 0x9673a112408 isAsync 0 updatePeriod 0,02
+[LOG] AsyncManager::init                       : done
+[LOG] PlaybackSystem::init                     : 
+[LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
+[WRN] FMOD_OS_Thread_Callback                  : Cannot set real-time thread priorities due to insufficient privileges
+[LOG] PlaybackSystem::init                     : done
+[LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
+[WRN] FMOD_OS_Thread_Callback                  : Cannot set real-time thread priorities due to insufficient privileges
+[LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 132, compatVersion = 132 (oldest = 44, newest = 132)
+[LOG] Manager::readBank                        : fileversion = 132, compatVersion = 132 (oldest = 44, newest = 132)
+[LOG] Manager::readBank                        : fileversion = 132, compatVersion = 132 (oldest = 44, newest = 132)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 3
