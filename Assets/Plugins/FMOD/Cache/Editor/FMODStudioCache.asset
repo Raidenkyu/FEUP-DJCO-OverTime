@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_shortcircuit
   guid: 7ba56dfd34f8bf4fb532c5622cb30271
   Banks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -38,7 +38,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_timetravel
   guid: 0e3502d1c7dd174d930aee4ababba6ce
   Banks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -63,7 +63,7 @@ MonoBehaviour:
   lastModified: 637262421885676405
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-4716816694941145150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,12 +79,12 @@ MonoBehaviour:
   Path: event:/SFX/SFX_portal
   guid: 69a5797f1abf3f4cb184f13f7a7b0ad7
   Banks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 7063744548284187606}
+  - {fileID: 3042759312682687164}
   MinDistance: 1
   MaxDistance: 70
   Length: 18741
@@ -103,7 +103,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_butao
   guid: 0e6273cd1ec45f4da5c883c3a4861417
   Banks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
   Path: event:/Player/arma
   guid: d49723c162cc3643b61e867faf3814c5
   Banks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 7268159762624381477}
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   EditorEvents:
   - {fileID: -5992069757478428943}
   - {fileID: -2622635792057306850}
@@ -176,10 +176,10 @@ MonoBehaviour:
   - {fileID: -197567517229130436}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   StringsBanks:
   - {fileID: 7268159762624381477}
-  stringsBankWriteTime: 637262421885676405
+  stringsBankWriteTime: 637262619699149316
   cacheVersion: 3
 --- !u!114 &2484157894567899901
 MonoBehaviour:
@@ -196,7 +196,7 @@ MonoBehaviour:
   Path: event:/SFX/SFX_butao 2
   guid: bf0bbcaa6ca710438672590e15cbef1f
   Banks:
-  - {fileID: -4951240904088120528}
+  - {fileID: 7812434231068410641}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -204,6 +204,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 1100
+--- !u!114 &3042759312682687164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_portal/ReverbWET
+  m_EditorClassIdentifier: 
+  Name: ReverbWET
+  Min: 0
+  Max: 1
+  Default: 0
+  Exists: 1
 --- !u!114 &5048356234900664333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,7 +254,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &7268159762624381477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,9 +269,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: sound/Fmod_doc/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637262421885676405
+  lastModified: 637262619699149316
   LoadResult: 0
   FileSizes:
   - Name: 
     Value: 1032
+  Exists: 1
+--- !u!114 &7812434231068410641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: sound/Fmod_doc/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637262619699139321
+  LoadResult: 0
+  FileSizes: []
   Exists: 1
