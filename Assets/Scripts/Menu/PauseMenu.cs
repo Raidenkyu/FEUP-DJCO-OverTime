@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
     public bool isPaused = false;
 
-   // public AudioSource m_MyAudioSource;
-    //Value from the slider, and it converts to volume level
+    // public AudioSource m_MyAudioSource;
+    // Value from the slider, and it converts to volume level
  
-    //public GameObject game;
+    // public GameObject game;
 
     public GameObject pauseMenuUI;
     // Update is called once per frame
 
+    private void Start() {
+        Resume();
+    }
    
-    void Update()
-    {
-      
-        
+    void Update() {
         if(Input.GetKeyDown(KeyCode.Escape)){
 
             if(isPaused){
@@ -47,17 +44,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         isPaused = true;
-      //  m_MyAudioSource.Pause();
+        // m_MyAudioSource.Pause();
     }
 
     public void Resume(){
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         isPaused = false;
-      //  m_MyAudioSource.Play();
-
+        // m_MyAudioSource.Play();
     }
 }
