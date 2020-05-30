@@ -120,7 +120,7 @@ public class PlayerMovement : MonoBehaviour {
                 PointInTime currentPointInTime = ghostPath[currentGhostPoint];
                 this.transform.position = currentPointInTime.position;
                 this.transform.rotation = currentPointInTime.rotation;
-                playerCamera.transform.eulerAngles = new Vector3(currentPointInTime.cameraAngle, 0, 0);
+                playerCamera.transform.rotation = currentPointInTime.cameraAngle;
                 currentGhostPoint++;
                 if (currentPointInTime.clickE) {
                     Debug.Log("GHOST PRESSED E!");
