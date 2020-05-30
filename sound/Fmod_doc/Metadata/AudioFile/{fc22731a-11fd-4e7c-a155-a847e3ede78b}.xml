@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{b4e7f7fc-ddbf-41a7-aa46-6e3d49b14618}">
+	<object class="AudioFile" id="{fc22731a-11fd-4e7c-a155-a847e3ede78b}">
 		<property name="assetPath">
-			<value>PLAYER/SFX_Footest3_02.wav</value>
+			<value>CREATURE/SFX_Creature_groams06.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.502875</value>
+			<value>2.9727083333333333</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{720651ab-7ce1-48f6-8e8a-92f78773d13b}</destination>
