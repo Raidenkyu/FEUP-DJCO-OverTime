@@ -73,6 +73,7 @@ public class SceneController : MonoBehaviour
     void RecordCurrentPosition () {
         playerPositions.Add(new PointInTime(playerController.transform.position,
                                             playerController.transform.rotation,
+                                            playerMovement.playerCamera.transform.localEulerAngles.x,
                                             playerMovement.hasClickedE,
                                             playerMovement.hasClickedLeftClick));
         playerMovement.hasClickedE = false;
