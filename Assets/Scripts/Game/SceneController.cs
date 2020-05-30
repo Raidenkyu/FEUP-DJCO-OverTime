@@ -27,11 +27,14 @@ public class SceneController : MonoBehaviour {
     // control variables
     private bool isReseting = false;
     private bool canStartRun = false;
+    private bool canFireGunInCurrentLevel = true;
 
     private void Awake() {
         if (CheckForExistingSceneController()) {
             return;
         }
+
+        CheckIfCurrentLevelCanFireGun();
 
         Debug.Log("AWAKE");
         ghostPaths = new List<List<PointInTime>>();
@@ -133,6 +136,14 @@ public class SceneController : MonoBehaviour {
         } else {
             _instance = this;
             return false;
+        }
+    }
+
+    void CheckIfCurrentLevelCanFireGun () {
+        // checks if current level can have a player firing a gun
+        string currentLevelName = SceneManager.GetActiveScene().name;
+        if (currentLevelName == "Level0" || currentLevelName == "Level1") {
+            canFireGunInCurrentLevel = false;
         }
     }
 
