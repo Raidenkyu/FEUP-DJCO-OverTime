@@ -200,11 +200,11 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         soundTimer += deltaTime;
-        Debug.Log("Speed: " + stepSpeed);
-        Debug.Log("Timer: " + soundTimer);
+        // Debug.Log("Speed: " + stepSpeed);
+        // Debug.Log("Timer: " + soundTimer);
 
         if (soundTimer >= soundDelay) {
-            Debug.Log("Play Footsetp");
+            // Debug.Log("Play Footsetp");
             //RuntimeManager.PlayOneShot("event:/Player/player_footsteps");
             soundTimer = 0;
         }
