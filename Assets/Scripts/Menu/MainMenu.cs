@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     private void Awake() {
+        Time.timeScale = 1; // here to reset the light "flicking" after coming to this menu from pause state
         if (SceneController.Instance != null) {
             SceneController.Instance.DestroyCurrentPlayerAndSceneController();
         }
