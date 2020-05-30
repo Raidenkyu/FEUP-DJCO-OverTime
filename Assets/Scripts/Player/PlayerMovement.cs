@@ -205,7 +205,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (soundTimer >= soundDelay) {
             Debug.Log("Play Footsetp");
-            RuntimeManager.PlayOneShot("event:/Player/player_footsteps");
+            //RuntimeManager.PlayOneShot("event:/Player/player_footsteps");
             soundTimer = 0;
         }
     }
