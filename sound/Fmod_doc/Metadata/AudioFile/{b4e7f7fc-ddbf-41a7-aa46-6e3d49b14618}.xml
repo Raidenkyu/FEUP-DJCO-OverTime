@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="AudioFile" id="{5ff2b1c4-e229-4fd8-9a86-aaf5b4ca0dfc}">
+	<object class="AudioFile" id="{b4e7f7fc-ddbf-41a7-aa46-6e3d49b14618}">
 		<property name="assetPath">
-			<value>SFX_Footest_02.wav</value>
+			<value>SFX_Footest3_02.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.5</value>
+			<value>1.502875</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{720651ab-7ce1-48f6-8e8a-92f78773d13b}</destination>
