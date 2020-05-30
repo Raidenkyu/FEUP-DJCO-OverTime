@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PlayerMovement : MonoBehaviour {
     // external references
@@ -36,6 +37,10 @@ public class PlayerMovement : MonoBehaviour {
     // control variables
     bool firedGun = false;
 
+    // sound variables
+    public float soundDelay;
+    float soundTimer = 0.5f;
+
     void Start() {
         state = PlayerState.PLAY;
     }
@@ -56,7 +61,9 @@ public class PlayerMovement : MonoBehaviour {
 
             Vector3 move = transform.right * x + transform.forward * z;
 
-            controller.Move(move * speed * Time.deltaTime);
+            Vector3 stepSpeed = move * speed;
+            controller.Move(stepSpeed * Time.deltaTime);
+            FootStepSound(stepSpeed.magnitude, Time.deltaTime);
 
             if (state != PlayerState.PLAY) return;
 
@@ -80,7 +87,9 @@ public class PlayerMovement : MonoBehaviour {
                 // firedGun = true; // TODO: uncomment this for final version
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
-                playerGun.GetComponent<Gun>().Shoot();
+                if (playerGun != null) {
+                    playerGun.GetComponent<Gun>().Shoot();
+                }
                 // SceneController.Instance.ResetWithSave(); // TODO: uncomment this for final version
             }
             if (!firedGun && Input.GetKeyDown(KeyCode.U)) {
@@ -181,6 +190,23 @@ public class PlayerMovement : MonoBehaviour {
         GameObject obj = vision.GetInteractiveObject();
         if (obj != null) {
             obj.GetComponent<Interactable>().Interact();
+        }
+    }
+
+    void FootStepSound(float stepSpeed, float deltaTime) {
+        if (stepSpeed == 0) {
+            soundTimer = 0;
+            return;
+        }
+
+        soundTimer += deltaTime;
+        Debug.Log("Speed: " + stepSpeed);
+        Debug.Log("Timer: " + soundTimer);
+
+        if (soundTimer >= soundDelay) {
+            Debug.Log("Play Footsetp");
+            RuntimeManager.PlayOneShot("event:/Player/player_footsteps");
+            soundTimer = 0;
         }
     }
 }

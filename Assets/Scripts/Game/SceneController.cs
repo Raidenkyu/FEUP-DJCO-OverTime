@@ -2,8 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneController : MonoBehaviour
-{
+public class SceneController : MonoBehaviour {
     // Singleton methods
     private static SceneController _instance = null;
     public static SceneController Instance { get { return _instance; } }
@@ -57,12 +56,14 @@ public class SceneController : MonoBehaviour
         // if it still is a valid frame, record
         if (timeRecorded <= maxRecordingTime) {
             RecordCurrentPosition();
-            playerClock.currentTime = maxRecordingTime - timeRecorded;
+            if (playerClock != null) {
+                playerClock.currentTime = maxRecordingTime - timeRecorded;
+            }
         }
 
     }
 
-    void DeleteLastRun () {
+    void DeleteLastRun() {
         if (ghostPaths.Count == 0) {
             Debug.Log("No run to delete");
             return;
@@ -70,7 +71,7 @@ public class SceneController : MonoBehaviour
         ghostPaths.RemoveAt(ghostPaths.Count - 1);
     }
 
-    void RecordCurrentPosition () {
+    void RecordCurrentPosition() {
         playerPositions.Add(new PointInTime(playerController.transform.position,
                                             playerController.transform.rotation,
                                             playerMovement.playerCamera.transform.rotation,
@@ -80,25 +81,25 @@ public class SceneController : MonoBehaviour
         playerMovement.hasClickedLeftClick = false;
     }
 
-    void SavePositions () {
+    void SavePositions() {
         // save positions vector
         ghostPaths.Add(new List<PointInTime>(playerPositions));
         playerPositions.Clear();
     }
 
-    void CreateGhosts () {
+    void CreateGhosts() {
         foreach (List<PointInTime> path in ghostPaths) {
             CreateGhost(path);
         }
     }
 
     // create instance of ghost player with given path
-    void CreateGhost (List<PointInTime> path) {
+    void CreateGhost(List<PointInTime> path) {
         GameObject newGhost = Instantiate(ghostPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         newGhost.SendMessage("SetAsGhost", path);
     }
 
-    void ReloadScene () {
+    void ReloadScene() {
         canStartRun = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // TODO: Might change to build index
         RepositionPlayer();
@@ -106,7 +107,7 @@ public class SceneController : MonoBehaviour
     }
 
     // Reposition the player in the spawnpoint
-    void RepositionPlayer () {
+    void RepositionPlayer() {
         playerController.enabled = false;
         playerController.transform.position = levelSpawnpoint.position;
         playerController.transform.rotation = levelSpawnpoint.rotation;
@@ -115,16 +116,16 @@ public class SceneController : MonoBehaviour
 
     // helper methods
 
-    void AllowReset () {
+    void AllowReset() {
         isReseting = false;
         playerMovement.ResetPlayer();
     }
 
-    void BlockReset () {
+    void BlockReset() {
         isReseting = true;
     }
 
-    bool CheckForExistingSceneController () {
+    bool CheckForExistingSceneController() {
         // checks if a scene controller already exists, if so, destroy self
         if (_instance != null && _instance != this) {
             Destroy(this.gameObject);
@@ -137,15 +138,15 @@ public class SceneController : MonoBehaviour
 
     // public methods
 
-    public bool CanStartRun () {
+    public bool CanStartRun() {
         return canStartRun;
     }
 
-    public void StartRun () {
+    public void StartRun() {
         canStartRun = true;
     }
 
-    public void SetupScene () {
+    public void SetupScene() {
         Invoke("StartRun", 0.5f); // TODO: adjust this
         timeRecorded = 0f;
         RepositionPlayer();
@@ -154,12 +155,12 @@ public class SceneController : MonoBehaviour
         Invoke("AllowReset", 2f);
     }
 
-    public void PlayerDied () {
+    public void PlayerDied() {
         // TODO: maybe show "Game Over" or "You Died" or something like that
         ResetHard();
     }
 
-    public void LevelComplete () {
+    public void LevelComplete() {
         Debug.Log("Level Complete");
         // TODO: show some effect in between camaras
         // (maybe add a camera to scenecontroller that just shows black and activate it here)
@@ -174,7 +175,7 @@ public class SceneController : MonoBehaviour
     }
 
     // save current list of position and reload scene
-    public void ResetWithSave () {
+    public void ResetWithSave() {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITH SAVE");
 
@@ -187,7 +188,7 @@ public class SceneController : MonoBehaviour
     }
 
     // reload scene without saving current list of position
-    public void ResetWithoutSave () {
+    public void ResetWithoutSave() {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITHOUT SAVE");
 
@@ -198,7 +199,7 @@ public class SceneController : MonoBehaviour
     }
 
     // reload scene and delete last recording (if any)
-    public void ResetAndDeletePrevious () {
+    public void ResetAndDeletePrevious() {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL AND DELETING PREVIOUS RUN");
 
@@ -210,7 +211,7 @@ public class SceneController : MonoBehaviour
     }
 
     // hard reset of the scene (clearing all recordings)
-    public void ResetHard () {
+    public void ResetHard() {
         if (isReseting) return;
         Debug.Log("HARD LEVEL RESET");
 
