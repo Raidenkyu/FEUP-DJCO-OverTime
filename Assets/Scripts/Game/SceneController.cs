@@ -222,5 +222,10 @@ public class SceneController : MonoBehaviour
         ReloadScene();
     }
 
+    public void DestroyCurrentPlayerAndSceneController () {
+        Destroy(playerObject);
+        Destroy(this.gameObject);
+    }
+
 }
 

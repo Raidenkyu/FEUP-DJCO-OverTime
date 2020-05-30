@@ -1,10 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    private void Awake() {
+        if (SceneController.Instance != null) {
+            SceneController.Instance.DestroyCurrentPlayerAndSceneController();
+        }
+    }
+    
     public void Level0() {
         SceneManager.LoadSceneAsync("Level0");
 
