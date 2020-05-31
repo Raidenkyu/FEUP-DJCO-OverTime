@@ -164,7 +164,8 @@ public class PlayerMovement : MonoBehaviour {
 
     public void TogglePlayerGun (bool activeValue) {
         playerGun.SetActive(activeValue);
-        canFireGunInCurrentLevel = activeValue;
+        // canFireGunInCurrentLevel = activeValue;
+        // ^ commented this to prevent the player from using the gun in level1 after picking it up
     }
 
     public void ResetPlayer() {
