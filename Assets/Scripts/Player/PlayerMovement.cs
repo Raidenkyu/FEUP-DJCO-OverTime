@@ -36,10 +36,19 @@ public class PlayerMovement : MonoBehaviour {
 
     // control variables
     bool firedGun = false;
+    bool canFireGunInCurrentLevel = true;
 
     // sound variables
     public float soundDelay;
     float soundTimer = 0.5f;
+
+    private void Awake() {
+        canFireGunInCurrentLevel = SceneController.Instance.GetCanFireGunInCurrentLevel();
+
+        if (!canFireGunInCurrentLevel) {
+            TogglePlayerGun(false);
+        }
+    }
 
     void Start() {
         state = PlayerState.PLAY;
@@ -83,7 +92,7 @@ public class PlayerMovement : MonoBehaviour {
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
 
-            if (!firedGun && Input.GetButtonDown("Fire1")) {
+            if (!firedGun && canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
                 // firedGun = true; // TODO: uncomment this for final version
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
@@ -92,23 +101,23 @@ public class PlayerMovement : MonoBehaviour {
                 }
                 // SceneController.Instance.ResetWithSave(); // TODO: uncomment this for final version
             }
-            if (!firedGun && Input.GetKeyDown(KeyCode.U)) {
+            if (!firedGun && canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.U)) {
                 // TODO: remove this case for final version, only here for easier testing
                 firedGun = true;
                 // Debug.Log("PLAYER CLICKED U!");
                 SceneController.Instance.ResetWithSave();
             }
-            if (!firedGun && Input.GetButtonDown("Fire2")) {
+            if (!firedGun && canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
                 firedGun = true;
                 // Debug.Log("PLAYER RIGHT CLICK!");
                 SceneController.Instance.ResetWithoutSave();
             }
-            if (!firedGun && Input.GetKeyDown(KeyCode.R)) {
+            if (!firedGun && canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
                 firedGun = true;
                 // Debug.Log("PLAYER CLICKED R!");
                 SceneController.Instance.ResetAndDeletePrevious();
             }
-            if (!firedGun && Input.GetKeyDown(KeyCode.L)) {
+            if (!firedGun && canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
                 firedGun = true;
                 // Debug.Log("PLAYER CLICKED L!");
                 SceneController.Instance.ResetHard();
@@ -151,6 +160,11 @@ public class PlayerMovement : MonoBehaviour {
         // TODO: Maybe erase this line
         //playerCamera.SetActive(false);
         // TODO: change color to be transparent
+    }
+
+    public void TogglePlayerGun (bool activeValue) {
+        playerGun.SetActive(activeValue);
+        canFireGunInCurrentLevel = activeValue;
     }
 
     public void ResetPlayer() {
