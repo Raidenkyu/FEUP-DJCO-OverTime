@@ -63,3 +63,6 @@ Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
 Assets/StreamingAssets
 fmod_editor.log
 .fmod_editor*
+
+# MacOS files
+.DS_Store
