@@ -8,9 +8,8 @@ public class InteractionsScript : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         GameObject obj = collider.gameObject;
-        Debug.Log("Found object " + obj.name);
         if (obj.tag == "Interactive") {
-            Debug.Log("Found button");
+            Debug.Log("Found Interactable");
             InteractiveObject = obj;
         }
     }

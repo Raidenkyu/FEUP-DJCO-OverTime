@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour {
 
     // ghost specific variables
     bool isGhost = false;
-    List<PointInTime> ghostPath = new List<PointInTime>();
-    int currentGhostPoint = 0;
+    public List<PointInTime> ghostPath = new List<PointInTime>();
+    public int currentGhostPoint = 0;
     public bool hasClickedE = false;
     public bool hasClickedLeftClick = false;
 
@@ -202,6 +202,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void Interact() {
         GameObject obj = vision.GetInteractiveObject();
+
         if (obj != null) {
             obj.GetComponent<Interactable>().Interact();
         }

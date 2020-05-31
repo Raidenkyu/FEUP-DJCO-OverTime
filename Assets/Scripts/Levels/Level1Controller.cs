@@ -5,6 +5,6 @@ using UnityEngine;
 public class Level1Controller : MonoBehaviour
 {
     public void PickGun() {
-
+        SceneController.Instance.GetMainPlayerMovement().TogglePlayerGun(true);
     }
 }

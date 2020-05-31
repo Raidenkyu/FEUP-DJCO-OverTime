@@ -26,6 +26,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed506c96c01fab0aba8b56425dacd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: {fileID: 5436280896225670755}
+  animator: {fileID: 6932926196674850205}
 --- !u!95 &6932926196674850205
 Animator:
   serializedVersion: 3
@@ -1657,6 +1659,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4140699508282984215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5436280896225670755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8216594248780378484, guid: 91099152906a9b344a55a45235ad0cb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4140699508282984215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436280896225670756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3af38e99fd374600abb29686e7dad79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1303433592035284701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3125500003284718026, guid: 91099152906a9b344a55a45235ad0cb0,
