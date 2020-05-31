@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour {
     float soundTimer = 0.5f;
 
     private void Awake() {
-        canFireGunInCurrentLevel = SceneController.Instance.getCanFireGunInCurrentLevel();
+        canFireGunInCurrentLevel = SceneController.Instance.GetCanFireGunInCurrentLevel();
 
         if (!canFireGunInCurrentLevel) {
             TogglePlayerGun(false);

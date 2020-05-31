@@ -241,13 +241,17 @@ public class SceneController : MonoBehaviour {
         Destroy(this.gameObject);
     }
 
-    public bool getCanFireGunInCurrentLevel () {
+    public bool GetCanFireGunInCurrentLevel () {
         return canFireGunInCurrentLevel;
     }
 
-    public void setCanFireGunInCurrentLevel (bool value) {
+    public void SetCanFireGunInCurrentLevel (bool value) {
         canFireGunInCurrentLevel = value;
     }
+
+    public GameObject GetMainPlayerObject () { return playerObject; }
+    public PlayerMovement GetMainPlayerMovement () { return playerMovement; }
+    public CharacterController GetMainPlayerController () { return playerController; }
 
 }
 
