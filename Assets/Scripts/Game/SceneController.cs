@@ -53,6 +53,8 @@ public class SceneController : MonoBehaviour {
         // do nothing if the run can't start yet
         if (!CanStartRun()) return;
 
+        if (!canFireGunInCurrentLevel) return;
+
         // always increase the timer
         timeRecorded += Time.fixedDeltaTime;
 
