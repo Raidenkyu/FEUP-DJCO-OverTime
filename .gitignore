@@ -58,6 +58,8 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-# FMOD MacOS
+# FMOD
 Assets/Plugins/FMOD/Cache/Editor/FMODStudioCache.asset
+Assets/StreamingAssets
 fmod_editor.log
+.fmod_editor*
