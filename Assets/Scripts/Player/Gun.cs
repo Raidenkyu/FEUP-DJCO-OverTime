@@ -68,7 +68,7 @@ public class Gun : MonoBehaviour {
         if (Physics.Raycast(src, dest, out Hit, range, layerMask)) {
             Debug.DrawRay(src, dest * Hit.distance, Color.white);
             Debug.Log(Hit.collider.tag);
-            Hit.collider.gameObject.GetComponent<MonsterBehaviour>().Freeze();
+            Hit.collider.gameObject.GetComponent<MonsterBehaviour>()?.Freeze();
         } else {
             Debug.DrawRay(src, dest * range, Color.white);
         }
