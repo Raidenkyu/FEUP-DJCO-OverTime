@@ -6,6 +6,7 @@ public class MonsterBehaviour : MonoBehaviour {
     public Animator animator;
     public NavMeshAgent agent;
     public MonsterMovement movement;
+    public MonsterVision vision;
     public float visionLength = 5.0f;
     public float roamingSpeed = 1.0f;
     public float preyingSpeed = 2.0f;
@@ -17,25 +18,7 @@ public class MonsterBehaviour : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         state = MonsterState.ROAM;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate() {
-        switch (state) {
-            case MonsterState.ROAM:
-                RoamBehaviour();
-                break;
-            case MonsterState.PREY:
-                break;
-            case MonsterState.ATTACK:
-                break;
-            case MonsterState.FREEZE:
-                FreezeBehaviour();
-                break;
-            default:
-                RoamBehaviour();
-                break;
-        }
+        vision.caught += Prey;
     }
 
     public MonsterState GetState() {
@@ -85,35 +68,5 @@ public class MonsterBehaviour : MonoBehaviour {
     public void ReturnPreying() {
         this.state = MonsterState.PREY;
         animator.SetTrigger("Run");
-    }
-
-    void RoamBehaviour() {
-        // Bit shift the index of the layer (8) to get a bit mask
-        string[] layerArray = {"Player", "Ghost"};
-        int layerMask = LayerMask.GetMask(layerArray);
-
-        Vector3 src = transform.position;
-        Vector3 dest = transform.TransformDirection(Vector3.forward);
-
-        src.y += 1;
-
-        RaycastHit hit;
-        // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(src, dest, out hit, visionLength, layerMask)) {
-            Debug.DrawRay(src, dest * hit.distance, Color.yellow);
-
-            Collider collided = hit.collider;
-
-            if (collided.tag == "Player"
-            && collided.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.PLAY) {
-                Prey(hit.collider.gameObject);
-            }
-        } else {
-            Debug.DrawRay(src, dest * visionLength, Color.white);
-        }
-    }
-
-    void FreezeBehaviour() {
-
     }
 }
