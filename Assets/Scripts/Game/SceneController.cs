@@ -29,6 +29,9 @@ public class SceneController : MonoBehaviour {
     private bool canStartRun = false;
     public bool canFireGunInCurrentLevel = true;
 
+    // animator/transition variables
+    public Animator levelTransition;
+
     private void Awake() {
         if (CheckForExistingSceneController()) {
             return;
@@ -45,6 +48,10 @@ public class SceneController : MonoBehaviour {
 
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(playerObject);
+    }
+
+    private void Start() {
+        StartLevelLoadedTransition();
     }
 
     void FixedUpdate() {
@@ -117,6 +124,28 @@ public class SceneController : MonoBehaviour {
         playerController.enabled = true;
     }
 
+    void LevelCompleteLogic () {
+        Destroy(playerObject);
+        Destroy(this.gameObject);
+
+        // TODO: adjust exception for final level (return to menu)
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+
+    // transition methods
+
+    void StartLevelLoadedTransition () {
+        levelTransition.SetTrigger("LevelLoaded");
+    }
+
+    void StartLevelEndedTransition () {
+        levelTransition.SetTrigger("LevelEnded");
+    }
+
+
     // helper methods
 
     void AllowReset() {
@@ -151,6 +180,7 @@ public class SceneController : MonoBehaviour {
 
     public void SetupScene() {
         Invoke("StartRun", 0.5f); // TODO: adjust this
+        // TODO: call rest of ability animation here (if null, its the original level loading)
         timeRecorded = 0f;
         RepositionPlayer();
         CreateGhosts();
@@ -165,16 +195,12 @@ public class SceneController : MonoBehaviour {
 
     public void LevelComplete() {
         Debug.Log("Level Complete");
+        StartLevelEndedTransition();
         // TODO: show some effect in between camaras
         // (maybe add a camera to scenecontroller that just shows black and activate it here)
         // (maybe don't delete player here, do the delete on awake)
-        Destroy(playerObject);
-        Destroy(this.gameObject);
 
-        // TODO: adjust exception for final level (return to menu)
-        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        Invoke("LevelCompleteLogic", 1f);
     }
 
     // save current list of position and reload scene
