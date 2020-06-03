@@ -31,11 +31,11 @@ public class SceneController : MonoBehaviour {
 
     // animator/transition variables
     public enum GunAbility {
-        NONE,                   // no ability
-        RESET_WITH_SAVE,        // ability 1
-        RESET_WITHOUT_SAVE,     // ability 2
-        RESET_AND_DELETE_PREV,  // ability 3
-        HARD_RESET,             // ability 4
+        NONE,                       // no ability
+        RESET_WITH_SAVE_1,          // ability 1
+        RESET_WITHOUT_SAVE_2,       // ability 2
+        RESET_AND_DELETE_PREV_3,    // ability 3
+        HARD_RESET_4,               // ability 4
     }
     public GunAbility lastGunAbilityUsed = GunAbility.NONE;
     private float transitionTime = 1f;
@@ -160,10 +160,18 @@ public class SceneController : MonoBehaviour {
 
     void StartAbilityUsedTransition (GunAbility calledFrom) {
         switch (calledFrom) {
-            case GunAbility.RESET_WITH_SAVE:
+            case GunAbility.RESET_WITH_SAVE_1:
                 ability1Transition.SetTrigger("AbilityUsed");
                 break;
-
+            case GunAbility.RESET_WITHOUT_SAVE_2:
+                ability2Transition.SetTrigger("AbilityUsed");
+                break;
+            case GunAbility.RESET_AND_DELETE_PREV_3:
+                ability3Transition.SetTrigger("AbilityUsed");
+                break;
+            case GunAbility.HARD_RESET_4:
+                ability4Transition.SetTrigger("AbilityUsed");
+                break;
 
             default:
                 Debug.LogError("Unexpected default state reached!");
@@ -175,10 +183,18 @@ public class SceneController : MonoBehaviour {
 
     void StartAbilityLevelLoadedTransition () {
         switch (lastGunAbilityUsed) {
-            case GunAbility.RESET_WITH_SAVE:
+            case GunAbility.RESET_WITH_SAVE_1:
                 ability1Transition.SetTrigger("AbilityLevelLoaded");
                 break;
-
+            case GunAbility.RESET_WITHOUT_SAVE_2:
+                ability2Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+            case GunAbility.RESET_AND_DELETE_PREV_3:
+                ability3Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+            case GunAbility.HARD_RESET_4:
+                ability4Transition.SetTrigger("AbilityLevelLoaded");
+                break;
             case GunAbility.NONE:
                 break;
             default:
@@ -250,7 +266,7 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITH SAVE");
 
-        StartAbilityUsedTransition(GunAbility.RESET_WITH_SAVE);
+        StartAbilityUsedTransition(GunAbility.RESET_WITH_SAVE_1);
 
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
@@ -264,10 +280,12 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITHOUT SAVE");
 
+        StartAbilityUsedTransition(GunAbility.RESET_WITHOUT_SAVE_2);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
 
-        ReloadScene();
+        Invoke("ReloadScene", transitionTime);
     }
 
     // reload scene and delete last recording (if any)
@@ -275,11 +293,13 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL AND DELETING PREVIOUS RUN");
 
+        StartAbilityUsedTransition(GunAbility.RESET_AND_DELETE_PREV_3);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
-
         DeleteLastRun();
-        ReloadScene();
+
+        Invoke("ReloadScene", transitionTime);
     }
 
     // hard reset of the scene (clearing all recordings)
@@ -287,12 +307,14 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("HARD LEVEL RESET");
 
+        StartAbilityUsedTransition(GunAbility.HARD_RESET_4);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
-
         ghostPaths.Clear();
         playerPositions.Clear();
-        ReloadScene();
+
+        Invoke("ReloadScene", transitionTime);
     }
 
     public void DestroyCurrentPlayerAndSceneController () {
