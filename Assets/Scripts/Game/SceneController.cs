@@ -30,7 +30,20 @@ public class SceneController : MonoBehaviour {
     public bool canFireGunInCurrentLevel = true;
 
     // animator/transition variables
+    public enum GunAbility {
+        NONE,                   // no ability
+        RESET_WITH_SAVE,        // ability 1
+        RESET_WITHOUT_SAVE,     // ability 2
+        RESET_AND_DELETE_PREV,  // ability 3
+        HARD_RESET,             // ability 4
+    }
+    public GunAbility lastGunAbilityUsed = GunAbility.NONE;
+    private float transitionTime = 1f;
     public Animator levelTransition;
+    public Animator ability1Transition;
+    public Animator ability2Transition;
+    public Animator ability3Transition;
+    public Animator ability4Transition;
 
     private void Awake() {
         if (CheckForExistingSceneController()) {
@@ -145,6 +158,35 @@ public class SceneController : MonoBehaviour {
         levelTransition.SetTrigger("LevelEnded");
     }
 
+    void StartAbilityUsedTransition (GunAbility calledFrom) {
+        switch (calledFrom) {
+            case GunAbility.RESET_WITH_SAVE:
+                ability1Transition.SetTrigger("AbilityUsed");
+                break;
+
+
+            default:
+                Debug.LogError("Unexpected default state reached!");
+                break;
+        }
+
+        lastGunAbilityUsed = calledFrom;
+    }
+
+    void StartAbilityLevelLoadedTransition () {
+        switch (lastGunAbilityUsed) {
+            case GunAbility.RESET_WITH_SAVE:
+                ability1Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+
+            case GunAbility.NONE:
+                break;
+            default:
+                Debug.LogError("Unexpected default state reached!");
+                break;
+        }
+    }
+
 
     // helper methods
 
@@ -180,7 +222,7 @@ public class SceneController : MonoBehaviour {
 
     public void SetupScene() {
         Invoke("StartRun", 0.5f); // TODO: adjust this
-        // TODO: call rest of ability animation here (if null, its the original level loading)
+        StartAbilityLevelLoadedTransition();
         timeRecorded = 0f;
         RepositionPlayer();
         CreateGhosts();
@@ -208,12 +250,13 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITH SAVE");
 
+        StartAbilityUsedTransition(GunAbility.RESET_WITH_SAVE);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
-
         SavePositions();
-        // TODO: ANIM - screen goes black/white/etc to indicate the use of the gun
-        ReloadScene();
+
+        Invoke("ReloadScene", transitionTime);
     }
 
     // reload scene without saving current list of position
