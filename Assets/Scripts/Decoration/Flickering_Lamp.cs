@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using FMODUnity;
 
-public class Flickering_Lamp : MonoBehaviour
-{
+public class Flickering_Lamp : MonoBehaviour {
     public new Light light;
 
     private float time;
@@ -13,24 +11,23 @@ public class Flickering_Lamp : MonoBehaviour
     private Material material;
     public ParticleSystem particle;
 
-    void Start()
-    {
+    public StudioEventEmitter soundEvent;
+    public BoxCollider box;
+
+    void Start() {
+        SetupSound();
         time = 0;
-        foreach (Material mat in GetComponent<Renderer>().materials)
-        {
-            if (mat.name == "Light (Instance)")
-            {
+        foreach (Material mat in GetComponent<Renderer>().materials) {
+            if (mat.name == "Light (Instance)") {
                 material = mat;
                 return;
             }
         }
     }
 
-    void Update()
-    {
+    void Update() {
         time += Time.deltaTime;
-        if (time > 0.1)
-        {
+        if (time > 0.1) {
             time = 0;
 
             float randomNumber = Random.Range(min, max);
@@ -38,7 +35,13 @@ public class Flickering_Lamp : MonoBehaviour
                 particle.Play();
 
             this.light.intensity = randomNumber;
-            material.SetColor("_EmissionColor", new Vector4(1, 1, 1) * (randomNumber/max));
+            material.SetColor("_EmissionColor", new Vector4(1, 1, 1) * (randomNumber / max));
         }
+    }
+
+    void SetupSound() {
+        soundEvent.OverrideAttenuation = true;
+        soundEvent.OverrideMinDistance = 0.1f;
+        soundEvent.OverrideMaxDistance = box.size.magnitude;
     }
 }
