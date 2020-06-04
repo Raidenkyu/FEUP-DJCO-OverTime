@@ -35,7 +35,7 @@ public class Flickering_Lamp : MonoBehaviour {
                 particle.Play();
 
             this.light.intensity = randomNumber;
-            material.SetColor("_EmissionColor", new Vector4(1, 1, 1) * (randomNumber / max));
+            material?.SetColor("_EmissionColor", new Vector4(1, 1, 1) * (randomNumber / max));
         }
     }
 
