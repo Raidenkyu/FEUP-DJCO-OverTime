@@ -1755,7 +1755,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.8
+  m_Radius: 0.6
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
@@ -1796,7 +1796,7 @@ MonoBehaviour:
   animator: {fileID: 2636660311095627578}
   agent: {fileID: 2636660311095627576}
   movement: {fileID: 2636660311095627574}
-  vision: {fileID: 2117774271791090719}
+  visionObject: {fileID: 3613612837641035263}
   visionLength: 5
   roamingSpeed: 1
   preyingSpeed: 5
@@ -2552,8 +2552,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: Player
   Event: event:/Creature/creature_footsteps
-  PlayEvent: 3
-  StopEvent: 4
+  PlayEvent: 0
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 1
   Preload: 0

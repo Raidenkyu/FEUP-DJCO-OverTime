@@ -6,7 +6,8 @@ public class MonsterBehaviour : MonoBehaviour {
     public Animator animator;
     public NavMeshAgent agent;
     public MonsterMovement movement;
-    public MonsterVision vision;
+    public GameObject visionObject;
+    MonsterVision vision;
     public float visionLength = 5.0f;
     public float roamingSpeed = 1.0f;
     public float preyingSpeed = 2.0f;
@@ -18,6 +19,7 @@ public class MonsterBehaviour : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         state = MonsterState.ROAM;
+        vision = visionObject.GetComponent<MonsterVision>();
         vision.caught += Prey;
     }
 
@@ -26,6 +28,7 @@ public class MonsterBehaviour : MonoBehaviour {
     }
 
     void Prey(GameObject target) {
+        visionObject.SetActive(false);
         this.state = MonsterState.PREY;
         this.agent.stoppingDistance = this.stopingDistance;
         this.agent.autoBraking = true;
@@ -35,12 +38,14 @@ public class MonsterBehaviour : MonoBehaviour {
     }
 
     public void Attack() {
+        visionObject.SetActive(false);
         this.state = MonsterState.ATTACK;
         animator.SetTrigger("Attack");
     }
 
     public void Roam() {
         this.state = MonsterState.ROAM;
+        visionObject.SetActive(false);
         this.agent.stoppingDistance = 0;
         this.agent.autoBraking = false;
         animator.SetTrigger("Roam");
@@ -49,6 +54,7 @@ public class MonsterBehaviour : MonoBehaviour {
     }
 
     public void Freeze() {
+        visionObject.SetActive(false);
         state = MonsterState.FREEZE;
         animator.enabled = false;
         agent.isStopped = true;

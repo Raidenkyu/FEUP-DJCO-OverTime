@@ -218,12 +218,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.4
-  m_Radius: 0.2
+  m_Radius: 0.3
   m_SlopeLimit: 30
   m_StepOffset: 0.4
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.45, z: 0}
+  m_Center: {x: 0.3, y: 1.45, z: 0}
 --- !u!114 &8216594248780378484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,7 +252,6 @@ MonoBehaviour:
   currentGhostPoint: 0
   hasClickedE: 0
   hasClickedLeftClick: 0
-  listener: {fileID: 3861733195692406140}
   soundDelay: 0.5
   deathRotationSpeed: 0.5
 --- !u!1 &8216594249312384056
