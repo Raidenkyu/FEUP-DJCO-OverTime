@@ -28186,12 +28186,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1459230473}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &847601744 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8951117617847228964, guid: f1d77cdccdf8dff4bad35d7d963960ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 1460096981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &849724187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4516215191552552, guid: d70a27546822c004b81f0b6ce1dda5aa,
@@ -45011,33 +45005,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1338934060}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1338957713 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 1460096981}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1338957717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1460096981}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1338957718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1338957713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3f6071e8ff017145bd884b7606b2cc8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 454334189}
-  cilinder_mesh: {fileID: 847601744}
-  light: {fileID: 1709697625}
 --- !u!4 &1341286895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4420211815902802, guid: 91449bd0e8b9dce41803f9c79a993462,
@@ -48942,6 +48915,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 454334189}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1460472834 stripped
