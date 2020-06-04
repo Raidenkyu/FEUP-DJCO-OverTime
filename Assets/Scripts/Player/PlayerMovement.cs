@@ -115,6 +115,8 @@ public class PlayerMovement : MonoBehaviour {
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
                 // firedGun = true; // TODO: uncomment this for final version
                 hasClickedLeftClick = true;
+                int numberOfClonesLeft = SceneController.Instance.GetNumberClonesLeft();
+                if (numberOfClonesLeft <= 0) return; // if no more clones available, ignore rest of logic
                 Debug.Log("PLAYER LEFT CLICK!");
                 if (playerGun != null) {
                     playerGun.GetComponent<Gun>().Shoot();

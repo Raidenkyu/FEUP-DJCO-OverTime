@@ -23,6 +23,7 @@ public class SceneController : MonoBehaviour {
     List<List<PointInTime>> ghostPaths;
     public float timeRecorded = 0f;
     public float maxRecordingTime = 30f;
+    public int maxNumberOfClones = 2;
 
     // control variables
     private bool isReseting = false;
@@ -238,6 +239,10 @@ public class SceneController : MonoBehaviour {
 
     public bool GetIsReseting () {
         return isReseting;
+    }
+
+    public int GetNumberClonesLeft () {
+        return maxNumberOfClones - ghostPaths.Count;
     }
 
     public void SetupScene() {
