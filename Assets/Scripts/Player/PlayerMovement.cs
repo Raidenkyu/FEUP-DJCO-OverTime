@@ -113,19 +113,13 @@ public class PlayerMovement : MonoBehaviour {
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
-                // firedGun = true; // TODO: uncomment this for final version
-                hasClickedLeftClick = true;
                 int numberOfClonesLeft = SceneController.Instance.GetNumberClonesLeft();
                 if (numberOfClonesLeft <= 0) return; // if no more clones available, ignore rest of logic
+                hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
                 if (playerGun != null) {
                     playerGun.GetComponent<Gun>().Shoot();
                 }
-                // SceneController.Instance.ResetWithSave(); // TODO: uncomment this for final version
-            }
-            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.U)) {
-                // TODO: remove this case for final version, only here for easier testing
-                // Debug.Log("PLAYER CLICKED U!");
                 SceneController.Instance.ResetWithSave();
             }
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
