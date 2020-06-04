@@ -64,9 +64,4 @@ public class MonsterBehaviour : MonoBehaviour {
         animator.enabled = true;
         agent.isStopped = false;
     }
-
-    public void ReturnPreying() {
-        this.state = MonsterState.PREY;
-        animator.SetTrigger("Run");
-    }
 }

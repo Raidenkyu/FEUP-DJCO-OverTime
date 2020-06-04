@@ -60,8 +60,6 @@ public class MonsterMovement : MonoBehaviour {
         if (distance <= agent.stoppingDistance) {
             behaviour.Attack();
             FaceTarget();
-        } else {
-
         }
     }
 

@@ -30,9 +30,8 @@ public class PlayerMovement : MonoBehaviour {
     public bool hasClickedLeftClick = false;
 
     // state variables
-    public enum PlayerState { PLAY, PREYED, DEAD };
+    public enum PlayerState { PLAY, PREYED, FACING_DEATH, DEAD };
     private PlayerState state;
-    Transform deathView;
 
     // control variables
     bool firedGun = false;
@@ -41,6 +40,12 @@ public class PlayerMovement : MonoBehaviour {
     // sound variables
     public float soundDelay;
     float soundTimer = 0.5f;
+
+    // death animation variables
+    Quaternion deathAngle;
+    float deathTime = 0;
+    float deathRange = 0;
+    public float deathRotationSpeed = 1.0f;
 
     private void Awake() {
         canFireGunInCurrentLevel = SceneController.Instance.GetCanFireGunInCurrentLevel();
@@ -52,6 +57,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start() {
         state = PlayerState.PLAY;
+
+        deathTime = 1 / deathRotationSpeed;
     }
 
     // Update is called once per frame
@@ -74,7 +81,13 @@ public class PlayerMovement : MonoBehaviour {
             controller.Move(stepSpeed * Time.deltaTime);
             FootStepSound(stepSpeed.magnitude, Time.deltaTime);
 
-            if (state != PlayerState.PLAY) return;
+            if (state != PlayerState.PLAY) {
+                if (state == PlayerState.PREYED) {
+                    FaceDeath();
+                }
+
+                return;
+            };
 
             if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
                 // Debug.Log("JUMP");
@@ -162,7 +175,7 @@ public class PlayerMovement : MonoBehaviour {
         // TODO: change color to be transparent
     }
 
-    public void TogglePlayerGun (bool activeValue) {
+    public void TogglePlayerGun(bool activeValue) {
         playerGun.SetActive(activeValue);
         // canFireGunInCurrentLevel = activeValue;
         // ^ commented this to prevent the player from using the gun in level1 after picking it up
@@ -180,12 +193,15 @@ public class PlayerMovement : MonoBehaviour {
         this.state = newState;
     }
 
-    public void Preyed(Transform deathView) {
+    public void Preyed(Transform monster) {
         if (state != PlayerState.PLAY) return;
+        controller.enabled = false;
         this.state = PlayerState.PREYED;
-        this.deathView = deathView;
-        FaceDeath();
-        Invoke("Die", 1.5f);
+
+        Vector3 deathView = monster.position;
+        Vector3 direction = (deathView - transform.position).normalized;
+        direction.y = 0.2f;
+        deathAngle = Quaternion.LookRotation(direction);
     }
 
     public void Die() {
@@ -195,10 +211,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void FaceDeath() {
-        Vector3 direction = (deathView.position - transform.position).normalized;
-        direction.y = 0;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = lookRotation;
+        deathRange += Time.deltaTime / deathTime;
+        transform.rotation = Quaternion.Slerp(transform.rotation, deathAngle, deathRange);
+
+        if (Quaternion.Angle(transform.rotation, deathAngle) == 0) {
+            transform.rotation = deathAngle;
+            state = PlayerState.FACING_DEATH;
+            Invoke("Die", 1.0f);
+        }
     }
 
     void Interact() {
