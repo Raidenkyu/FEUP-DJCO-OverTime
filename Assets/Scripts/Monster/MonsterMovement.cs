@@ -58,8 +58,8 @@ public class MonsterMovement : MonoBehaviour {
         agent.destination = target.transform.position;
 
         if (distance <= agent.stoppingDistance) {
-            FaceTarget();
             behaviour.Attack();
+            FaceTarget();
         }
     }
 
@@ -85,7 +85,7 @@ public class MonsterMovement : MonoBehaviour {
         Vector3 direction = (target.transform.position - transform.position).normalized;
         direction.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = lookRotation;
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 1);
     }
 
     public GameObject GetTarget() {
