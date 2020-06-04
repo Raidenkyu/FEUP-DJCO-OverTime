@@ -29,6 +29,22 @@ public class SceneController : MonoBehaviour {
     private bool canStartRun = false;
     public bool canFireGunInCurrentLevel = true;
 
+    // animator/transition variables
+    public enum GunAbility {
+        NONE,                       // no ability
+        RESET_WITH_SAVE_1,          // ability 1
+        RESET_WITHOUT_SAVE_2,       // ability 2
+        RESET_AND_DELETE_PREV_3,    // ability 3
+        HARD_RESET_4,               // ability 4
+    }
+    public GunAbility lastGunAbilityUsed = GunAbility.NONE;
+    private float transitionTime = 1f;
+    public Animator levelTransition;
+    public Animator ability1Transition;
+    public Animator ability2Transition;
+    public Animator ability3Transition;
+    public Animator ability4Transition;
+
     private void Awake() {
         if (CheckForExistingSceneController()) {
             return;
@@ -45,6 +61,10 @@ public class SceneController : MonoBehaviour {
 
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(playerObject);
+    }
+
+    private void Start() {
+        StartLevelLoadedTransition();
     }
 
     void FixedUpdate() {
@@ -117,6 +137,73 @@ public class SceneController : MonoBehaviour {
         playerController.enabled = true;
     }
 
+    void LevelCompleteLogic () {
+        Destroy(playerObject);
+        Destroy(this.gameObject);
+
+        // TODO: adjust exception for final level (return to menu)
+        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
+
+
+    // transition methods
+
+    void StartLevelLoadedTransition () {
+        levelTransition.SetTrigger("LevelLoaded");
+    }
+
+    void StartLevelEndedTransition () {
+        levelTransition.SetTrigger("LevelEnded");
+    }
+
+    void StartAbilityUsedTransition (GunAbility calledFrom) {
+        switch (calledFrom) {
+            case GunAbility.RESET_WITH_SAVE_1:
+                ability1Transition.SetTrigger("AbilityUsed");
+                break;
+            case GunAbility.RESET_WITHOUT_SAVE_2:
+                ability2Transition.SetTrigger("AbilityUsed");
+                break;
+            case GunAbility.RESET_AND_DELETE_PREV_3:
+                ability3Transition.SetTrigger("AbilityUsed");
+                break;
+            case GunAbility.HARD_RESET_4:
+                ability4Transition.SetTrigger("AbilityUsed");
+                break;
+
+            default:
+                Debug.LogError("Unexpected default state reached!");
+                break;
+        }
+
+        lastGunAbilityUsed = calledFrom;
+    }
+
+    void StartAbilityLevelLoadedTransition () {
+        switch (lastGunAbilityUsed) {
+            case GunAbility.RESET_WITH_SAVE_1:
+                ability1Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+            case GunAbility.RESET_WITHOUT_SAVE_2:
+                ability2Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+            case GunAbility.RESET_AND_DELETE_PREV_3:
+                ability3Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+            case GunAbility.HARD_RESET_4:
+                ability4Transition.SetTrigger("AbilityLevelLoaded");
+                break;
+            case GunAbility.NONE:
+                break;
+            default:
+                Debug.LogError("Unexpected default state reached!");
+                break;
+        }
+    }
+
+
     // helper methods
 
     void AllowReset() {
@@ -126,6 +213,7 @@ public class SceneController : MonoBehaviour {
 
     void BlockReset() {
         isReseting = true;
+        playerController.enabled = false;
     }
 
     bool CheckForExistingSceneController() {
@@ -151,6 +239,7 @@ public class SceneController : MonoBehaviour {
 
     public void SetupScene() {
         Invoke("StartRun", 0.5f); // TODO: adjust this
+        StartAbilityLevelLoadedTransition();
         timeRecorded = 0f;
         RepositionPlayer();
         CreateGhosts();
@@ -165,16 +254,12 @@ public class SceneController : MonoBehaviour {
 
     public void LevelComplete() {
         Debug.Log("Level Complete");
+        StartLevelEndedTransition();
         // TODO: show some effect in between camaras
         // (maybe add a camera to scenecontroller that just shows black and activate it here)
         // (maybe don't delete player here, do the delete on awake)
-        Destroy(playerObject);
-        Destroy(this.gameObject);
 
-        // TODO: adjust exception for final level (return to menu)
-        if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        Invoke("LevelCompleteLogic", 1f);
     }
 
     // save current list of position and reload scene
@@ -182,12 +267,13 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITH SAVE");
 
+        StartAbilityUsedTransition(GunAbility.RESET_WITH_SAVE_1);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
-
         SavePositions();
-        // TODO: ANIM - screen goes black/white/etc to indicate the use of the gun
-        ReloadScene();
+
+        Invoke("ReloadScene", transitionTime);
     }
 
     // reload scene without saving current list of position
@@ -195,10 +281,12 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL WITHOUT SAVE");
 
+        StartAbilityUsedTransition(GunAbility.RESET_WITHOUT_SAVE_2);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
 
-        ReloadScene();
+        Invoke("ReloadScene", transitionTime);
     }
 
     // reload scene and delete last recording (if any)
@@ -206,11 +294,13 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("RESETING LEVEL AND DELETING PREVIOUS RUN");
 
+        StartAbilityUsedTransition(GunAbility.RESET_AND_DELETE_PREV_3);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
-
         DeleteLastRun();
-        ReloadScene();
+
+        Invoke("ReloadScene", transitionTime);
     }
 
     // hard reset of the scene (clearing all recordings)
@@ -218,12 +308,14 @@ public class SceneController : MonoBehaviour {
         if (isReseting) return;
         Debug.Log("HARD LEVEL RESET");
 
+        StartAbilityUsedTransition(GunAbility.HARD_RESET_4);
+
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
-
         ghostPaths.Clear();
         playerPositions.Clear();
-        ReloadScene();
+
+        Invoke("ReloadScene", transitionTime);
     }
 
     public void DestroyCurrentPlayerAndSceneController () {

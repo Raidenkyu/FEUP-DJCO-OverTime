@@ -67,19 +67,12 @@ public class PlayerMovement : MonoBehaviour {
         if (!SceneController.Instance.CanStartRun()) return;
 
         if (!isGhost) {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (isGrounded && velocity.y < 0) {
-                velocity.y = -2f;
-            }
-
+            // horizontal movement
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
             Vector3 move = transform.right * x + transform.forward * z;
-
             Vector3 stepSpeed = move * speed;
-            controller.Move(stepSpeed * Time.deltaTime);
             FootStepSound(stepSpeed.magnitude, Time.deltaTime);
 
             if (state != PlayerState.PLAY) {
@@ -90,9 +83,22 @@ public class PlayerMovement : MonoBehaviour {
                 return;
             };
 
+            // jumping/vertical movement
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            if (isGrounded && velocity.y < 0) {
+                velocity.y = -2f;
+            }
+
             if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
                 // Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+            velocity.y += gravity * Time.deltaTime;
+            
+            // move controller
+            if (controller.enabled) {
+                controller.Move(stepSpeed * Time.deltaTime);
+                controller.Move(velocity * Time.deltaTime);
             }
 
             if (Input.GetKeyDown(KeyCode.E)) {
@@ -103,10 +109,11 @@ public class PlayerMovement : MonoBehaviour {
 
             // TODO: ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
 
+            // if player has fired gun, ignore rest of inputs
+            if (firedGun) return;
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
-
-            if (!firedGun && canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
+            if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
                 // firedGun = true; // TODO: uncomment this for final version
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
@@ -115,31 +122,27 @@ public class PlayerMovement : MonoBehaviour {
                 }
                 // SceneController.Instance.ResetWithSave(); // TODO: uncomment this for final version
             }
-            if (!firedGun && canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.U)) {
+            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.U)) {
                 // TODO: remove this case for final version, only here for easier testing
                 firedGun = true;
                 // Debug.Log("PLAYER CLICKED U!");
                 SceneController.Instance.ResetWithSave();
             }
-            if (!firedGun && canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
+            if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
                 firedGun = true;
                 // Debug.Log("PLAYER RIGHT CLICK!");
                 SceneController.Instance.ResetWithoutSave();
             }
-            if (!firedGun && canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
+            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
                 firedGun = true;
                 // Debug.Log("PLAYER CLICKED R!");
                 SceneController.Instance.ResetAndDeletePrevious();
             }
-            if (!firedGun && canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
+            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
                 firedGun = true;
                 // Debug.Log("PLAYER CLICKED L!");
                 SceneController.Instance.ResetHard();
             }
-
-            velocity.y += gravity * Time.deltaTime;
-
-            controller.Move(velocity * Time.deltaTime);
         }
     }
 
