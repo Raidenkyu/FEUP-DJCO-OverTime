@@ -213,6 +213,7 @@ public class SceneController : MonoBehaviour {
 
     void BlockReset() {
         isReseting = true;
+        playerController.enabled = false;
     }
 
     bool CheckForExistingSceneController() {
