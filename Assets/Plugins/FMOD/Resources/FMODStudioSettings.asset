@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   SwitchSettingsMigration: 1
-  HasSourceProject: 0
-  HasPlatforms: 0
+  HasSourceProject: 1
+  HasPlatforms: 1
   sourceProjectPath: sound/Fmod_doc/SFX_butao_special.fspro
-  sourceBankPath: sound/Fmod_doc/Build/Desktop
+  sourceBankPath: sound/Fmod_doc/Build
   SourceBankPathUnformatted: 
   AutomaticEventLoading: 1
   BankLoadType: 0
@@ -80,6 +80,7 @@ MonoBehaviour:
   - Master
   Banks:
   - Creature
+  - Level 0
   - Player
   BanksToLoad: []
   LiveUpdatePort: 9264

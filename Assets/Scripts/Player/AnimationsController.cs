@@ -44,10 +44,13 @@ public class AnimationsController : MonoBehaviour {
     }
 
     AnimationState UpdateState(List<PointInTime> ghostPath, int currentGhostPoint) {
-        float distance = Vector3.Distance(ghostPath[currentGhostPoint].position, ghostPath[currentGhostPoint - 1].position);
-        AnimationState newState = AnimationState.WALK;
+        Vector3 distance = ghostPath[currentGhostPoint].position - ghostPath[currentGhostPoint - 1].position;
+        AnimationState newState = AnimationState.STOP;
 
-        if (distance > 0) {
+        if (distance.y != 0 && distance.x == 0 && distance.z == 0) {
+            newState = AnimationState.STOP;
+        }
+        else if (distance.magnitude != 0) {
             newState = AnimationState.WALK;
         } else {
             newState = AnimationState.STOP;
