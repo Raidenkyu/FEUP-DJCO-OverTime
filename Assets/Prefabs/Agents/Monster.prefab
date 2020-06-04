@@ -1798,9 +1798,9 @@ MonoBehaviour:
   movement: {fileID: 2636660311095627574}
   visionObject: {fileID: 3613612837641035263}
   visionLength: 5
-  roamingSpeed: 1
+  roamingSpeed: 2
   preyingSpeed: 5
-  stopingDistance: 1.5
+  stopingDistance: 2
 --- !u!114 &2636660311095627574
 MonoBehaviour:
   m_ObjectHideFlags: 0

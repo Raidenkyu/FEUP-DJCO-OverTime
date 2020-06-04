@@ -246,7 +246,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 512
-  speed: 6
+  speed: 4
   gravity: -18
   jumpHeight: 1.5
   currentGhostPoint: 0
