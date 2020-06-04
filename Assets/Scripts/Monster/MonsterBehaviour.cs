@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
-using PlayerState = PlayerMovement.PlayerState;
+using FMODUnity;
 
 public class MonsterBehaviour : MonoBehaviour {
     public Animator animator;
@@ -15,6 +15,8 @@ public class MonsterBehaviour : MonoBehaviour {
 
     public enum MonsterState { ROAM, PREY, ATTACK, FREEZE };
     private MonsterState state;
+
+    public MonsterSoundController soundController;
 
     // Start is called before the first frame update
     void Start() {
@@ -35,12 +37,14 @@ public class MonsterBehaviour : MonoBehaviour {
         animator.SetTrigger("Run");
         agent.speed = preyingSpeed;
         movement.SetTarget(target);
+        soundController.PlayGrowl();
     }
 
     public void Attack() {
         visionObject.SetActive(false);
         this.state = MonsterState.ATTACK;
         animator.SetTrigger("Attack");
+        Invoke("PlayGrowl", 0.2f);
     }
 
     public void Roam() {
@@ -69,5 +73,9 @@ public class MonsterBehaviour : MonoBehaviour {
 
         animator.enabled = true;
         agent.isStopped = false;
+    }
+
+    void PlayGrowl() {
+        soundController.PlayGrowl();
     }
 }
