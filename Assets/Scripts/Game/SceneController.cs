@@ -277,6 +277,7 @@ public class SceneController : MonoBehaviour {
 
         StartAbilityUsedTransition(GunAbility.RESET_WITH_SAVE_1);
 
+        RecordCurrentPosition();
         BlockReset();
         Invoke("AllowReset", 3f);   // TODO: may change this
         SavePositions();
