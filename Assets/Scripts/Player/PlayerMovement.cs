@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour {
     private PlayerState state;
 
     // control variables
-    bool firedGun = false;
     bool canFireGunInCurrentLevel = true;
 
     // sound variables
@@ -110,7 +109,7 @@ public class PlayerMovement : MonoBehaviour {
             // TODO: ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
 
             // if player has fired gun, ignore rest of inputs
-            if (firedGun) return;
+            if (SceneController.Instance.GetIsReseting()) return;
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
@@ -124,22 +123,18 @@ public class PlayerMovement : MonoBehaviour {
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.U)) {
                 // TODO: remove this case for final version, only here for easier testing
-                firedGun = true;
                 // Debug.Log("PLAYER CLICKED U!");
                 SceneController.Instance.ResetWithSave();
             }
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
-                firedGun = true;
                 // Debug.Log("PLAYER RIGHT CLICK!");
                 SceneController.Instance.ResetWithoutSave();
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
-                firedGun = true;
                 // Debug.Log("PLAYER CLICKED R!");
                 SceneController.Instance.ResetAndDeletePrevious();
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
-                firedGun = true;
                 // Debug.Log("PLAYER CLICKED L!");
                 SceneController.Instance.ResetHard();
             }
@@ -183,10 +178,6 @@ public class PlayerMovement : MonoBehaviour {
         playerGun.SetActive(activeValue);
         // canFireGunInCurrentLevel = activeValue;
         // ^ commented this to prevent the player from using the gun in level1 after picking it up
-    }
-
-    public void ResetPlayer() {
-        firedGun = false;
     }
 
     public PlayerState GetState() {

@@ -208,7 +208,6 @@ public class SceneController : MonoBehaviour {
 
     void AllowReset() {
         isReseting = false;
-        playerMovement.ResetPlayer();
     }
 
     void BlockReset() {
@@ -235,6 +234,10 @@ public class SceneController : MonoBehaviour {
 
     public void StartRun() {
         canStartRun = true;
+    }
+
+    public bool GetIsReseting () {
+        return isReseting;
     }
 
     public void SetupScene() {
