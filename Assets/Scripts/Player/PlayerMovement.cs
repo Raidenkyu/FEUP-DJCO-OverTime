@@ -38,8 +38,9 @@ public class PlayerMovement : MonoBehaviour {
     bool canFireGunInCurrentLevel = true;
 
     // sound variables
-    public float soundDelay;
-    float soundTimer = 0.5f;
+    public StudioEventEmitter soundEvent;
+    public float soundDelay = 0.5f;
+    float soundTimer;
 
     // death animation variables
     Quaternion deathAngle;
@@ -236,12 +237,9 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         soundTimer += deltaTime;
-        // Debug.Log("Speed: " + stepSpeed);
-        // Debug.Log("Timer: " + soundTimer);
 
         if (soundTimer >= soundDelay) {
-            // Debug.Log("Play Footsetp");
-            //RuntimeManager.PlayOneShot("event:/Player/player_footsteps");
+            soundEvent.Play();
             soundTimer = 0;
         }
     }
