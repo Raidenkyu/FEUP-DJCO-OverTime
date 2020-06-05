@@ -40,6 +40,8 @@ public class Flickering_Lamp : MonoBehaviour {
     }
 
     void SetupSound() {
+        if (soundEvent == null) return;
+
         soundEvent.OverrideAttenuation = true;
         soundEvent.OverrideMinDistance = 0.1f;
         soundEvent.OverrideMaxDistance = box.size.magnitude;

@@ -1699,7 +1699,6 @@ GameObject:
   - component: {fileID: 2636660311095627576}
   - component: {fileID: 2636660311095627575}
   - component: {fileID: 2636660311095627574}
-  - component: {fileID: 4711186095907765164}
   m_Layer: 13
   m_Name: monster_orc
   m_TagString: Monster
@@ -1817,22 +1816,6 @@ MonoBehaviour:
   checkpointsObject: {fileID: 2636660310929250526}
   agent: {fileID: 2636660311095627576}
   behaviour: {fileID: 2636660311095627575}
---- !u!54 &4711186095907765164
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2636660311095627572}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &2636660311141994019
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,7 +2598,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capsule: {fileID: 2074846994091948836}
   behaviour: {fileID: 2636660311095627575}
-  stepDelay: 0.5
+  stepDelay: 0.75
   runDelay: 0.3
   stepEvent: {fileID: 8865053541887416258}
   growlEvent: {fileID: 1287951507084180524}
