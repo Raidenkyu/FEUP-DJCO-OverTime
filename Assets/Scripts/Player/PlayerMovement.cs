@@ -190,14 +190,18 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void Preyed(Transform monster) {
-        if (state != PlayerState.PLAY) return;
-        controller.enabled = false;
-        this.state = PlayerState.PREYED;
+        if (!isGhost) {
+            if (state != PlayerState.PLAY) return;
+            controller.enabled = false;
+            this.state = PlayerState.PREYED;
 
-        Vector3 deathView = monster.position;
-        Vector3 direction = (deathView - transform.position).normalized;
-        direction.y = 0.2f;
-        deathAngle = Quaternion.LookRotation(direction);
+            Vector3 deathView = monster.position;
+            Vector3 direction = (deathView - transform.position).normalized;
+            direction.y = 0.2f;
+            deathAngle = Quaternion.LookRotation(direction);
+        } else {
+            // TODO: check with team to see what to do in this scenario
+        }
     }
 
     public void Die() {

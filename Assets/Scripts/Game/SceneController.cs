@@ -127,7 +127,8 @@ public class SceneController : MonoBehaviour {
         canStartRun = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); // TODO: Might change to build index
         RepositionPlayer();
-        playerMovement.SetState(PlayerMovement.PlayerState.PLAY);
+        ResetPlayerState();
+        Invoke("ResetPlayerState", transitionTime); // here to make sure the player is in PLAY state (due to bug with orc killing mid animation)
     }
 
     // Reposition the player in the spawnpoint
@@ -136,6 +137,11 @@ public class SceneController : MonoBehaviour {
         playerController.transform.position = levelSpawnpoint.position;
         playerController.transform.rotation = levelSpawnpoint.rotation;
         playerController.enabled = true;
+    }
+
+    // Reset the player to its initial condition
+    void ResetPlayerState () {
+        playerMovement.SetState(PlayerMovement.PlayerState.PLAY);
     }
 
     void LevelCompleteLogic () {
