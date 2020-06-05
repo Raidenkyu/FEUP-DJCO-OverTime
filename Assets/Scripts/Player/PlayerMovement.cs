@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // sound variables
     public StudioEventEmitter soundEvent;
+    public StudioEventEmitter timeTravelEvent;
     public float soundDelay = 0.5f;
     float soundTimer;
 
@@ -120,18 +121,22 @@ public class PlayerMovement : MonoBehaviour {
                 if (playerGun != null) {
                     playerGun.GetComponent<Gun>().Shoot();
                 }
+                Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithSave();
             }
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
                 // Debug.Log("PLAYER RIGHT CLICK!");
+                Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithoutSave();
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
                 // Debug.Log("PLAYER CLICKED R!");
+                TimeTravelSound();
                 SceneController.Instance.ResetAndDeletePrevious();
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
                 // Debug.Log("PLAYER CLICKED L!");
+                TimeTravelSound();
                 SceneController.Instance.ResetHard();
             }
         }
@@ -232,5 +237,9 @@ public class PlayerMovement : MonoBehaviour {
             soundEvent.Play();
             soundTimer = 0;
         }
+    }
+
+    void TimeTravelSound() {
+        timeTravelEvent.Play();
     }
 }
