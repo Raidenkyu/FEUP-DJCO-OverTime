@@ -2,13 +2,13 @@
 
 public class Level2Controller : MonoBehaviour
 {
-    public GameObject door;
+    public DoorController door;
 
     public void OpenDoor() {
-        door.SetActive(false);
+        door.Open();
     }
 
     public void CloseDoor() {
-        door.SetActive(true);
+        door.Close();
     }
 }
