@@ -114,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7317513774594234885}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: 0.272, y: 0.213, z: -0.141}
+  m_LocalPosition: {x: 0.272, y: 0.213, z: -0.27}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 7052046664433946938}
@@ -220,12 +220,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.4
-  m_Radius: 0.3
+  m_Radius: 0.4
   m_SlopeLimit: 30
   m_StepOffset: 0.4
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0.3, y: 1.45, z: 0}
+  m_Center: {x: 0.1, y: 1.45, z: 0}
 --- !u!114 &8216594248780378484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -769,22 +769,22 @@ PrefabInstance:
     - target: {fileID: 6115751662829954409, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6115751662829954409, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6115751662829954409, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6115751662829954409, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6235422975567765819, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
         type: 3}
