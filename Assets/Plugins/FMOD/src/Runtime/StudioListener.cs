@@ -8,6 +8,8 @@ namespace FMODUnity
         Rigidbody rigidBody;
         Rigidbody2D rigidBody2D;
 
+        public GameObject attenuationObject;
+
         public int ListenerNumber = -1;
 
         void OnEnable()
@@ -35,11 +37,11 @@ namespace FMODUnity
         {
             if (rigidBody)
             {
-                RuntimeManager.SetListenerLocation(ListenerNumber, gameObject, rigidBody);
+                RuntimeManager.SetListenerLocation(ListenerNumber, gameObject, rigidBody, attenuationObject);
             }
             else
             {
-                RuntimeManager.SetListenerLocation(ListenerNumber, gameObject, rigidBody2D);
+                RuntimeManager.SetListenerLocation(ListenerNumber, gameObject, rigidBody2D, attenuationObject);
             }
         }
     }

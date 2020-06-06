@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 public class Gun : MonoBehaviour {
     public float range = 100f;
@@ -16,6 +17,8 @@ public class Gun : MonoBehaviour {
     public TextMeshPro tmp;
 
     public GameObject firePoint;
+
+    public StudioEventEmitter soundEvent;
 
     // Update is called once per frame
     void Start() {
@@ -49,6 +52,7 @@ public class Gun : MonoBehaviour {
     }
 
     public void Shoot() {
+        soundEvent.Play();
         FreezeMonster();
         ResetTime();
     }
@@ -64,7 +68,7 @@ public class Gun : MonoBehaviour {
         if (Physics.Raycast(src, dest, out Hit, range, layerMask)) {
             Debug.DrawRay(src, dest * Hit.distance, Color.white);
             Debug.Log(Hit.collider.tag);
-            Hit.collider.gameObject.GetComponent<MonsterBehaviour>().Freeze();
+            Hit.collider.gameObject.GetComponent<MonsterBehaviour>()?.Freeze();
         } else {
             Debug.DrawRay(src, dest * range, Color.white);
         }

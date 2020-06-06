@@ -60,8 +60,6 @@ public class MonsterMovement : MonoBehaviour {
         if (distance <= agent.stoppingDistance) {
             behaviour.Attack();
             FaceTarget();
-        } else {
-
         }
     }
 
@@ -75,10 +73,18 @@ public class MonsterMovement : MonoBehaviour {
     }
 
     public void AttackController() {
+        if (target == null) {
+            behaviour.Roam();
+        }
+        else if (target.gameObject == null) {
+            behaviour.Roam();
+        }
 
-        target.gameObject.GetComponent<PlayerMovement>().Preyed(transform);
+        target?.gameObject?.GetComponent<PlayerMovement>()?.Preyed(transform);
 
-        if (target.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.DEAD) {
+        if (target == null
+        || target.gameObject == null
+        || target.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.DEAD) {
             behaviour.Roam();
         }
     }
@@ -87,7 +93,7 @@ public class MonsterMovement : MonoBehaviour {
         Vector3 direction = (target.transform.position - transform.position).normalized;
         direction.y = 0;
         Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 1);
     }
 
     public GameObject GetTarget() {

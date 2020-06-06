@@ -1,5 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3388586876875942966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4762003974174364805}
+  - component: {fileID: 8780864691849407227}
+  - component: {fileID: 8708677238528082220}
+  m_Layer: 16
+  m_Name: ReverbZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4762003974174364805
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388586876875942966}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5274060141543945160}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8780864691849407227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388586876875942966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: Player
+  Event: event:/SFX/SFX_shortcircuit
+  PlayEvent: 3
+  StopEvent: 4
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!65 &8708677238528082220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3388586876875942966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 16.106165, y: 2.2567897, z: 6.075466}
+  m_Center: {x: 0.024806023, y: -1.0935004, z: -0.25871563}
 --- !u!114 &8963012440079621560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,6 +84,8 @@ MonoBehaviour:
   min: 0.5
   max: 1
   particle: {fileID: 0}
+  soundEvent: {fileID: 8780864691849407227}
+  box: {fileID: 8708677238528082220}
 --- !u!1001 &5278118503933420388
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,6 +146,12 @@ PrefabInstance:
 --- !u!1 &5276765845128560284 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1533014162218488, guid: 83703d1837d1d4d4fa3dfdcb40a2c372,
+    type: 3}
+  m_PrefabInstance: {fileID: 5278118503933420388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5274060141543945160 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4113349799039148, guid: 83703d1837d1d4d4fa3dfdcb40a2c372,
     type: 3}
   m_PrefabInstance: {fileID: 5278118503933420388}
   m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PlayerMovement : MonoBehaviour {
     // external references
@@ -23,47 +24,81 @@ public class PlayerMovement : MonoBehaviour {
 
     // ghost specific variables
     bool isGhost = false;
-    List<PointInTime> ghostPath = new List<PointInTime>();
-    int currentGhostPoint = 0;
+    public List<PointInTime> ghostPath = new List<PointInTime>();
+    public int currentGhostPoint = 0;
     public bool hasClickedE = false;
     public bool hasClickedLeftClick = false;
 
     // state variables
-    public enum PlayerState { PLAY, PREYED, DEAD };
+    public enum PlayerState { PLAY, PREYED, FACING_DEATH, DEAD };
     private PlayerState state;
-    Transform deathView;
 
     // control variables
-    bool firedGun = false;
+    bool canFireGunInCurrentLevel = true;
+
+    // sound variables
+    public StudioEventEmitter soundEvent;
+    public StudioEventEmitter timeTravelEvent;
+    public float soundDelay = 0.5f;
+    float soundTimer;
+
+    // death animation variables
+    Quaternion deathAngle;
+    float deathTime = 0;
+    float deathRange = 0;
+    public float deathRotationSpeed = 1.0f;
+
+    private void Awake() {
+        canFireGunInCurrentLevel = SceneController.Instance.GetCanFireGunInCurrentLevel();
+
+        if (!canFireGunInCurrentLevel) {
+            TogglePlayerGun(false);
+        }
+    }
 
     void Start() {
         state = PlayerState.PLAY;
+
+        deathTime = 1 / deathRotationSpeed;
     }
 
     // Update is called once per frame
     void Update() {
-        // do nothing if the run can't start yet
         if (!SceneController.Instance.CanStartRun()) return;
 
         if (!isGhost) {
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-            if (isGrounded && velocity.y < 0) {
-                velocity.y = -2f;
-            }
-
+            // horizontal movement
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
             Vector3 move = transform.right * x + transform.forward * z;
+            Vector3 stepSpeed = move * speed;
+            FootStepSound(stepSpeed.magnitude, Time.deltaTime);
 
-            controller.Move(move * speed * Time.deltaTime);
+            if (state != PlayerState.PLAY) {
+                if (state == PlayerState.PREYED) {
+                    FaceDeath();
+                }
 
-            if (state != PlayerState.PLAY) return;
+                return;
+            };
+
+            // jumping/vertical movement
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            if (isGrounded && velocity.y < 0) {
+                velocity.y = -2f;
+            }
 
             if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
                 // Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+            velocity.y += gravity * Time.deltaTime;
+            
+            // move controller
+            if (controller.enabled) {
+                controller.Move(stepSpeed * Time.deltaTime);
+                controller.Move(velocity * Time.deltaTime);
             }
 
             if (Input.GetKeyDown(KeyCode.E)) {
@@ -74,41 +109,36 @@ public class PlayerMovement : MonoBehaviour {
 
             // TODO: ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
 
+            // if player has fired gun, ignore rest of inputs
+            if (SceneController.Instance.GetIsReseting()) return;
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
-
-            if (!firedGun && Input.GetButtonDown("Fire1")) {
-                // firedGun = true; // TODO: uncomment this for final version
+            if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
+                int numberOfClonesLeft = SceneController.Instance.GetNumberClonesLeft();
+                if (numberOfClonesLeft <= 0) return; // if no more clones available, ignore rest of logic
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
-                playerGun.GetComponent<Gun>().Shoot();
-                // SceneController.Instance.ResetWithSave(); // TODO: uncomment this for final version
-            }
-            if (!firedGun && Input.GetKeyDown(KeyCode.U)) {
-                // TODO: remove this case for final version, only here for easier testing
-                firedGun = true;
-                // Debug.Log("PLAYER CLICKED U!");
+                if (playerGun != null) {
+                    playerGun.GetComponent<Gun>().Shoot();
+                }
+                Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithSave();
             }
-            if (!firedGun && Input.GetButtonDown("Fire2")) {
-                firedGun = true;
+            if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
                 // Debug.Log("PLAYER RIGHT CLICK!");
+                Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithoutSave();
             }
-            if (!firedGun && Input.GetKeyDown(KeyCode.R)) {
-                firedGun = true;
+            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
                 // Debug.Log("PLAYER CLICKED R!");
+                TimeTravelSound();
                 SceneController.Instance.ResetAndDeletePrevious();
             }
-            if (!firedGun && Input.GetKeyDown(KeyCode.L)) {
-                firedGun = true;
+            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
                 // Debug.Log("PLAYER CLICKED L!");
+                TimeTravelSound();
                 SceneController.Instance.ResetHard();
             }
-
-            velocity.y += gravity * Time.deltaTime;
-
-            controller.Move(velocity * Time.deltaTime);
         }
     }
 
@@ -121,6 +151,7 @@ public class PlayerMovement : MonoBehaviour {
                 PointInTime currentPointInTime = ghostPath[currentGhostPoint];
                 this.transform.position = currentPointInTime.position;
                 this.transform.rotation = currentPointInTime.rotation;
+                playerCamera.transform.rotation = currentPointInTime.cameraAngle;
                 currentGhostPoint++;
                 if (currentPointInTime.clickE) {
                     Debug.Log("GHOST PRESSED E!");
@@ -144,8 +175,10 @@ public class PlayerMovement : MonoBehaviour {
         // TODO: change color to be transparent
     }
 
-    public void ResetPlayer () {
-        firedGun = false;
+    public void TogglePlayerGun(bool activeValue) {
+        playerGun.SetActive(activeValue);
+        // canFireGunInCurrentLevel = activeValue;
+        // ^ commented this to prevent the player from using the gun in level1 after picking it up
     }
 
     public PlayerState GetState() {
@@ -156,12 +189,19 @@ public class PlayerMovement : MonoBehaviour {
         this.state = newState;
     }
 
-    public void Preyed(Transform deathView) {
-        if (state != PlayerState.PLAY) return;
-        this.state = PlayerState.PREYED;
-        this.deathView = deathView;
-        FaceDeath();
-        Invoke("Die", 1.5f);
+    public void Preyed(Transform monster) {
+        if (!isGhost) {
+            if (state != PlayerState.PLAY) return;
+            controller.enabled = false;
+            this.state = PlayerState.PREYED;
+
+            Vector3 deathView = monster.position;
+            Vector3 direction = (deathView - transform.position).normalized;
+            direction.y = 0.2f;
+            deathAngle = Quaternion.LookRotation(direction);
+        } else {
+            Invoke("DisintegrateGhost", 1.0f);
+        }
     }
 
     public void Die() {
@@ -171,16 +211,43 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void FaceDeath() {
-        Vector3 direction = (deathView.position - transform.position).normalized;
-        direction.y = 0;
-        Quaternion lookRotation = Quaternion.LookRotation(direction);
-        transform.rotation = lookRotation;
+        deathRange += Time.deltaTime / deathTime;
+        transform.rotation = Quaternion.Slerp(transform.rotation, deathAngle, deathRange);
+
+        if (Quaternion.Angle(transform.rotation, deathAngle) == 0) {
+            transform.rotation = deathAngle;
+            state = PlayerState.FACING_DEATH;
+            Invoke("Die", 1.0f);
+        }
     }
 
     void Interact() {
         GameObject obj = vision.GetInteractiveObject();
+
         if (obj != null) {
             obj.GetComponent<Interactable>().Interact();
         }
+    }
+
+    void FootStepSound(float stepSpeed, float deltaTime) {
+        if (stepSpeed == 0) {
+            soundTimer = 0;
+            return;
+        }
+
+        soundTimer += deltaTime;
+
+        if (soundTimer >= soundDelay) {
+            soundEvent.Play();
+            soundTimer = 0;
+        }
+    }
+
+    void TimeTravelSound() {
+        timeTravelEvent.Play();
+    }
+
+    void DisintegrateGhost() {
+        Destroy(this.gameObject);
     }
 }

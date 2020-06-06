@@ -362,7 +362,7 @@ namespace FMODUnity
             #elif UNITY_EDITOR_OSX || UNITY_STANDALONE_OSX
                 string pluginFileName = pluginName + ".bundle";
             #elif UNITY_PS4
-                string pluginFileName = pluginName + ".prx";
+                string pluginFileName = "lib" + pluginName + ".prx";
             #elif UNITY_ANDROID || UNITY_STANDALONE_LINUX
                 string pluginFileName = "lib" + pluginName + ".so";
             #elif UNITY_WEBGL
@@ -456,19 +456,31 @@ namespace FMODUnity
 
         public static bool VerifyPlatformLibsExist()
         {
-            string libPath = Application.dataPath + "/Plugins/FMOD/lib/";
-            #if UNITY_XBOXONE 
-            libPath += "xboxone/fmodstudio.dll";
+            string pluginDir = Application.dataPath + "/Plugins/";
+            #if UNITY_EDITOR
+            pluginDir += "FMOD/lib/";
+            #if UNITY_XBOXONE
+            pluginDir += "xboxone/fmodstudio.dll";
             #elif UNITY_PS4
-            libPath += "ps4/libfmodstudio.prx";
+            pluginDir += "ps4/libfmodstudio.prx";
             #elif UNITY_STADIA
-            libPath += "stadia/libfmodstudio.so";
-            #elif UNITY_SWITCH && UNITY_EDITOR // Not called at runtime because the static lib is not included in the built game.
-            libPath += "switch/libfmodstudiounityplugin.a";
+            pluginDir += "stadia/libfmodstudio.so";
+            #elif UNITY_SWITCH // Not called at runtime because the static lib is not included in the built game.
+            pluginDir += "switch/libfmodstudiounityplugin.a";
             #endif
-            if (Path.HasExtension(libPath) && !File.Exists(libPath))
+            #else // !UNITY_EDITOR
+            #if UNITY_XBOXONE
+            pluginDir += "fmodstudio.dll";
+            #elif UNITY_PS4
+            pluginDir += "libfmodstudio.prx";
+            #elif UNITY_STADIA
+            pluginDir += "libfmodstudio.so";
+            #endif
+            #endif // UNITY_EDITOR
+
+            if (Path.HasExtension(pluginDir) && !File.Exists(pluginDir))
             {
-                Debug.LogWarning("[FMOD] Unable to locate '" + libPath +"'.");
+                Debug.LogWarning("[FMOD] Unable to locate '" + pluginDir + "'.");
                 Debug.LogWarning("[FMOD] This platform requires verification 'https://fmod.com/profile#permissions' and an additional package from 'https://fmod.com/download'.");
                 return false;
             }
