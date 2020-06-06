@@ -28,6 +28,7 @@ public class SceneController : MonoBehaviour {
     // control variables
     private bool isReseting = false;
     private bool canStartRun = false;
+    private bool isPaused = false;
     public bool canFireGunInCurrentLevel = true;
 
     // animator/transition variables
@@ -233,6 +234,12 @@ public class SceneController : MonoBehaviour {
         }
     }
 
+    bool CanUseAbilities () {
+        if (isReseting) return false;
+        if (isPaused) return false;
+        return true;
+    }
+
     // public methods
 
     public bool CanStartRun() {
@@ -249,6 +256,12 @@ public class SceneController : MonoBehaviour {
 
     public int GetNumberClonesLeft () {
         return maxNumberOfClones - ghostPaths.Count;
+    }
+
+    public bool CanCreateClones () {
+        if (maxNumberOfClones <= ghostPaths.Count) return false;
+        if (timeRecorded > maxRecordingTime) return false;
+        return true;
     }
 
     public void SetupScene() {
@@ -278,7 +291,7 @@ public class SceneController : MonoBehaviour {
 
     // save current list of position and reload scene
     public void ResetWithSave() {
-        if (isReseting) return;
+        if (!CanUseAbilities()) return;
         Debug.Log("RESETING LEVEL WITH SAVE");
 
         StartAbilityUsedTransition(GunAbility.RESET_WITH_SAVE_1);
@@ -293,7 +306,7 @@ public class SceneController : MonoBehaviour {
 
     // reload scene without saving current list of position
     public void ResetWithoutSave() {
-        if (isReseting) return;
+        if (!CanUseAbilities()) return;
         Debug.Log("RESETING LEVEL WITHOUT SAVE");
 
         StartAbilityUsedTransition(GunAbility.RESET_WITHOUT_SAVE_2);
@@ -306,7 +319,7 @@ public class SceneController : MonoBehaviour {
 
     // reload scene and delete last recording (if any)
     public void ResetAndDeletePrevious() {
-        if (isReseting) return;
+        if (!CanUseAbilities()) return;
         Debug.Log("RESETING LEVEL AND DELETING PREVIOUS RUN");
 
         StartAbilityUsedTransition(GunAbility.RESET_AND_DELETE_PREV_3);
@@ -320,7 +333,7 @@ public class SceneController : MonoBehaviour {
 
     // hard reset of the scene (clearing all recordings)
     public void ResetHard() {
-        if (isReseting) return;
+        if (!CanUseAbilities()) return;
         Debug.Log("HARD LEVEL RESET");
 
         StartAbilityUsedTransition(GunAbility.HARD_RESET_4);
@@ -346,6 +359,11 @@ public class SceneController : MonoBehaviour {
         canFireGunInCurrentLevel = value;
     }
 
+    public void SetIsPaused (bool value) {
+        isPaused = value;
+    }
+
+    public bool GetIsPaused () { return isPaused; }
     public GameObject GetMainPlayerObject () { return playerObject; }
     public PlayerMovement GetMainPlayerMovement () { return playerMovement; }
     public CharacterController GetMainPlayerController () { return playerController; }

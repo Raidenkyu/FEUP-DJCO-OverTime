@@ -45,6 +45,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         isPaused = true;
         // m_MyAudioSource.Pause();
+        SceneController.Instance.SetIsPaused(true);
     }
 
     public void Resume(){
@@ -54,5 +55,6 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         // m_MyAudioSource.Play();
+        SceneController.Instance.SetIsPaused(false);
     }
 }

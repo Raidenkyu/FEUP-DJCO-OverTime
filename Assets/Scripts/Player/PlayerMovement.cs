@@ -114,8 +114,10 @@ public class PlayerMovement : MonoBehaviour {
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
-                int numberOfClonesLeft = SceneController.Instance.GetNumberClonesLeft();
-                if (numberOfClonesLeft <= 0) return; // if no more clones available, ignore rest of logic
+                if (SceneController.Instance.GetIsPaused()) return;
+                if (!SceneController.Instance.CanCreateClones()) return;
+                // TODO: if can't create clones, use different sound
+
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
                 if (playerGun != null) {
@@ -125,17 +127,20 @@ public class PlayerMovement : MonoBehaviour {
                 SceneController.Instance.ResetWithSave();
             }
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
-                // Debug.Log("PLAYER RIGHT CLICK!");
+                if (SceneController.Instance.GetIsPaused()) return;
+
                 Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithoutSave();
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
-                // Debug.Log("PLAYER CLICKED R!");
+                if (SceneController.Instance.GetIsPaused()) return;
+
                 TimeTravelSound();
                 SceneController.Instance.ResetAndDeletePrevious();
             }
             if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
-                // Debug.Log("PLAYER CLICKED L!");
+                if (SceneController.Instance.GetIsPaused()) return;
+
                 TimeTravelSound();
                 SceneController.Instance.ResetHard();
             }
