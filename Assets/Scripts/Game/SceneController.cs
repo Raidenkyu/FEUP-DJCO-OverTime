@@ -167,6 +167,7 @@ public class SceneController : MonoBehaviour {
     void SetupHUD () {
         numberOfClonesLeftHUD.enabled = canFireGunInCurrentLevel;
         timerImageHUD.enabled = canFireGunInCurrentLevel;
+        UpdateHUD();
     }
 
     void UpdateHUD () {
