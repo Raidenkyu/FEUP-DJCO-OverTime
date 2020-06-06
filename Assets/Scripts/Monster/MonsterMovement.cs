@@ -73,10 +73,14 @@ public class MonsterMovement : MonoBehaviour {
     }
 
     public void AttackController() {
+        GameObject obj = target.gameObject;
+        if (obj == null) {
+            behaviour.Roam();
+        }
 
-        target.gameObject.GetComponent<PlayerMovement>().Preyed(transform);
+        obj.GetComponent<PlayerMovement>().Preyed(transform);
 
-        if (target.gameObject.GetComponent<PlayerMovement>().GetState() == PlayerState.DEAD) {
+        if (obj.GetComponent<PlayerMovement>().GetState() == PlayerState.DEAD) {
             behaviour.Roam();
         }
     }

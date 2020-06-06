@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour {
             direction.y = 0.2f;
             deathAngle = Quaternion.LookRotation(direction);
         } else {
-            // TODO: check with team to see what to do in this scenario
+            Invoke("DisintegrateGhost", 1.0f);
         }
     }
 
@@ -245,5 +245,9 @@ public class PlayerMovement : MonoBehaviour {
 
     void TimeTravelSound() {
         timeTravelEvent.Play();
+    }
+
+    void DisintegrateGhost() {
+        Destroy(this.gameObject);
     }
 }
