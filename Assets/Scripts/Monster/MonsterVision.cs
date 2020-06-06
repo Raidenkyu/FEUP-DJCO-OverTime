@@ -35,6 +35,7 @@ public class MonsterVision : MonoBehaviour {
             Vector3 dest = obj.transform.position;
 
             dest.x += 0.2f;
+            dest.z -= 0.2f;
             src.y -= 1.2f;
 
             Vector3 direction = (dest - src);
