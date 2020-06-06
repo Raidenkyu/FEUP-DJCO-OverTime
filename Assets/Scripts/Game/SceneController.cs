@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneController : MonoBehaviour {
     // Singleton methods
@@ -47,6 +49,11 @@ public class SceneController : MonoBehaviour {
     public Animator ability3Transition;
     public Animator ability4Transition;
 
+    // HUD variables 
+    public TextMeshProUGUI numberOfClonesLeftHUD;
+    public TextMeshProUGUI currentLevelHUD;
+    public Image timerImageHUD;
+
     private void Awake() {
         if (CheckForExistingSceneController()) {
             return;
@@ -63,6 +70,7 @@ public class SceneController : MonoBehaviour {
 
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(playerObject);
+        SetupHUD();
     }
 
     private void Start() {
@@ -86,6 +94,7 @@ public class SceneController : MonoBehaviour {
             }
         }
 
+        UpdateHUD();
     }
 
     void DeleteLastRun() {
@@ -155,6 +164,37 @@ public class SceneController : MonoBehaviour {
         }
     }
 
+    void SetupHUD () {
+        numberOfClonesLeftHUD.enabled = canFireGunInCurrentLevel;
+        timerImageHUD.enabled = canFireGunInCurrentLevel;
+    }
+
+    void UpdateHUD () {
+        numberOfClonesLeftHUD.text = GetNumberClonesLeft().ToString();
+        currentLevelHUD.text = GetFormattedLevelName();
+    }
+
+    string GetFormattedLevelName () {
+        switch (SceneManager.GetActiveScene().name) {
+            case "Level0":
+                return "Level 0";
+            case "Level1":
+                return "Level 1";
+            case "Level2":
+                return "Level 2";
+            case "Level3":
+                return "Level 3";
+            case "Level4":
+                return "Level 4";
+            case "Level5":
+                return "Level 5";
+            case "Level6":
+                return "Level 6";
+
+            default:
+                return "Test Level";
+        }
+    }
 
     // transition methods
 
