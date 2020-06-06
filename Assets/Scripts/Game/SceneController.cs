@@ -258,6 +258,12 @@ public class SceneController : MonoBehaviour {
         return maxNumberOfClones - ghostPaths.Count;
     }
 
+    public bool CanCreateClones () {
+        if (maxNumberOfClones <= ghostPaths.Count) return false;
+        if (timeRecorded > maxRecordingTime) return false;
+        return true;
+    }
+
     public void SetupScene() {
         Invoke("StartRun", 0.5f); // TODO: adjust this
         StartAbilityLevelLoadedTransition();

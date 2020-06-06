@@ -115,8 +115,8 @@ public class PlayerMovement : MonoBehaviour {
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
                 if (SceneController.Instance.GetIsPaused()) return;
-                int numberOfClonesLeft = SceneController.Instance.GetNumberClonesLeft();
-                if (numberOfClonesLeft <= 0) return; // if no more clones available, ignore rest of logic
+                if (!SceneController.Instance.CanCreateClones()) return;
+                // TODO: if can't create clones, use different sound
 
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");
