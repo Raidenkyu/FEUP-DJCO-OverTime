@@ -31,7 +31,7 @@ public class Flickering_Lamp : MonoBehaviour {
             time = 0;
 
             float randomNumber = Random.Range(min, max);
-            if ((randomNumber / max) < 0.1 && !particle.IsAlive())
+            if ((randomNumber / max) < 0.1 && particle && !particle.IsAlive())
                 particle.Play();
 
             this.light.intensity = randomNumber;
