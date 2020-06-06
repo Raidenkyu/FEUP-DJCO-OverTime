@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7446503760890490537}
   - component: {fileID: 2952746726902038579}
   - component: {fileID: 4693286679782165000}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: VisionField
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.049459, y: 1.4789635, z: 3.2173986}
-  m_Center: {x: -0.47105765, y: -0.29310244, z: 0.54604864}
+  m_Size: {x: 1.049459, y: 1.0533684, z: 3.2173986}
+  m_Center: {x: -0.47105765, y: -0.08030492, z: 0.54604864}
 --- !u!114 &4693286679782165000
 MonoBehaviour:
   m_ObjectHideFlags: 0

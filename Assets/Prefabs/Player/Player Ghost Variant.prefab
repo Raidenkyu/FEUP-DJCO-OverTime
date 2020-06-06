@@ -28,6 +28,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 5436280896225670755}
   animator: {fileID: 6932926196674850205}
+--- !u!54 &632328022005901137
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5436280896225670756}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!95 &6932926196674850205
 Animator:
   serializedVersion: 3
@@ -596,6 +612,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 3125500003284718026, guid: 91099152906a9b344a55a45235ad0cb0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3127885149611194084, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
       propertyPath: m_Layer
@@ -954,7 +975,7 @@ PrefabInstance:
     - target: {fileID: 5743747735703678500, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
       propertyPath: m_Layer
-      value: 14
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5766051436254598030, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}

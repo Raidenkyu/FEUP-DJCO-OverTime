@@ -9,7 +9,10 @@ public class MonsterVision : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collider) {
         GameObject obj = collider.gameObject;
+        Debug.Log("Found " + obj.name);
         if (obj.tag != "Player") return;
+
+        Debug.Log("Found " + obj.name);
 
         if (!unseenObjects.Contains(obj)) {
             unseenObjects.Add(obj);
@@ -29,13 +32,23 @@ public class MonsterVision : MonoBehaviour {
     void FixedUpdate() {
         foreach (GameObject obj in unseenObjects) {
             Vector3 src = transform.position;
-            src.y -= 1;
-            Vector3 direction = (obj.transform.position - src);
+            Vector3 dest = obj.transform.position;
+
+            dest.x += 0.2f;
+            src.y -= 1.2f;
+
+            Vector3 direction = (dest - src);
             direction.y = 0;
             Vector3 normalizedDirection = direction.normalized;
+
             RaycastHit hit;
-            if (Physics.Raycast(src, normalizedDirection, out hit)) {
-                if (hit.collider.gameObject.tag != "Player") return;
+            int layerMask = ~LayerMask.GetMask("Vision", "MonsterVision", "Reverb");
+
+            if (Physics.Raycast(src, normalizedDirection, out hit, 300, layerMask)) {
+                Debug.Log(hit.collider.gameObject.name);
+                Debug.DrawRay(src, normalizedDirection * hit.distance, Color.white);
+                string objTag = hit.collider.gameObject.tag;
+                if (objTag != "Player" && objTag != "TimeGun") return;
 
                 caught?.Invoke(obj);
             }
