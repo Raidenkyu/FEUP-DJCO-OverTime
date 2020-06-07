@@ -6,6 +6,8 @@ public class Level3Controller : MonoBehaviour {
     public DoorController door1;
     public DoorController door2;
 
+    public GameObject monster;
+
     public void OpenDoor1() {
         door1.Open();
     }
@@ -20,5 +22,9 @@ public class Level3Controller : MonoBehaviour {
 
     public void CloseDoor2() {
         door2.Close();
+    }
+
+    public void TriggerMonster() {
+        monster.SetActive(true);
     }
 }
