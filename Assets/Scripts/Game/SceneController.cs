@@ -16,6 +16,7 @@ public class SceneController : MonoBehaviour {
     GameObject playerObject;
     PlayerMovement playerMovement;
     CharacterController playerController;
+    PlayerLook playerLook;
 
     Gun playerClock;
 
@@ -66,6 +67,7 @@ public class SceneController : MonoBehaviour {
         playerObject = Instantiate(playerPrefab, levelSpawnpoint.position, levelSpawnpoint.rotation);
         playerMovement = playerObject.GetComponent<PlayerMovement>();
         playerController = playerObject.GetComponent<CharacterController>();
+        playerLook = playerObject.GetComponentInChildren<PlayerLook>();
         playerClock = playerObject.transform.Find("Main Camera").transform.Find("timegun")?.GetComponent<Gun>();
 
         DontDestroyOnLoad(this);
@@ -408,6 +410,7 @@ public class SceneController : MonoBehaviour {
     public GameObject GetMainPlayerObject () { return playerObject; }
     public PlayerMovement GetMainPlayerMovement () { return playerMovement; }
     public CharacterController GetMainPlayerController () { return playerController; }
+    public PlayerLook GetMainPlayerLook () { return playerLook; }
 
 }
 
