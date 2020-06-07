@@ -26,6 +26,9 @@ public class PauseMenu : MonoBehaviour
 
     // settings elements
     public Slider sensitivitySlider;
+    public Dropdown graphicsDropdown;
+    public Dropdown resolutionDropdown;
+    public Toggle fullScreenToggle;
 
     // settings multiplier
     public float sensitivityMultiplier = 200f;
@@ -137,6 +140,10 @@ public class PauseMenu : MonoBehaviour
 
     public void SetGraphics (int newGraphicsIndex) {
         QualitySettings.SetQualityLevel(newGraphicsIndex);
+    }
+
+    public void SetFullscreen (bool value) {
+        Screen.fullScreen = value;
     }
 
 }
