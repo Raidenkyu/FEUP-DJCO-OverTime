@@ -246,5 +246,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  pressuredColor: {r: 0, g: 0.22745098, b: 0, a: 1}
+  plateColor: {r: 0.745283, g: 0.14061941, b: 0.14061941, a: 1}
+  pressuredColor: {r: 0, g: 1, b: 0, a: 1}
+  plateMesh: {fileID: 1766038170040338903}
   mesh: {fileID: 976688597928268668}
