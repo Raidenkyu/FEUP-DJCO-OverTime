@@ -12,15 +12,17 @@ public class TraumaInducer : MonoBehaviour {
     [Tooltip("Maximum distance in which objects are affected by this TraumaInducer")]
     public float Range = 45;
 
-    public GameObject playerCamera;
-
     private IEnumerator Start() {
-        playerCamera = SceneController.Instance.GetMainPlayerMovement().playerCamera;
+        PlayerMovement movement = SceneController.Instance.GetMainPlayerMovement();
+        GameObject playerCamera = movement.playerCamera;
+        GameObject body = movement.body;
+
         // Wait for the specified delay 
         yield return new WaitForSeconds(Delay);
 
         StressReceiver receiver = playerCamera.GetComponent<StressReceiver>();
         float elapsed = 0;
+        body.SetActive(false);
 
         while (elapsed < Duration) {
             float distance = Vector3.Distance(transform.position, playerCamera.transform.position);
@@ -32,5 +34,9 @@ public class TraumaInducer : MonoBehaviour {
             elapsed += Time.deltaTime;
             yield return null;
         }
+
+        yield return new WaitForSeconds(1.0f);
+        body.SetActive(true);
+        receiver.enabled = false;
     }
 }

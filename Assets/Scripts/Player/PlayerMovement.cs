@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     // external references
     public GameObject playerCamera;
     public GameObject playerGun;
+    public GameObject body;
     public InteractionsScript vision;
     public CharacterController controller;
 
