@@ -16,6 +16,7 @@ public class TraumaInducer : MonoBehaviour {
         PlayerMovement movement = SceneController.Instance.GetMainPlayerMovement();
         GameObject playerCamera = movement.playerCamera;
         GameObject body = movement.body;
+        CharacterController controller = movement.controller;
 
         // Wait for the specified delay 
         yield return new WaitForSeconds(Delay);
@@ -23,6 +24,7 @@ public class TraumaInducer : MonoBehaviour {
         StressReceiver receiver = playerCamera.GetComponent<StressReceiver>();
         float elapsed = 0;
         body.SetActive(false);
+        controller.enabled = false;
 
         while (elapsed < Duration) {
             float distance = Vector3.Distance(transform.position, playerCamera.transform.position);
@@ -38,5 +40,6 @@ public class TraumaInducer : MonoBehaviour {
         yield return new WaitForSeconds(1.0f);
         body.SetActive(true);
         receiver.enabled = false;
+        controller.enabled = true;
     }
 }
