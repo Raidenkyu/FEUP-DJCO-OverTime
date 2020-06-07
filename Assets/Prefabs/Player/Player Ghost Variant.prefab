@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &6932926196674850205
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1303433592035284701}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f375b95dddcfbab41aaebe112fedf4d5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!54 &632328022005901137
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -63,6 +44,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 5436280896225670755}
   animator: {fileID: 6932926196674850205}
+--- !u!95 &6932926196674850205
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303433592035284701}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f375b95dddcfbab41aaebe112fedf4d5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!95 &6069802485943523014
 Animator:
   serializedVersion: 3
@@ -450,7 +450,7 @@ PrefabInstance:
     - target: {fileID: 2106374460579931097, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 2106374460579931097, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
@@ -460,7 +460,7 @@ PrefabInstance:
     - target: {fileID: 2106374460579931097, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 2106374460579931097, guid: 91099152906a9b344a55a45235ad0cb0,
         type: 3}

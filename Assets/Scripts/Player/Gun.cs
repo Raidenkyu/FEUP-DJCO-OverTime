@@ -17,6 +17,7 @@ public class Gun : MonoBehaviour {
     public TextMeshPro tmp;
 
     public GameObject firePoint;
+    public GameObject fireParticle;
 
     public StudioEventEmitter soundEvent;
 
@@ -31,9 +32,12 @@ public class Gun : MonoBehaviour {
 
     private void FixedUpdate() {
        
-            clockTicks();
+        clockTicks();
 
-        lightUpWires();
+        if(fireParticle.activeSelf)
+        updateParticle();
+
+        
     }
 
     public void clockTicks() {
@@ -51,8 +55,14 @@ public class Gun : MonoBehaviour {
 
     }
 
+    public void updateParticle(){
+        
+        fireParticle.transform.position = new Vector3(fireParticle.transform.position.x, fireParticle.transform.position.y, fireParticle.transform.position.z+1);
+    }
+
     public void Shoot() {
         soundEvent.Play();
+        fireParticle.SetActive(true);
         FreezeMonster();
         ResetTime();
     }
