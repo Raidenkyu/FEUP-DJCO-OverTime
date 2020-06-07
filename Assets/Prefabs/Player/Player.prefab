@@ -272,6 +272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 8216594249312384056}
   playerGun: {fileID: 8700707307447790539}
+  body: {fileID: 6306938107711628073}
   vision: {fileID: 4693286679782165000}
   controller: {fileID: 8216594248780378482}
   isGroundedCheckActive: 0
@@ -966,15 +967,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 472188652539130549}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5684746601768475096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5217925916429413229, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 472188652539130549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8700707307447790539 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9093491269228992894, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 472188652539130549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5684746601768475096 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5217925916429413229, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
     type: 3}
   m_PrefabInstance: {fileID: 472188652539130549}
   m_PrefabAsset: {fileID: 0}
