@@ -961,18 +961,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8, type: 3}
---- !u!1 &8700707307447790539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9093491269228992894, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 472188652539130549}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &5684746601768475096 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5217925916429413229, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 472188652539130549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &596701669980788374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1065774290324349987, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
@@ -982,6 +970,12 @@ GameObject:
 --- !u!4 &5684746601768475096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5217925916429413229, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 472188652539130549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8700707307447790539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9093491269228992894, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
     type: 3}
   m_PrefabInstance: {fileID: 472188652539130549}
   m_PrefabAsset: {fileID: 0}
@@ -1002,7 +996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c17698f595aa942cab4326f0ffaf25c2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.28
+      value: 0.014
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c17698f595aa942cab4326f0ffaf25c2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1010,7 +1004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c17698f595aa942cab4326f0ffaf25c2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.22
+      value: 0.628
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: c17698f595aa942cab4326f0ffaf25c2, type: 3}
       propertyPath: m_LocalRotation.x

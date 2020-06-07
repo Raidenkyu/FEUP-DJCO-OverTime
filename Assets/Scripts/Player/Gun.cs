@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using TMPro;
 using FMODUnity;
+using System.Collections;
 
 public class Gun : MonoBehaviour {
     public float range = 100f;
@@ -19,31 +20,32 @@ public class Gun : MonoBehaviour {
     public GameObject firePoint;
     public GameObject fireParticle;
 
+
     public StudioEventEmitter soundEvent;
 
     // Update is called once per frame
     void Start() {
         currentShifts = totalShifts;
-     
+
     }
     void Update() {
 
     }
 
     private void FixedUpdate() {
-       
+
         clockTicks();
 
-        if(fireParticle.activeSelf)
+
         updateParticle();
 
-        
+
     }
 
     public void clockTicks() {
         if (Time.time >= nextTime) {
 
-       
+
             tmp.text = currentTime.ToString();
             nextTime += interval;
 
@@ -55,9 +57,18 @@ public class Gun : MonoBehaviour {
 
     }
 
-    public void updateParticle(){
-        
-        fireParticle.transform.position = new Vector3(fireParticle.transform.position.x, fireParticle.transform.position.y, fireParticle.transform.position.z+1);
+    public void updateParticle() {
+
+        if (fireParticle.activeSelf) {
+            fireParticle.transform.position += firePoint.transform.forward / 2;
+            Invoke("ResetParticle", 2.0f);
+
+        }
+    }
+
+    void ResetParticle() {
+       fireParticle.transform.position = firePoint.transform.position;
+       fireParticle.SetActive(false);
     }
 
     public void Shoot() {
@@ -70,7 +81,7 @@ public class Gun : MonoBehaviour {
     void FreezeMonster() {
         // Bit shift the index of the layer (8) to get a bit mask
         int layerMask = 1 << 13;
-        
+
         Vector3 src = firePoint.transform.position;
         Vector3 dest = firePoint.transform.forward;
 
