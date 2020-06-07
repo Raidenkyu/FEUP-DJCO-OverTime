@@ -67,7 +67,6 @@ public class Gun : MonoBehaviour {
     }
 
     void ResetParticle() {
-      Debug.Log("AAAAAAAAAA");
        fireParticle.transform.position = firePoint.transform.position;
        fireParticle.SetActive(false);
     }
