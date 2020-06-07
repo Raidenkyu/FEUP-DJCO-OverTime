@@ -1,5 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,13 +18,22 @@ public class PauseMenu : MonoBehaviour
  
     // public GameObject game;
 
+    // UI references
     public GameObject globalMenuUI;
     public GameObject pauseMenuUI;
     public GameObject howToMenuUI;
     public GameObject settingsUI;
 
+    // settings elements
+    public Slider sensitivitySlider;
+
+    // settings multiplier
+    public float sensitivityMultiplier = 200f;
+
+
     private void Start() {
         Resume();
+        UpdateSettingsUI();
     }
    
     void Update() {
@@ -85,6 +95,9 @@ public class PauseMenu : MonoBehaviour
         SceneController.Instance.SetIsPaused(false);
     }
 
+
+    // HOW TO MENU
+
     public void OpenHowToMenu () {
         state = PauseState.IN_HOW_TO_MENU;
         pauseMenuUI.SetActive(false);
@@ -96,6 +109,9 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         howToMenuUI.SetActive(false);
     }
+
+
+    // SETTINGS MENU
 
     public void OpenSettingsMenu () {
         state = PauseState.IN_SETTINGS_MENU;
@@ -109,8 +125,13 @@ public class PauseMenu : MonoBehaviour
         settingsUI.SetActive(false);
     }
 
-    public void SetSensibility (float value) {
+    void UpdateSettingsUI () {
+        sensitivitySlider.value = GlobalSettings.globalSensitivity / sensitivityMultiplier;
+
+    }
+
+    public void SetSensitivity (float value) {
         // Value: [0.1; 0.9] => 0.5
-        GlobalSettings.globalSensitivity = value * 200;
+        GlobalSettings.globalSensitivity = value * sensitivityMultiplier;
     }
 }

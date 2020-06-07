@@ -1560,6 +1560,8 @@ MonoBehaviour:
   pauseMenuUI: {fileID: 2078017191461088030}
   howToMenuUI: {fileID: 2453844318612550087}
   settingsUI: {fileID: 7891770953027363575}
+  sensitivitySlider: {fileID: 2509365297114254171}
+  sensitivityMultiplier: 200
 --- !u!1 &2078017192405335599
 GameObject:
   m_ObjectHideFlags: 0
@@ -3454,7 +3456,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2078017192244329099}
-        m_MethodName: SetSensibility
+        m_MethodName: SetSensitivity
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
