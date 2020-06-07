@@ -4,12 +4,15 @@ using UnityEngine;
 public class PressurePlate : Interactable {
     HashSet<GameObject> weights;
     
+    public Color plateColor;
     public Color pressuredColor;
     Color originalColor;
+    public MeshRenderer plateMesh;
     public MeshRenderer mesh;
 
     void Start() {
         weights = new HashSet<GameObject>();
+        plateMesh.material.color = plateColor;
         originalColor = mesh.material.color;
     }
 
