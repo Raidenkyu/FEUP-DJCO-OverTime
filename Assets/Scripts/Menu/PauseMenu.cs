@@ -134,4 +134,9 @@ public class PauseMenu : MonoBehaviour
         // Value: [0.1; 0.9] => 0.5
         GlobalSettings.globalSensitivity = value * sensitivityMultiplier;
     }
+
+    public void SetGraphics (int newGraphicsIndex) {
+        QualitySettings.SetQualityLevel(newGraphicsIndex);
+    }
+
 }
