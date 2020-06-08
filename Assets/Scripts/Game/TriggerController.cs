@@ -6,5 +6,6 @@ public class TriggerController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider collider) {
         triggerEvent.Invoke();
+        Destroy(gameObject);
     }
 }
