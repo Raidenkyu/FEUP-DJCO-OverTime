@@ -139,23 +139,29 @@ public class PauseMenu : MonoBehaviour
 
         List<string> options = new List<string>();
 
-        int currentResIndex = 0;
         for (int i = 0; i < resolutions.Length; i++) {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
 
             if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height) {
-                currentResIndex = i;
+                if (GlobalSettings.globalResolution == -1) {
+                    GlobalSettings.globalResolution = i;
+                }
             }
         }
 
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.value = GlobalSettings.globalResolution;
         resolutionDropdown.RefreshShownValue();
     }
 
     void UpdateSettingsUI () {
+        // Debug.Log(GlobalSettings.globalSensitivity);
+        // Debug.Log(GlobalSettings.globalGraphicsQuality);
+        // Debug.Log(GlobalSettings.globalResolution);
+        // Debug.Log(GlobalSettings.globalIsFullscreen);
+
         sensitivitySlider.value = GlobalSettings.globalSensitivity / sensitivityMultiplier;
         graphicsDropdown.value = GlobalSettings.globalGraphicsQuality;
         resolutionDropdown.value = GlobalSettings.globalResolution;
@@ -169,10 +175,18 @@ public class PauseMenu : MonoBehaviour
 
     public void SetGraphics (int newGraphicsIndex) {
         QualitySettings.SetQualityLevel(newGraphicsIndex);
+        GlobalSettings.globalGraphicsQuality = newGraphicsIndex;
     }
 
     public void SetFullscreen (bool value) {
         Screen.fullScreen = value;
+        GlobalSettings.globalIsFullscreen = value;
+    }
+
+    public void SetResolution (int newResolutionIndex) {
+        Resolution resolution = resolutions[newResolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        GlobalSettings.globalResolution = newResolutionIndex;
     }
 
 }
