@@ -1,6 +1,8 @@
-﻿using UnityEngine.SceneManagement;
+﻿using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -26,16 +28,19 @@ public class PauseMenu : MonoBehaviour
 
     // settings elements
     public Slider sensitivitySlider;
-    public Dropdown graphicsDropdown;
-    public Dropdown resolutionDropdown;
+    public TMP_Dropdown graphicsDropdown;
+    public TMP_Dropdown resolutionDropdown;
     public Toggle fullScreenToggle;
 
-    // settings multiplier
+    // settings multipliers
     public float sensitivityMultiplier = 200f;
 
+    // resolution variables
+    Resolution[] resolutions;
 
     private void Start() {
         Resume();
+        GetResolutions();
         UpdateSettingsUI();
     }
    
@@ -128,9 +133,33 @@ public class PauseMenu : MonoBehaviour
         settingsUI.SetActive(false);
     }
 
+    void GetResolutions () {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++) {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height) {
+                currentResIndex = i;
+            }
+        }
+
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.RefreshShownValue();
+    }
+
     void UpdateSettingsUI () {
         sensitivitySlider.value = GlobalSettings.globalSensitivity / sensitivityMultiplier;
-
+        graphicsDropdown.value = GlobalSettings.globalGraphicsQuality;
+        resolutionDropdown.value = GlobalSettings.globalResolution;
+        fullScreenToggle.isOn = GlobalSettings.globalIsFullscreen;
     }
 
     public void SetSensitivity (float value) {
