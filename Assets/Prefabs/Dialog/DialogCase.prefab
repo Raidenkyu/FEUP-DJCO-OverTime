@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4232797843441764639}
   m_Layer: 0
   m_Name: DialogCase
-  m_TagString: Untagged
+  m_TagString: DialogCase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,6 +43,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DialogChain
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485849, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
