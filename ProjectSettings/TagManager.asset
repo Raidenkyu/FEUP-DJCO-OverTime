@@ -9,6 +9,7 @@ TagManager:
   - Button
   - Interactive
   - TimeGun
+  - DialogCase
   layers:
   - Default
   - TransparentFX
