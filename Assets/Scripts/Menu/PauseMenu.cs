@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMODUnity;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class PauseMenu : MonoBehaviour
     // Value from the slider, and it converts to volume level
  
     // public GameObject game;
+
+    // Sound Events
+    public StudioEventEmitter clickEvent;
 
     // UI references
     public GameObject globalMenuUI;
@@ -69,10 +73,12 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void BackToMainMenu(){
+        clickEvent.Play();
         SceneManager.LoadScene("Menu");
     }
 
      public void Quit(){
+        clickEvent.Play();
         Application.Quit();
     }
 
@@ -91,6 +97,7 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Resume(){
+        clickEvent.Play();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         globalMenuUI.SetActive(false);
@@ -107,12 +114,14 @@ public class PauseMenu : MonoBehaviour
     // HOW TO MENU
 
     public void OpenHowToMenu () {
+        clickEvent.Play();
         state = PauseState.IN_HOW_TO_MENU;
         pauseMenuUI.SetActive(false);
         howToMenuUI.SetActive(true);
     }
 
     public void CloseHowToMenu () {
+        clickEvent.Play();
         state = PauseState.IN_PAUSE_MENU;
         pauseMenuUI.SetActive(true);
         howToMenuUI.SetActive(false);
@@ -122,12 +131,14 @@ public class PauseMenu : MonoBehaviour
     // SETTINGS MENU
 
     public void OpenSettingsMenu () {
+        clickEvent.Play();
         state = PauseState.IN_SETTINGS_MENU;
         pauseMenuUI.SetActive(false);
         settingsUI.SetActive(true);
     }
 
     public void CloseSettingsMenu () {
+        clickEvent.Play();
         state = PauseState.IN_PAUSE_MENU;
         pauseMenuUI.SetActive(true);
         settingsUI.SetActive(false);
