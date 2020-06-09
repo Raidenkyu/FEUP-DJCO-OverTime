@@ -2764,7 +2764,7 @@ PrefabInstance:
     - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
         type: 3}
       propertyPath: m_Name
-      value: FuturisticDoor (2)
+      value: FuturisticDoor3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}
@@ -6647,7 +6647,7 @@ PrefabInstance:
     - target: {fileID: 1766038170040338899, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: m_Name
-      value: PressurePlate
+      value: PressurePlate1
       objectReference: {fileID: 0}
     - target: {fileID: 1766038170040338901, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
@@ -6704,6 +6704,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: deactivateDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLight
+      value: 
+      objectReference: {fileID: 1751848954}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLight2
+      value: 
+      objectReference: {fileID: 1727526017}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 807099534}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 1727526017}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e, type: 3}
 --- !u!4 &361312649 stripped
@@ -12122,7 +12152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (10)
+      value: Light2beta
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12173,6 +12203,12 @@ PrefabInstance:
 --- !u!4 &676348411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 676348410}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &676348412 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 676348410}
   m_PrefabAsset: {fileID: 0}
@@ -12569,7 +12605,7 @@ PrefabInstance:
     - target: {fileID: 1766038170040338899, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: m_Name
-      value: PressurePlate (2)
+      value: PressurePlate3
       objectReference: {fileID: 0}
     - target: {fileID: 1766038170040338901, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
@@ -12626,6 +12662,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: deactivateDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1751848954}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 1717222004}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 1175579591}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e, type: 3}
 --- !u!4 &702312601 stripped
@@ -13960,7 +14021,7 @@ PrefabInstance:
     - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
         type: 3}
       propertyPath: m_Name
-      value: FuturisticDoor
+      value: FuturisticDoor1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}
@@ -14247,7 +14308,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (3)
+      value: Light1
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14298,6 +14359,12 @@ PrefabInstance:
 --- !u!4 &807099533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 807099532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &807099534 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 807099532}
   m_PrefabAsset: {fileID: 0}
@@ -16298,7 +16365,7 @@ PrefabInstance:
     - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
         type: 3}
       propertyPath: m_Name
-      value: FuturisticDoor (3)
+      value: FuturisticDoor2b
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}
@@ -16380,7 +16447,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (9)
+      value: Light2
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16431,6 +16498,12 @@ PrefabInstance:
 --- !u!4 &1000058761 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1000058760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1000058762 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1000058760}
   m_PrefabAsset: {fileID: 0}
@@ -19499,7 +19572,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (1)
+      value: Light34-3
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19550,6 +19623,12 @@ PrefabInstance:
 --- !u!4 &1175579590 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1175579589}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1175579591 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1175579589}
   m_PrefabAsset: {fileID: 0}
@@ -21218,7 +21297,7 @@ PrefabInstance:
     - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
         type: 3}
       propertyPath: m_Name
-      value: FuturisticDoor (1)
+      value: FuturisticDoor2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}
@@ -21703,7 +21782,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (7)
+      value: Light2bbeta
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23051,7 +23130,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (6)
+      value: Light2beta
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23102,6 +23181,12 @@ PrefabInstance:
 --- !u!4 &1417542576 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1417542575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1417542577 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1417542575}
   m_PrefabAsset: {fileID: 0}
@@ -24061,7 +24146,7 @@ PrefabInstance:
     - target: {fileID: 1766038170040338899, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: m_Name
-      value: PressurePlate (1)
+      value: PressurePlate2
       objectReference: {fileID: 0}
     - target: {fileID: 1766038170040338901, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
@@ -24118,6 +24203,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: deactivateDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLight
+      value: 
+      objectReference: {fileID: 1000058762}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLight2
+      value: 
+      objectReference: {fileID: 676348412}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000058762}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 1417542577}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e, type: 3}
 --- !u!4 &1486001214 stripped
@@ -24740,7 +24855,7 @@ PrefabInstance:
     - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
         type: 3}
       propertyPath: m_Name
-      value: FuturisticDoor
+      value: FuturisticDoor34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}
@@ -27652,7 +27767,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (2)
+      value: Light3beta
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27706,6 +27821,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1717222002}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &1717222004 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1717222002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1727526015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27715,7 +27836,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (8)
+      value: Light1beta
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -27766,6 +27887,12 @@ PrefabInstance:
 --- !u!4 &1727526016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1727526015}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1727526017 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1727526015}
   m_PrefabAsset: {fileID: 0}
@@ -28041,7 +28168,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional
+      value: Light34-4
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28092,6 +28219,12 @@ PrefabInstance:
 --- !u!4 &1743293066 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1743293065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1743293067 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1743293065}
   m_PrefabAsset: {fileID: 0}
@@ -28173,7 +28306,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1118735592072640, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_Name
-      value: CeilingLights_03_directional (5)
+      value: Light3
       objectReference: {fileID: 0}
     - target: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28224,6 +28357,12 @@ PrefabInstance:
 --- !u!4 &1751848953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4346904993883318, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1751848952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &1751848954 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
     type: 3}
   m_PrefabInstance: {fileID: 1751848952}
   m_PrefabAsset: {fileID: 0}
@@ -30247,7 +30386,7 @@ PrefabInstance:
     - target: {fileID: 1766038170040338899, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: m_Name
-      value: PressurePlate (3)
+      value: PressurePlate4
       objectReference: {fileID: 0}
     - target: {fileID: 1766038170040338901, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
@@ -30304,6 +30443,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: deactivateDelay
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1743293067}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e, type: 3}
 --- !u!4 &1879676950 stripped

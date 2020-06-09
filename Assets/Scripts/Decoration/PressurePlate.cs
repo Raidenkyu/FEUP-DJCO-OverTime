@@ -2,14 +2,22 @@
 using UnityEngine;
 
 public class PressurePlate : Interactable {
+    //The set of the objects pressuring the plate
     HashSet<GameObject> weights;
-    
+
+    // Pressure plate timers
+    public float activateDelay = 0;
+    public float deactivateDelay = 3;
+
+    // The Pressure Plate color styling
     public Color plateColor;
     public Color pressedColor;
     Color originalColor;
     public MeshRenderer plateMesh;
     public MeshRenderer mesh;
-    public new Light light;
+
+    // Lights Colors
+    public Light[] doorLightArray;
 
     void Start() {
         weights = new HashSet<GameObject>();
@@ -19,8 +27,8 @@ public class PressurePlate : Interactable {
         plateMesh.materials[0].DisableKeyword("_EMISSION");
         Debug.Log(plateMesh.materials[0]);
         originalColor = mesh.material.color;
-        if (light)
-            light.enabled = true;
+
+        SetAllLights(true);
     }
 
 
@@ -33,7 +41,7 @@ public class PressurePlate : Interactable {
             weights.Add(obj);
 
             if (weights.Count == 1) {
-                Interact();
+                Invoke("Interact", activateDelay);
             }
         }
     }
@@ -47,22 +55,34 @@ public class PressurePlate : Interactable {
             weights.Remove(obj);
 
             if (weights.Count == 0) {
-                StopInteraction();
+                Invoke("StopInteraction", deactivateDelay);
             }
         }
     }
 
     override public void Interact() {
         plateMesh.materials[0].EnableKeyword("_EMISSION");
-        if (light)
-            light.enabled = false;
+
+        SetAllLights(false);
+
         Activated.Invoke();
     }
 
     public void StopInteraction() {
         plateMesh.materials[0].DisableKeyword("_EMISSION");
-        if (light)
-            light.enabled = true;
+
+        SetAllLights(true);
+
         Deactivated.Invoke();
+    }
+
+    public void SetAllLights(bool enable) {
+        foreach (Light light in doorLightArray) {
+            SetLight(light, enable);
+        }
+    }
+
+    public void SetLight(Light light, bool enable) {
+        if (light) light.enabled = enable;
     }
 }
