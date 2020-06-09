@@ -17,4 +17,8 @@ public class DoorController : MonoBehaviour {
         gameObject.SetActive(true);
         Invoke("PlaySound", 0.1f);
     }
+
+    public void StartOpen() {
+        gameObject.SetActive(false);
+    }
 }

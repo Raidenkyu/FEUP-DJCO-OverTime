@@ -24427,7 +24427,7 @@ PrefabInstance:
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OpenDoor2
+      value: Plate2Pressed
       objectReference: {fileID: 0}
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
@@ -24437,7 +24437,7 @@ PrefabInstance:
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CloseDoor2
+      value: Plate2Unpressed
       objectReference: {fileID: 0}
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
