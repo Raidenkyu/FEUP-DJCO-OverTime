@@ -61,7 +61,7 @@ public class Gun : MonoBehaviour {
 
         if (fireParticle.activeSelf) {
             fireParticle.transform.position += firePoint.transform.forward / 2;
-            Invoke("ResetParticle", 2.0f);
+            Invoke("ResetParticle", 1.0f);
 
         }
     }
