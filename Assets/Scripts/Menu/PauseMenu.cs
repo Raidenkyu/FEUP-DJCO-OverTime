@@ -168,6 +168,23 @@ public class PauseMenu : MonoBehaviour
         fullScreenDropdown.value = GlobalSettings.globalFullscreenIndex;
     }
 
+    void ReRenderScreen () {
+        // Not really sure why this makes it work, but it was caused by the dropdowns freezing the screen after being used
+        // Its a known unity bug
+
+        if (state == PauseState.IN_SETTINGS_MENU) {            
+            globalMenuUI.SetActive(false);
+            pauseMenuUI.SetActive(false);
+            howToMenuUI.SetActive(false);
+            settingsUI.SetActive(false);
+
+            globalMenuUI.SetActive(true);
+            pauseMenuUI.SetActive(false);
+            howToMenuUI.SetActive(false);
+            settingsUI.SetActive(true);
+        }
+    }
+
     public void SetSensitivity (float value) {
         // Value: [0.1; 0.9] => 0.5
         GlobalSettings.globalSensitivity = value * sensitivityMultiplier;
@@ -176,6 +193,7 @@ public class PauseMenu : MonoBehaviour
     public void SetGraphics (int newGraphicsIndex) {
         QualitySettings.SetQualityLevel(newGraphicsIndex);
         GlobalSettings.globalGraphicsQuality = newGraphicsIndex;
+        ReRenderScreen();
     }
 
     public void SetFullscreen (int newFullscreenIndex) {
@@ -198,12 +216,16 @@ public class PauseMenu : MonoBehaviour
                 return;
         }
         Screen.fullScreenMode = mode;
+        GlobalSettings.globalFullscreenIndex = newFullscreenIndex;
+        GlobalSettings.globalFullscreenMode = mode;
+        ReRenderScreen();
     }
 
     public void SetResolution (int newResolutionIndex) {
         Resolution resolution = resolutions[newResolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, 60);
         GlobalSettings.globalResolution = newResolutionIndex;
+        ReRenderScreen();
     }
 
 }

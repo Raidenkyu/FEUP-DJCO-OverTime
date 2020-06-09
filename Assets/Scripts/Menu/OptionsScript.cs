@@ -55,7 +55,6 @@ public class OptionsScript : MonoBehaviour
     // public methods
 
     public void SetFullscreen (int newFullscreenIndex) {
-        Debug.Log("Fullscreen:" + newFullscreenIndex);
         FullScreenMode mode;
         switch (newFullscreenIndex) {
             case 0:
@@ -75,10 +74,11 @@ public class OptionsScript : MonoBehaviour
                 return;
         }
         Screen.fullScreenMode = mode;
+        GlobalSettings.globalFullscreenIndex = newFullscreenIndex;
+        GlobalSettings.globalFullscreenMode = mode;
     }
 
     public void SetResolution (int newResolutionIndex) {
-        Debug.Log("Resolution:" + newResolutionIndex);
         Resolution resolution = resolutions[newResolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, 60);
         GlobalSettings.globalResolution = newResolutionIndex;
