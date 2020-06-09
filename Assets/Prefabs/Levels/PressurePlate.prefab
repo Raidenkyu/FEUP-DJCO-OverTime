@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1356891504210571067}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.008, y: 0.025, z: 0.039}
-  m_LocalScale: {x: 0.23, y: 0.05, z: 0.32}
+  m_LocalScale: {x: 0.23660101, y: 0.05, z: 0.328672}
   m_Children: []
   m_Father: {fileID: 1766038170040338901}
   m_RootOrder: 0
@@ -59,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: df15dfcdcd21c7c4ca80bc6f0ff520c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8621dfcb3dbf229428e45425021e0875, type: 2}
+  - {fileID: 2100000, guid: 3b06f2997f2b75e41a465dda067d147c, type: 2}
   - {fileID: 2100000, guid: ae2efeea9c901af48b6bb19d9981d5d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -247,6 +247,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   plateColor: {r: 0.745283, g: 0.14061941, b: 0.14061941, a: 1}
-  pressuredColor: {r: 0, g: 1, b: 0, a: 1}
+  pressedColor: {r: 0, g: 0.5566038, b: 0, a: 1}
   plateMesh: {fileID: 1766038170040338903}
   mesh: {fileID: 976688597928268668}
+  light: {fileID: 0}

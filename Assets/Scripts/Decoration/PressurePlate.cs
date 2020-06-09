@@ -5,15 +5,22 @@ public class PressurePlate : Interactable {
     HashSet<GameObject> weights;
     
     public Color plateColor;
-    public Color pressuredColor;
+    public Color pressedColor;
     Color originalColor;
     public MeshRenderer plateMesh;
     public MeshRenderer mesh;
+    public new Light light;
 
     void Start() {
         weights = new HashSet<GameObject>();
-        plateMesh.material.color = plateColor;
+        mesh.material.color = plateColor;
+        mesh.material.SetColor("_EmissionColor", plateColor);
+        plateMesh.materials[0].SetColor("_EmissionColor", pressedColor);
+        plateMesh.materials[0].DisableKeyword("_EMISSION");
+        Debug.Log(plateMesh.materials[0]);
         originalColor = mesh.material.color;
+        if (light)
+            light.enabled = true;
     }
 
 
@@ -46,18 +53,16 @@ public class PressurePlate : Interactable {
     }
 
     override public void Interact() {
-        SetColor(pressuredColor);
+        plateMesh.materials[0].EnableKeyword("_EMISSION");
+        if (light)
+            light.enabled = false;
         Activated.Invoke();
     }
 
     public void StopInteraction() {
-        SetColor(originalColor);
+        plateMesh.materials[0].DisableKeyword("_EMISSION");
+        if (light)
+            light.enabled = true;
         Deactivated.Invoke();
-    }
-
-    void SetColor(Color color) {
-        Material material = mesh.material;
-        material.color = color;
-        mesh.material = material;
     }
 }

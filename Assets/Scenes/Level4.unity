@@ -11776,6 +11776,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: plate
+      value: 
+      objectReference: {fileID: 838226987}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &513169948 stripped
@@ -13246,6 +13251,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4322541131246098, guid: 98ed76314c8d820429b556f5a446e393,
     type: 3}
   m_PrefabInstance: {fileID: 599837659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &600169399 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673024451}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &600663070
 PrefabInstance:
@@ -16897,6 +16908,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 769406306}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &773642561 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 513169947}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &773840715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17101,6 +17118,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1033894995}
   m_PrefabAsset: {fileID: 0}
+--- !u!108 &783865556 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2154276181794748123, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1969740972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &784947466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17236,6 +17259,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 789150612}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &795235749 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
+    type: 3}
+  m_PrefabInstance: {fileID: 875629612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3484f17560685594abbdc9803747a46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &795910889
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18519,6 +18554,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 835016211}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &838226987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2076306895}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0161c4a1163211eef904feca1c51381c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &840248961
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19642,6 +19689,11 @@ PrefabInstance:
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
+        type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 783865556}
     - target: {fileID: 1842280301107243330, guid: 8e1bad72df4ddf84b943004b619f808e,
         type: 3}
       propertyPath: m_Name
@@ -23928,6 +23980,26 @@ PrefabInstance:
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClosePressureDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: plateColor.r
+      value: 0.14117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: plateColor.g
+      value: 0.74509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: plateColor.b
+      value: 0.31733024
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 600169399}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e, type: 3}
 --- !u!4 &1021143579 stripped
@@ -27752,6 +27824,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1196947281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1199317648 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1021143578}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0161c4a1163211eef904feca1c51381c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1205942141
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38351,6 +38435,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: plate
+      value: 
+      objectReference: {fileID: 1199317648}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1673024452 stripped
@@ -46040,6 +46129,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 795235749}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1969740973 stripped
@@ -49356,6 +49450,26 @@ PrefabInstance:
       propertyPath: Deactivated.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: PlateUnpressed
       objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: plateColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: plateColor.g
+      value: 0.43921572
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: plateColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: light
+      value: 
+      objectReference: {fileID: 773642561}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e, type: 3}
 --- !u!4 &2076306896 stripped
