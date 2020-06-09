@@ -16,6 +16,11 @@ public class Level6Controller : MonoBehaviour {
     bool plate3Pressed = false;
     bool plate4Pressed = false;
 
+    // When the Scene Start opens the door2
+    void Start() {
+        door2.StartOpen();
+    }
+
     // Door Controller Functions
 
     public void OpenDoor1() {
@@ -26,17 +31,18 @@ public class Level6Controller : MonoBehaviour {
         door1.Close();
     }
 
-    public void OpenDoor2() {
-        door2.Open();
+    // Plate controll Functions
+
+
+    public void Plate2Pressed() {
+        door2.Close();
         door2b.Open();
     }
 
-    public void CloseDoor2() {
-        door2.Close();
+    public void Plate2Unpressed() {
+        door2.Open();
         door2b.Close();
     }
-
-    // Plate controll Functions
 
     public void Plate3Pressed() {
         door3.Open();
@@ -57,7 +63,7 @@ public class Level6Controller : MonoBehaviour {
     }
 
     public void Plate4Pressed() {
-        plate1Pressed = true;
+        plate4Pressed = true;
 
         if (plate3Pressed && plate4Pressed) {
             door34.Open();
@@ -65,7 +71,7 @@ public class Level6Controller : MonoBehaviour {
     }
 
     public void Plate4Unpressed() {
-        plate1Pressed = false;
+        plate4Pressed = false;
 
         if (!plate3Pressed || !plate4Pressed) {
             door34.Open();
