@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
     public Slider sensitivitySlider;
     public TMP_Dropdown graphicsDropdown;
     public TMP_Dropdown resolutionDropdown;
-    public Toggle fullScreenToggle;
+    public TMP_Dropdown fullScreenDropdown;
 
     // settings multipliers
     public float sensitivityMultiplier = 200f;
@@ -160,12 +160,29 @@ public class PauseMenu : MonoBehaviour
         // Debug.Log(GlobalSettings.globalSensitivity);
         // Debug.Log(GlobalSettings.globalGraphicsQuality);
         // Debug.Log(GlobalSettings.globalResolution);
-        // Debug.Log(GlobalSettings.globalIsFullscreen);
+        // Debug.Log(GlobalSettings.globalFullscreenIndex);
 
         sensitivitySlider.value = GlobalSettings.globalSensitivity / sensitivityMultiplier;
         graphicsDropdown.value = GlobalSettings.globalGraphicsQuality;
         resolutionDropdown.value = GlobalSettings.globalResolution;
-        fullScreenToggle.isOn = GlobalSettings.globalIsFullscreen;
+        fullScreenDropdown.value = GlobalSettings.globalFullscreenIndex;
+    }
+
+    void ReRenderScreen () {
+        // Not really sure why this makes it work, but it was caused by the dropdowns freezing the screen after being used
+        // Its a known unity bug
+
+        if (state == PauseState.IN_SETTINGS_MENU) {            
+            globalMenuUI.SetActive(false);
+            pauseMenuUI.SetActive(false);
+            howToMenuUI.SetActive(false);
+            settingsUI.SetActive(false);
+
+            globalMenuUI.SetActive(true);
+            pauseMenuUI.SetActive(false);
+            howToMenuUI.SetActive(false);
+            settingsUI.SetActive(true);
+        }
     }
 
     public void SetSensitivity (float value) {
@@ -176,17 +193,39 @@ public class PauseMenu : MonoBehaviour
     public void SetGraphics (int newGraphicsIndex) {
         QualitySettings.SetQualityLevel(newGraphicsIndex);
         GlobalSettings.globalGraphicsQuality = newGraphicsIndex;
+        ReRenderScreen();
     }
 
-    public void SetFullscreen (bool value) {
-        Screen.fullScreen = value;
-        GlobalSettings.globalIsFullscreen = value;
+    public void SetFullscreen (int newFullscreenIndex) {
+        FullScreenMode mode;
+        switch (newFullscreenIndex) {
+            case 0:
+                mode = FullScreenMode.FullScreenWindow;
+                break;
+            case 1:
+                mode = FullScreenMode.MaximizedWindow;
+                break;
+            case 2:
+                mode = FullScreenMode.ExclusiveFullScreen;
+                break;
+            case 3:
+                mode = FullScreenMode.Windowed;
+                break;
+            default:
+                Debug.LogError("Reached Unexpected default case");
+                return;
+        }
+        Screen.fullScreenMode = mode;
+        GlobalSettings.globalFullscreenIndex = newFullscreenIndex;
+        GlobalSettings.globalFullscreenMode = mode;
+        ReRenderScreen();
     }
 
     public void SetResolution (int newResolutionIndex) {
         Resolution resolution = resolutions[newResolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, 60);
         GlobalSettings.globalResolution = newResolutionIndex;
+        ReRenderScreen();
     }
 
 }
