@@ -81,7 +81,9 @@ MonoBehaviour:
   Banks:
   - Creature
   - Level 0
+  - Main Menu
   - Player
+  - Sci Fi
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
