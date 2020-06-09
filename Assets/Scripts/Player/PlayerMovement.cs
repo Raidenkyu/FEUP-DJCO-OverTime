@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
     // sound variables
     public StudioEventEmitter soundEvent;
     public StudioEventEmitter timeTravelEvent;
+    public StudioEventEmitter noClonesSound;
     public float soundDelay = 0.5f;
     float soundTimer;
 
@@ -95,7 +96,7 @@ public class PlayerMovement : MonoBehaviour {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
             velocity.y += gravity * Time.deltaTime;
-            
+
             // move controller
             if (controller.enabled) {
                 controller.Move(stepSpeed * Time.deltaTime);
@@ -116,8 +117,10 @@ public class PlayerMovement : MonoBehaviour {
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
                 if (SceneController.Instance.GetIsPaused()) return;
-                if (!SceneController.Instance.CanCreateClones()) return;
-                // TODO: if can't create clones, use different sound
+                if (!SceneController.Instance.CanCreateClones()) {
+                    noClonesSound.Play();
+                    return;
+                }
 
                 hasClickedLeftClick = true;
                 Debug.Log("PLAYER LEFT CLICK!");

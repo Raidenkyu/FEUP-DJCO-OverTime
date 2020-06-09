@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 8216594248780378484}
   - component: {fileID: 514642677267940131}
   - component: {fileID: 5333553412163027219}
+  - component: {fileID: 5755059142650206829}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -289,6 +290,8 @@ MonoBehaviour:
   hasClickedLeftClick: 0
   soundEvent: {fileID: 514642677267940131}
   timeTravelEvent: {fileID: 5333553412163027219}
+  noClonesSound: {fileID: 5755059142650206829}
+  collisionEvent: {fileID: 0}
   soundDelay: 0.4
   deathRotationSpeed: 0.5
 --- !u!114 &514642677267940131
@@ -328,6 +331,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Event: event:/SFX/SFX_timetravel
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &5755059142650206829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8216594248780378483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Player/arma_sem_balas
   PlayEvent: 0
   StopEvent: 0
   AllowFadeout: 1
@@ -436,7 +462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9090185d8e1bf4c40a9749a9c2aeca8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
   playerBody: {fileID: 8216594248780378485}
 --- !u!114 &3861733195692406140
 MonoBehaviour:
@@ -961,15 +986,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8, type: 3}
---- !u!1 &596701669980788374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1065774290324349987, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 472188652539130549}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5684746601768475096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5217925916429413229, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 472188652539130549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &596701669980788374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1065774290324349987, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
     type: 3}
   m_PrefabInstance: {fileID: 472188652539130549}
   m_PrefabAsset: {fileID: 0}

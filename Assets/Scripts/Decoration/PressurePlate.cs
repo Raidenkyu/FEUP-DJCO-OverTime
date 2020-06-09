@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PressurePlate : Interactable {
     //The set of the objects pressuring the plate
@@ -18,6 +19,10 @@ public class PressurePlate : Interactable {
 
     // Lights Colors
     public Light[] doorLightArray;
+
+    // Sound Events
+    public StudioEventEmitter pressEvent;
+    public StudioEventEmitter unpressEvent;
 
     void Start() {
         weights = new HashSet<GameObject>();
@@ -41,6 +46,7 @@ public class PressurePlate : Interactable {
             weights.Add(obj);
 
             if (weights.Count == 1) {
+                pressEvent.Play();
                 Invoke("Interact", activateDelay);
             }
         }
@@ -55,6 +61,7 @@ public class PressurePlate : Interactable {
             weights.Remove(obj);
 
             if (weights.Count == 0) {
+                unpressEvent.Play();
                 Invoke("StopInteraction", deactivateDelay);
             }
         }

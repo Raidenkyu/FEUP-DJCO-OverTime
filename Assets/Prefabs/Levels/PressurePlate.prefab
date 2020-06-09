@@ -107,6 +107,8 @@ GameObject:
   - component: {fileID: 3649896164100692308}
   - component: {fileID: 113511382369426284}
   - component: {fileID: 3649896164100692395}
+  - component: {fileID: 123661222120256315}
+  - component: {fileID: 1571449730766184980}
   m_Layer: 12
   m_Name: PressurePlate
   m_TagString: Untagged
@@ -246,8 +248,58 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  activateDelay: 0
+  deactivateDelay: 3
   plateColor: {r: 0.745283, g: 0.14061941, b: 0.14061941, a: 1}
   pressedColor: {r: 0, g: 0.5566038, b: 0, a: 1}
   plateMesh: {fileID: 1766038170040338903}
   mesh: {fileID: 976688597928268668}
-  light: {fileID: 0}
+  doorLightArray: []
+  pressEvent: {fileID: 123661222120256315}
+  unpressEvent: {fileID: 1571449730766184980}
+--- !u!114 &123661222120256315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766038170040338899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Pressure
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1571449730766184980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766038170040338899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/Pressure out
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
