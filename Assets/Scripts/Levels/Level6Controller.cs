@@ -11,14 +11,19 @@ public class Level6Controller : MonoBehaviour {
     public DoorController door34;
 
     // Pressure Plates active booleans
-    bool plate1Pressed = false;
-    bool plate2Pressed = false;
     bool plate3Pressed = false;
     bool plate4Pressed = false;
 
-    // When the Scene Start opens the door2
+    // Inverted Door Controllers
+    public PressurePlate invertedPlate;
+    public Light invertedLight1;
+    public Light invertedLight2;
+
+    // When the Scene Awakes opens the door2
     void Start() {
         door2.StartOpen();
+        invertedLight1.enabled = false;
+        invertedLight2.enabled = false;
     }
 
     // Door Controller Functions
@@ -55,7 +60,7 @@ public class Level6Controller : MonoBehaviour {
 
     public void Plate3Unpressed() {
         door3.Close();
-        plate1Pressed = false;
+        plate3Pressed = false;
 
         if (!plate3Pressed || !plate4Pressed) {
             door34.Close();

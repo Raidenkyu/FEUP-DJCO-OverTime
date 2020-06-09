@@ -33,7 +33,7 @@ public class PressurePlate : Interactable {
         Debug.Log(plateMesh.materials[0]);
         originalColor = mesh.material.color;
 
-        SetAllLights(true);
+        InitLights();
     }
 
 
@@ -69,18 +69,20 @@ public class PressurePlate : Interactable {
 
     override public void Interact() {
         plateMesh.materials[0].EnableKeyword("_EMISSION");
-
-        SetAllLights(false);
+        InvertAllLights();
 
         Activated.Invoke();
     }
 
     public void StopInteraction() {
         plateMesh.materials[0].DisableKeyword("_EMISSION");
-
-        SetAllLights(true);
+        InvertAllLights();
 
         Deactivated.Invoke();
+    }
+
+    public void InitLights() {
+        SetAllLights(true);
     }
 
     public void SetAllLights(bool enable) {
@@ -89,7 +91,17 @@ public class PressurePlate : Interactable {
         }
     }
 
-    public void SetLight(Light light, bool enable) {
+    void SetLight(Light light, bool enable) {
         if (light) light.enabled = enable;
+    }
+
+    void InvertAllLights() {
+        foreach (Light light in doorLightArray) {
+            InvertLight(light);
+        }
+    }
+
+    void InvertLight(Light light) {
+        light.enabled = !light.enabled;
     }
 }
