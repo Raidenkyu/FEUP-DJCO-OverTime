@@ -1,80 +1,86 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class OptionsScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     private int horizontalRes;
     private int verticalRes;
     private FullScreenMode mode;
 
-    void Start()
-    {
-        horizontalRes = 1920;
-        verticalRes = 1080;
-        mode = FullScreenMode.FullScreenWindow;
+    // settings elements
+    public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown fullScreenDropdown;
+
+    // resolutions variables
+    Resolution[] resolutions;
+
+    void Start() {
+        GetResolutions();
+        UpdateSettingsUI();
     }
 
-    public void changeRes(int index){
-        switch(index){
-            case 0:
-            horizontalRes = 1920;
-            verticalRes = 1080;
-            break;
-            case 1:
-            horizontalRes = 1600;
-            verticalRes = 900;
-            break;
-            case 2:
-            horizontalRes = 1440;
-            verticalRes = 900;
-            break;
-            case 3:
-            horizontalRes = 1366;
-            verticalRes = 765;
-            break;
-            case 4:
-            horizontalRes = 1280;
-            verticalRes = 1024;
-            break;
-            case 5:
-            horizontalRes = 1280;
-            verticalRes = 720;
-            break;
-            case 6:
-            horizontalRes = 800;
-            verticalRes = 640;
-            break;
-            case 7:
-            horizontalRes = 640;
-            verticalRes = 480;
-            break;
+    void GetResolutions () {
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        for (int i = 0; i < resolutions.Length; i++) {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+
+            if (resolutions[i].width == Screen.currentResolution.width &&
+                resolutions[i].height == Screen.currentResolution.height) {
+                if (GlobalSettings.globalResolution == -1) {
+                    GlobalSettings.globalResolution = i;
+                }
+            }
         }
 
-        applyChanges();
-
+        resolutionDropdown.AddOptions(options);
+        resolutionDropdown.value = GlobalSettings.globalResolution;
+        resolutionDropdown.RefreshShownValue();
     }
 
-    public void changeScreenMode(int index){
-        switch(index){
+    void UpdateSettingsUI () {
+        // Debug.Log(GlobalSettings.globalResolution);
+        // Debug.Log(GlobalSettings.globalFullscreenIndex);
+
+        resolutionDropdown.value = GlobalSettings.globalResolution;
+        fullScreenDropdown.value = GlobalSettings.globalFullscreenIndex;
+    }
+
+
+    // public methods
+
+    public void SetFullscreen (int newFullscreenIndex) {
+        Debug.Log("Fullscreen:" + newFullscreenIndex);
+        FullScreenMode mode;
+        switch (newFullscreenIndex) {
             case 0:
-            mode = FullScreenMode.FullScreenWindow;
-            break;
+                mode = FullScreenMode.FullScreenWindow;
+                break;
             case 1:
-            mode = FullScreenMode.MaximizedWindow;
-            break;
+                mode = FullScreenMode.MaximizedWindow;
+                break;
             case 2:
-            mode = FullScreenMode.ExclusiveFullScreen;
-            break;
+                mode = FullScreenMode.ExclusiveFullScreen;
+                break;
             case 3:
-            mode = FullScreenMode.Windowed;
-            break;
+                mode = FullScreenMode.Windowed;
+                break;
+            default:
+                Debug.LogError("Reached Unexpected default case");
+                return;
         }
-      
-        applyChanges();
+        Screen.fullScreenMode = mode;
     }
-    private void applyChanges(){
-        Screen.SetResolution(horizontalRes, verticalRes,mode, 60);
+
+    public void SetResolution (int newResolutionIndex) {
+        Debug.Log("Resolution:" + newResolutionIndex);
+        Resolution resolution = resolutions[newResolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, 60);
+        GlobalSettings.globalResolution = newResolutionIndex;
     }
 }

@@ -2360,11 +2360,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: FullScreen Window
+    - m_Text: Fullscreen
       m_Image: {fileID: 0}
     - m_Text: Maximized Window
       m_Image: {fileID: 0}
-    - m_Text: Exclusive FullScreen
+    - m_Text: Exclusive Fullscreen
       m_Image: {fileID: 0}
     - m_Text: Windowed
       m_Image: {fileID: 0}
@@ -2372,7 +2372,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1145224561}
-        m_MethodName: changeScreenMode
+        m_MethodName: SetFullscreen
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2615,7 +2615,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1145224561}
-        m_MethodName: changeRes
+        m_MethodName: SetResolution
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3138,6 +3138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0854dffdf13ccc4abe6b3931aa5ae47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resolutionDropdown: {fileID: 1099450926}
+  fullScreenDropdown: {fileID: 874488040}
 --- !u!1 &1174305394
 GameObject:
   m_ObjectHideFlags: 0
