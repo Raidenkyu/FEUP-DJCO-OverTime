@@ -139,10 +139,45 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6495907408719219929, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 264
+      objectReference: {fileID: 0}
+    - target: {fileID: 6495907408719219929, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_overflowMode
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_text
       value: Follow-up Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d, type: 3}
