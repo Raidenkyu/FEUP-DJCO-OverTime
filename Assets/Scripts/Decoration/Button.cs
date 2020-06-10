@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using FMODUnity;
 
-public class Button : Interactable
-{
+public class Button : Interactable {
     public GameObject sphere;
     MeshRenderer sphereMesh;
     public Color buttonColor;
@@ -19,10 +18,13 @@ public class Button : Interactable
 
     public StudioEventEmitter soundEvent;
 
-    public new Light light;
+    public Light buttonLight;
 
-    void Start()
-    {
+    void Awake() {
+        mainColor = buttonColor;    
+    }
+
+    void Start() {
         isPressed = false;
 
         mesh = cylinder.GetComponent<MeshRenderer>();
@@ -33,34 +35,31 @@ public class Button : Interactable
         sphereMesh.material.SetColor("_EmissionColor", buttonColor);
     }
 
-    override public void Interact()
-    {
+    override public void Interact() {
         soundEvent.Play();
-        if (isPressed)
-        {
+
+        if (isPressed) {
             Deactivated.Invoke();
             SetCylinderColor(offColor);
-        }
-        else
-        {
+        } else {
             Activated.Invoke();
             SetCylinderColor(onColor);
         }
 
         isPressed = !isPressed;
-        if (light)
-            light.enabled = !isPressed;
+
+        if (buttonLight) buttonLight.enabled = !isPressed;
     }
 
-    void SetCylinderColor(Color color)
-    {
+    void SetCylinderColor(Color color) {
         Material material = mesh.material;
-        //material.color = color;
-        if (isPressed)
+
+        if (isPressed) {
             material.DisableKeyword("_EMISSION");
-        else
+        } else {
             material.EnableKeyword("_EMISSION");
-        //material.globalIlluminationFlags = MaterialGlobalIlluminationFlags.RealtimeEmissive;
+        }
+
         material.SetColor("_EmissionColor", color);
         mesh.material = material;
     }

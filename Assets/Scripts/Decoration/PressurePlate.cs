@@ -24,6 +24,10 @@ public class PressurePlate : Interactable {
     public StudioEventEmitter pressEvent;
     public StudioEventEmitter unpressEvent;
 
+    void Awake() {
+        mainColor = plateColor;
+    }
+
     void Start() {
         weights = new HashSet<GameObject>();
         mesh.material.color = plateColor;

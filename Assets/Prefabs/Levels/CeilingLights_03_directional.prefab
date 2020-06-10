@@ -110,9 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3f6071e8ff017145bd884b7606b2cc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 0}
+  interactable: {fileID: 0}
   cilinder_mesh: {fileID: 8951117617847228964}
-  light: {fileID: 2154276181794748123}
+  interactableLight: {fileID: 2154276181794748123}
 --- !u!1 &212200964313095644
 GameObject:
   m_ObjectHideFlags: 0
