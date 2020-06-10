@@ -17872,6 +17872,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: Event
+      value: event:/Ambiences/office_room
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada74473d94d14499960d6c3fddc1b4d, type: 3}
 --- !u!1001 &1049395112
