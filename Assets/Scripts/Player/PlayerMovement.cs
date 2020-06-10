@@ -179,6 +179,10 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    public bool GetIsGhost() {
+        return isGhost;
+    }
+
     public void SetAsGhost(List<PointInTime> path) {
         isGhost = true;
         // controller.enabled = false;
