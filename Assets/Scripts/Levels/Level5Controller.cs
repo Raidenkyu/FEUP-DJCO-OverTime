@@ -12,14 +12,8 @@ public class Level5Controller : MonoBehaviour {
     bool buttonPressed = false;
     bool platePressed = false;
 
-    // Inverted Lights
-    public Light invertedLight1;
-    public Light invertedLight2;
-
     void Start() {
-        door2.StartOpen();
-        invertedLight1.enabled = false;
-        invertedLight2.enabled = false;
+        door1.StartOpen();
     }
 
     public void PressButton() {
