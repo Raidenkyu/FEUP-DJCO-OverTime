@@ -322,7 +322,7 @@ public class SceneController : MonoBehaviour {
     }
 
     public void PlayerDied() {
-        dialogController.ReEnable();
+        dialogController?.ReEnable();
         ResetHard();
     }
 
