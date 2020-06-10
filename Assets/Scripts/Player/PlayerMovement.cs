@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour {
     public CharacterController controller;
 
     // jump variables
-    public bool isGroundedCheckActive = false;
     public Transform groundCheck;
     bool isGrounded;
     public float groundDistance = 0.4f;
@@ -91,7 +90,7 @@ public class PlayerMovement : MonoBehaviour {
                 velocity.y = -2f;
             }
 
-            if (Input.GetButtonDown("Jump") && (!isGroundedCheckActive || groundCheck)) {
+            if (Input.GetButtonDown("Jump") && isGrounded) {
                 // Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }

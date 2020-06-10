@@ -276,7 +276,6 @@ MonoBehaviour:
   body: {fileID: 6306938107711628073}
   vision: {fileID: 4693286679782165000}
   controller: {fileID: 8216594248780378482}
-  isGroundedCheckActive: 0
   groundCheck: {fileID: 8216594249982272792}
   groundDistance: 0.7
   groundMask:
@@ -291,7 +290,6 @@ MonoBehaviour:
   soundEvent: {fileID: 514642677267940131}
   timeTravelEvent: {fileID: 5333553412163027219}
   noClonesSound: {fileID: 5755059142650206829}
-  collisionEvent: {fileID: 0}
   soundDelay: 0.4
   deathRotationSpeed: 0.5
 --- !u!114 &514642677267940131
@@ -516,7 +514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8216594249982272793}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.8499998, z: 0}
+  m_LocalPosition: {x: 0, y: 1.075, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 8216594248780378485}
@@ -986,6 +984,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8, type: 3}
+--- !u!1 &8700707307447790539 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9093491269228992894, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 472188652539130549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5684746601768475096 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5217925916429413229, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
@@ -995,12 +999,6 @@ Transform:
 --- !u!1 &596701669980788374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1065774290324349987, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 472188652539130549}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8700707307447790539 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9093491269228992894, guid: 8f6cc1d4a3133a14a906cc2176c7b3e8,
     type: 3}
   m_PrefabInstance: {fileID: 472188652539130549}
   m_PrefabAsset: {fileID: 0}
