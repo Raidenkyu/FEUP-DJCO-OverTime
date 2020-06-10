@@ -46,7 +46,7 @@ public class MonsterVision : MonoBehaviour {
             int layerMask = ~LayerMask.GetMask("Vision", "MonsterVision", "Reverb");
 
             if (Physics.Raycast(src, normalizedDirection, out hit, 300, layerMask)) {
-                Debug.Log(hit.collider.gameObject.name);
+                // Debug.Log(hit.collider.gameObject.name);
                 Debug.DrawRay(src, normalizedDirection * hit.distance, Color.white);
                 string objTag = hit.collider.gameObject.tag;
                 if (objTag != "Player" && objTag != "TimeGun") return;

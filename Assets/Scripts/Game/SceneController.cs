@@ -318,7 +318,7 @@ public class SceneController : MonoBehaviour {
         RepositionPlayer();
         CreateGhosts();
         playerPositions = new List<PointInTime>();
-        Invoke("AllowReset", 2f);
+        Invoke("AllowReset", 1.5f);
     }
 
     public void PlayerDied() {
@@ -345,7 +345,6 @@ public class SceneController : MonoBehaviour {
 
         RecordCurrentPosition();
         BlockReset();
-        Invoke("AllowReset", 3f);   // TODO: may change this
         SavePositions();
 
         Invoke("ReloadScene", transitionTime);
@@ -359,7 +358,6 @@ public class SceneController : MonoBehaviour {
         StartAbilityUsedTransition(GunAbility.RESET_WITHOUT_SAVE_2);
 
         BlockReset();
-        Invoke("AllowReset", 3f);   // TODO: may change this
 
         Invoke("ReloadScene", transitionTime);
     }
@@ -372,7 +370,6 @@ public class SceneController : MonoBehaviour {
         StartAbilityUsedTransition(GunAbility.RESET_AND_DELETE_PREV_3);
 
         BlockReset();
-        Invoke("AllowReset", 3f);   // TODO: may change this
         DeleteLastRun();
 
         Invoke("ReloadScene", transitionTime);
@@ -386,7 +383,6 @@ public class SceneController : MonoBehaviour {
         StartAbilityUsedTransition(GunAbility.HARD_RESET_4);
 
         BlockReset();
-        Invoke("AllowReset", 3f);   // TODO: may change this
         ghostPaths.Clear();
         playerPositions.Clear();
 
