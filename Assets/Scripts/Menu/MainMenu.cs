@@ -30,13 +30,28 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void Level2() {
-        clickEvent.Play();
+        enterEvent.Play();
         SceneManager.LoadSceneAsync("Level2");
     }
 
     public void Level3() {
         enterEvent.Play();
         SceneManager.LoadSceneAsync("Level3");
+    }
+
+    public void Level4() {
+        enterEvent.Play();
+        SceneManager.LoadSceneAsync("Level4");
+    }
+
+    public void Level5() {
+        enterEvent.Play();
+        SceneManager.LoadSceneAsync("Level5");
+    }
+
+    public void Level6() {
+        enterEvent.Play();
+        SceneManager.LoadSceneAsync("Level6");
     }
 
     public void LevelSelect() {
