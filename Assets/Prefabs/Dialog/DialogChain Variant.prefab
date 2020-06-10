@@ -17,7 +17,6 @@ MonoBehaviour:
   dialogText: {fileID: 9012693641394157068}
   chainedDialog: {fileID: 0}
   chainDelay: 0
-  dialogObj: {fileID: 5789073287537485848}
 --- !u!1001 &1225496883277166240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -150,6 +149,36 @@ PrefabInstance:
       propertyPath: m_overflowMode
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7787379003277246632, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_OverridePixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003277246632, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_PixelPerfect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003277246632, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003277246639, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003277246639, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787379003277246639, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_text
@@ -158,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_firstOverflowCharacterIndex
-      value: 10
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -178,7 +207,7 @@ PrefabInstance:
     - target: {fileID: 7787379003339934633, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d, type: 3}
