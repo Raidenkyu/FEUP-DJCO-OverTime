@@ -16275,6 +16275,11 @@ PrefabInstance:
       propertyPath: light
       value: 
       objectReference: {fileID: 2053509958}
+    - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
+        type: 3}
+      propertyPath: buttonLight
+      value: 
+      objectReference: {fileID: 2053509958}
     - target: {fileID: 1842280301107243330, guid: 8e1bad72df4ddf84b943004b619f808e,
         type: 3}
       propertyPath: m_Name
@@ -23776,6 +23781,11 @@ PrefabInstance:
     - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
         type: 3}
       propertyPath: button
+      value: 
+      objectReference: {fileID: 1463553963}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
       value: 
       objectReference: {fileID: 1463553963}
     m_RemovedComponents: []
@@ -49741,7 +49751,7 @@ PrefabInstance:
     - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
         type: 3}
       propertyPath: m_Name
-      value: porta
+      value: Door1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}

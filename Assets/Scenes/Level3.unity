@@ -4599,6 +4599,11 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 584702224}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 584702224}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &126439715 stripped
@@ -7092,6 +7097,11 @@ PrefabInstance:
     - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
         type: 3}
       propertyPath: light
+      value: 
+      objectReference: {fileID: 1709697625}
+    - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
+        type: 3}
+      propertyPath: buttonLight
       value: 
       objectReference: {fileID: 1709697625}
     - target: {fileID: 1842280301107243330, guid: 8e1bad72df4ddf84b943004b619f808e,
@@ -13882,6 +13892,11 @@ PrefabInstance:
     - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
         type: 3}
       propertyPath: light
+      value: 
+      objectReference: {fileID: 172758052}
+    - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
+        type: 3}
+      propertyPath: buttonLight
       value: 
       objectReference: {fileID: 172758052}
     - target: {fileID: 1842280301107243330, guid: 8e1bad72df4ddf84b943004b619f808e,
@@ -40245,7 +40260,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1178611610}
   m_Layer: 0
-  m_Name: Porta 2
+  m_Name: Door2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49729,6 +49744,11 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 454334189}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 454334189}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1460472834 stripped
@@ -56864,7 +56884,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1647240850}
   m_Layer: 0
-  m_Name: Porta 1
+  m_Name: Door1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67958,12 +67978,17 @@ PrefabInstance:
     - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
         type: 3}
       propertyPath: OverrideMinDistance
-      value: 1
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
         type: 3}
       propertyPath: OverrideMaxDistance
-      value: 20
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794160239351269697, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ada74473d94d14499960d6c3fddc1b4d, type: 3}

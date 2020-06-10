@@ -12414,6 +12414,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 758168573}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 758168573}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &676348411 stripped
@@ -14646,6 +14651,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 585819931}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 585819931}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &807099533 stripped
@@ -16800,6 +16810,11 @@ PrefabInstance:
     - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
         type: 3}
       propertyPath: plate
+      value: 
+      objectReference: {fileID: 758168573}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
       value: 
       objectReference: {fileID: 758168573}
     m_RemovedComponents: []
@@ -20061,6 +20076,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 174527066}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 174527066}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1175579590 stripped
@@ -22205,6 +22225,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 758168573}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 758168573}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1345529204 stripped
@@ -23556,6 +23581,11 @@ PrefabInstance:
     - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
         type: 3}
       propertyPath: plate
+      value: 
+      objectReference: {fileID: 758168573}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
       value: 
       objectReference: {fileID: 758168573}
     m_RemovedComponents: []
@@ -28191,6 +28221,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 174527066}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 174527066}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1717222003 stripped
@@ -28263,6 +28298,11 @@ PrefabInstance:
     - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
         type: 3}
       propertyPath: plate
+      value: 
+      objectReference: {fileID: 585819931}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
       value: 
       objectReference: {fileID: 585819931}
     m_RemovedComponents: []
@@ -28682,6 +28722,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 724582361}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 724582361}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1743293066 stripped
@@ -28823,6 +28868,11 @@ PrefabInstance:
     - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
         type: 3}
       propertyPath: plate
+      value: 
+      objectReference: {fileID: 174527066}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
       value: 
       objectReference: {fileID: 174527066}
     m_RemovedComponents: []

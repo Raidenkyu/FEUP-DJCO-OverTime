@@ -11781,6 +11781,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 838226987}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 838226987}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &513169948 stripped
@@ -19779,6 +19784,11 @@ PrefabInstance:
       propertyPath: light
       value: 
       objectReference: {fileID: 783865556}
+    - target: {fileID: -6599336632590568291, guid: 8e1bad72df4ddf84b943004b619f808e,
+        type: 3}
+      propertyPath: buttonLight
+      value: 
+      objectReference: {fileID: 783865556}
     - target: {fileID: 1842280301107243330, guid: 8e1bad72df4ddf84b943004b619f808e,
         type: 3}
       propertyPath: m_Name
@@ -24047,6 +24057,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
+      propertyPath: doorLightArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
       propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1506167141}
@@ -24073,16 +24088,21 @@ PrefabInstance:
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: plateColor.g
-      value: 0.74509805
+      value: 0.21991529
       objectReference: {fileID: 0}
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: plateColor.b
-      value: 0.31733024
+      value: 0.74509805
       objectReference: {fileID: 0}
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: light
+      value: 
+      objectReference: {fileID: 600169399}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[0]
       value: 
       objectReference: {fileID: 600169399}
     m_RemovedComponents: []
@@ -38727,6 +38747,11 @@ PrefabInstance:
       propertyPath: plate
       value: 
       objectReference: {fileID: 1199317648}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 1199317648}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1673024452 stripped
@@ -46761,6 +46786,11 @@ PrefabInstance:
       propertyPath: button
       value: 
       objectReference: {fileID: 795235749}
+    - target: {fileID: 8329339783536146257, guid: f1d77cdccdf8dff4bad35d7d963960ec,
+        type: 3}
+      propertyPath: interactable
+      value: 
+      objectReference: {fileID: 795235749}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d77cdccdf8dff4bad35d7d963960ec, type: 3}
 --- !u!4 &1969740973 stripped
@@ -50128,6 +50158,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
+      propertyPath: doorLightArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
       propertyPath: Activated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1506167141}
@@ -50164,6 +50199,11 @@ PrefabInstance:
     - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
         type: 3}
       propertyPath: light
+      value: 
+      objectReference: {fileID: 773642561}
+    - target: {fileID: 3649896164100692395, guid: aa76fd9ddfde5ae1196d08bd0a0c6a3e,
+        type: 3}
+      propertyPath: doorLightArray.Array.data[0]
       value: 
       objectReference: {fileID: 773642561}
     m_RemovedComponents: []
