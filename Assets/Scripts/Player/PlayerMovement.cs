@@ -163,13 +163,17 @@ public class PlayerMovement : MonoBehaviour {
                 playerCamera.transform.rotation = currentPointInTime.cameraAngle;
                 currentGhostPoint++;
                 if (currentPointInTime.clickE) {
-                    Debug.Log("GHOST PRESSED E!");
+                    // Debug.Log("GHOST PRESSED E!");
                     Interact();
                 }
                 if (currentPointInTime.clickLeftClick) {
-                    Debug.Log("GHOST LEFT CLICK!");
-                    // TODO: add ghost logic
+                    // Debug.Log("GHOST LEFT CLICK!");
                     playerGun.GetComponent<Gun>().Shoot();
+                }
+                // if last recorded position
+                if (currentGhostPoint == ghostPath.Count - 1) {
+                    // Debug.Log("LAST POSITION!");
+                    this.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
                 }
             }
         }
