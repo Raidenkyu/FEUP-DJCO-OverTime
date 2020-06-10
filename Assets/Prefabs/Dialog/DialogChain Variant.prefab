@@ -17,6 +17,7 @@ MonoBehaviour:
   dialogText: {fileID: 9012693641394157068}
   chainedDialog: {fileID: 0}
   chainDelay: 0
+  dialogObj: {fileID: 5789073287537485848}
 --- !u!1001 &1225496883277166240
 PrefabInstance:
   m_ObjectHideFlags: 0

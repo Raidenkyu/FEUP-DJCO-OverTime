@@ -9,4 +9,10 @@ public class DialogTrigger : Dialog {
         triggerCollider.enabled = false;
         StartDialog();
     }
+
+    override public void ReEnable() {
+        base.ReEnable();
+
+        triggerCollider.enabled = true;
+    }
 }
