@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void FootStepSound(float stepSpeed, float deltaTime) {
-        if (stepSpeed == 0) {
+        if (!controller.enabled || stepSpeed == 0) {
             soundTimer = 0;
             return;
         }
