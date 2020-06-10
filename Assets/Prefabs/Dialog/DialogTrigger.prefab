@@ -56,6 +56,7 @@ MonoBehaviour:
   dialogText: {fileID: 7787379003277246636}
   chainedDialog: {fileID: 0}
   chainDelay: 0
+  dialogObj: {fileID: 4708299656659639992}
   triggerCollider: {fileID: 4708299656659639998}
 --- !u!65 &4708299656659639998
 BoxCollider:

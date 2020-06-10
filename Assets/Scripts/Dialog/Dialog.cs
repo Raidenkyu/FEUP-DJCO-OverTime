@@ -18,13 +18,18 @@ public class Dialog : MonoBehaviour {
         if (chainedDialog != null) {
             if (chainDelay != 0) yield return new WaitForSeconds(chainDelay);
 
-            chainedDialog.StartDialog();
+            if (dialogText.activeInHierarchy) chainedDialog.StartDialog();
         }
 
-        Destroy(gameObject);
+        dialogText.SetActive(false);
     }
 
     public void StartDialog() {
         StartCoroutine(ShowDialog());
+    }
+
+    public virtual void ReEnable() {
+        dialogEvent.Stop();
+        dialogText.SetActive(false);
     }
 }

@@ -20,6 +20,8 @@ public class SceneController : MonoBehaviour {
 
     Gun playerClock;
 
+    DialogController dialogController;
+
     // variables for ghost/clone logic
     Transform levelSpawnpoint;
     List<PointInTime> playerPositions;
@@ -69,6 +71,8 @@ public class SceneController : MonoBehaviour {
         playerController = playerObject.GetComponent<CharacterController>();
         playerLook = playerObject.GetComponentInChildren<PlayerLook>();
         playerClock = playerObject.transform.Find("Main Camera").transform.Find("timegun")?.GetComponent<Gun>();
+
+        dialogController = gameObject.GetComponentInChildren<DialogController>();
 
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(playerObject);
@@ -318,7 +322,7 @@ public class SceneController : MonoBehaviour {
     }
 
     public void PlayerDied() {
-        // TODO: maybe show "Game Over" or "You Died" or something like that
+        dialogController.ReEnable();
         ResetHard();
     }
 
