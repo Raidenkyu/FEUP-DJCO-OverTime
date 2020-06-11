@@ -52,6 +52,8 @@ public class MonsterVision : MonoBehaviour {
                 if (objTag != "Player" && objTag != "TimeGun") return;
 
                 caught?.Invoke(obj);
+                unseenObjects.Remove(obj);
+                break;
             }
         }
     }
