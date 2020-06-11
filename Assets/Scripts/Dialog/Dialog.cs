@@ -10,6 +10,7 @@ public class Dialog : MonoBehaviour {
     public float chainDelay = 0;
 
     IEnumerator ShowDialog() {
+        DialogController.SetActiveDialog(this);
         dialogEvent.Play();
         dialogText.SetActive(true);
 
