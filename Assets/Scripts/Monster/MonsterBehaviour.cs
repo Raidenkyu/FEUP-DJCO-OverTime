@@ -49,7 +49,7 @@ public class MonsterBehaviour : MonoBehaviour {
 
     public void Roam() {
         this.state = MonsterState.ROAM;
-        visionObject.SetActive(false);
+        visionObject.SetActive(true);
         this.agent.stoppingDistance = 0;
         this.agent.autoBraking = false;
         animator.SetTrigger("Roam");
