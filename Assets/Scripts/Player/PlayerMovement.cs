@@ -115,6 +115,7 @@ public class PlayerMovement : MonoBehaviour {
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
+                if (Input.GetKeyDown(KeyCode.LeftControl)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
                 if (!SceneController.Instance.CanCreateClones()) {
                     noClonesSound.Play();
@@ -130,6 +131,7 @@ public class PlayerMovement : MonoBehaviour {
                 SceneController.Instance.ResetWithSave();
             }
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
+                if (Input.GetKeyDown(KeyCode.LeftAlt)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
 
                 Invoke("TimeTravelSound", 0.1f);
