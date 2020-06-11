@@ -5581,18 +5581,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef01a21f648c39836a2ba1c992941c6d, type: 3}
---- !u!114 &317413283 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 317413282}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feaee3baec83cb483abfc143f62bf43c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &322064803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4160519767647610, guid: c73151b2c863d094393f47d50c325553,
@@ -17413,7 +17401,7 @@ PrefabInstance:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: chainedDialog
       value: 
-      objectReference: {fileID: 317413283}
+      objectReference: {fileID: 0}
     - target: {fileID: 4536501996887774383, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_AnchorMin.y
