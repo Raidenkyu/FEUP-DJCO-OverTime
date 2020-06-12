@@ -249,7 +249,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   activateDelay: 0
-  deactivateDelay: 3
+  deactivateDelay: 2
   plateColor: {r: 0.745283, g: 0.14061941, b: 0.14061941, a: 1}
   pressedColor: {r: 0, g: 0.5566038, b: 0, a: 1}
   plateMesh: {fileID: 1766038170040338903}

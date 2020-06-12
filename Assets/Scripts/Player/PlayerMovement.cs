@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // movement variables
     Vector3 velocity;
+    float DIAGONAL_SPEED = (Mathf.Sqrt(2) / 2.0f);
     public float speed = 12f;
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
@@ -72,9 +73,13 @@ public class PlayerMovement : MonoBehaviour {
             float x = Input.GetAxis("Horizontal");
             float z = Input.GetAxis("Vertical");
 
+            if (x != 0 && z != 0) {
+                x *= DIAGONAL_SPEED;
+                z *= DIAGONAL_SPEED;
+            }
+
             Vector3 move = transform.right * x + transform.forward * z;
             Vector3 stepSpeed = move * speed;
-            FootStepSound(stepSpeed.magnitude, Time.deltaTime);
 
             if (state != PlayerState.PLAY) {
                 if (state == PlayerState.PREYED) {
@@ -96,6 +101,8 @@ public class PlayerMovement : MonoBehaviour {
             }
             velocity.y += gravity * Time.deltaTime;
 
+            FootStepSound(stepSpeed.magnitude, velocity.y, Time.deltaTime);
+
             // move controller
             if (controller.enabled) {
                 controller.Move(stepSpeed * Time.deltaTime);
@@ -115,6 +122,7 @@ public class PlayerMovement : MonoBehaviour {
 
             // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
+                if (Input.GetKeyDown(KeyCode.LeftControl)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
                 if (!SceneController.Instance.CanCreateClones()) {
                     noClonesSound.Play();
@@ -130,6 +138,7 @@ public class PlayerMovement : MonoBehaviour {
                 SceneController.Instance.ResetWithSave();
             }
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
+                if (Input.GetKeyDown(KeyCode.LeftAlt)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
 
                 Invoke("TimeTravelSound", 0.1f);
@@ -245,8 +254,8 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void FootStepSound(float stepSpeed, float deltaTime) {
-        if (!controller.enabled || stepSpeed == 0) {
+    void FootStepSound(float stepSpeed, float velocityY, float deltaTime) {
+        if (!controller.enabled || velocityY > 0 || stepSpeed == 0) {
             soundTimer = 0;
             return;
         }

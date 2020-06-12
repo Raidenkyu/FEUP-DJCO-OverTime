@@ -1,6 +1,17 @@
 ﻿using UnityEngine;
 
 public class DialogController : MonoBehaviour {
+    // Singleton methods
+    private static DialogController _instance = null;
+    public static DialogController Instance { get { return _instance; } }
+
+    // Actual Active Dialog
+    Dialog activeDialog;
+
+    void Awake() {
+        _instance = this;
+    }
+
     public void ReEnable() {
         Dialog[] dialogs = gameObject.GetComponentsInChildren<Dialog>();
         DialogTrigger[] triggers = gameObject.GetComponentsInChildren<DialogTrigger>();
@@ -12,5 +23,10 @@ public class DialogController : MonoBehaviour {
         foreach (DialogTrigger trigger in triggers) {
             trigger.ReEnable();
         }
+    }
+
+    public static void SetActiveDialog(Dialog dialog) {
+        _instance.activeDialog?.ReEnable();
+        _instance.activeDialog = dialog;
     }
 }

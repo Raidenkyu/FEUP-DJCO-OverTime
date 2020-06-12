@@ -77,7 +77,7 @@ public class Level6Controller : MonoBehaviour {
         plate4Pressed = false;
 
         if (!plate3Pressed || !plate4Pressed) {
-            door34.Open();
+            door34.Close();
         }
     }
 }
