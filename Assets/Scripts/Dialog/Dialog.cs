@@ -29,8 +29,12 @@ public class Dialog : MonoBehaviour {
         StartCoroutine(ShowDialog());
     }
 
-    public virtual void ReEnable() {
+    public void StopDialog() {
         dialogEvent.Stop();
         dialogText.SetActive(false);
+    }
+
+    public virtual void ReEnable() {
+        StopDialog();
     }
 }
