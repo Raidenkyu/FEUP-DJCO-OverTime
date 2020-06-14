@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="EffectPreset" id="{638f2c37-72e0-4a55-9c59-83db551c6336}">
+		<property name="name">
+			<value>RADIO</value>
+		</property>
+		<relationship name="folder">
+			<destination>{243ed90a-fb02-40b0-83c8-2f6c17390dab}</destination>
+		</relationship>
+		<relationship name="effect">
+			<destination>{2940de70-720b-4764-81bb-296a08fb9453}</destination>
+		</relationship>
+	</object>
+	<object class="EffectChain" id="{2940de70-720b-4764-81bb-296a08fb9453}">
+		<relationship name="effects">
+			<destination>{01f467eb-43b2-416e-94df-9b12428bded0}</destination>
+			<destination>{53b7be7f-a06e-4d29-975a-f4f20882fe1e}</destination>
+		</relationship>
+	</object>
+	<object class="MultibandEqEffect" id="{01f467eb-43b2-416e-94df-9b12428bded0}">
+		<property name="filterTypeB">
+			<value>5</value>
+		</property>
+		<property name="frequencyA">
+			<value>4555.7417</value>
+		</property>
+		<property name="frequencyB">
+			<value>943.399658</value>
+		</property>
+		<property name="qualityA">
+			<value>4.04767036</value>
+		</property>
+		<property name="qualityB">
+			<value>2.79956651</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{53b7be7f-a06e-4d29-975a-f4f20882fe1e}">
+		<property name="lowShelfGain">
+			<value>-21.5</value>
+		</property>
+		<property name="wetLevel">
+			<value>-16.5</value>
+		</property>
+	</object>
+</objects>

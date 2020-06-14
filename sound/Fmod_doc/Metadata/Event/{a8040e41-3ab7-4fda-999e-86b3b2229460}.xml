@@ -56,7 +56,7 @@
 			<destination>{ea2a3b52-edd8-4357-ad4d-b0c06900138b}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{4f19b23f-9eec-40f4-81a4-64c8b0de9d61}</destination>
+			<destination>{d1450edd-e02b-49ee-8183-442b595a673b}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{59e4ed04-5789-4c13-a253-d9bf4ef32a8b}" />
@@ -162,7 +162,9 @@
 	</object>
 	<object class="MixerBusEffectChain" id="{445c5f45-e3d2-48bb-870a-017483079505}">
 		<relationship name="effects">
+			<destination>{cfda537a-7a7d-47c2-826b-da84adad761b}</destination>
 			<destination>{db637d50-285e-456c-a6b4-0012ca326c6f}</destination>
+			<destination>{fec39eed-5ab3-49ce-b504-cd53479afddf}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6ea95b3d-e151-41d0-b06b-c891cba98836}" />
@@ -238,7 +240,20 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{548b3044-e950-43df-ab5f-447e37d8567d}" />
+	<object class="CompressorEffect" id="{cfda537a-7a7d-47c2-826b-da84adad761b}">
+		<property name="gain">
+			<value>7</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{db637d50-285e-456c-a6b4-0012ca326c6f}" />
+	<object class="LimiterEffect" id="{fec39eed-5ab3-49ce-b504-cd53479afddf}">
+		<property name="boost">
+			<value>12</value>
+		</property>
+		<property name="release">
+			<value>180</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{1e0b5439-6117-4f7c-aeec-07f3bfb48be0}">
 		<relationship name="parameter">
 			<destination>{b530568c-f590-43b9-b426-ab7dca72e781}</destination>
