@@ -20541,7 +20541,7 @@ PrefabInstance:
         type: 3}
       propertyPath: chainedDialog
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1069945053}
     - target: {fileID: 1533714669947045192, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -20565,23 +20565,26 @@ PrefabInstance:
     - target: {fileID: 2173022563900820948, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: "It\u2019s a result of Project MADU-wait! Saying that name crashes the
-        game. Forget I said it, you don\u2019t want to play these levels all over
-        again, do you?"
+      value: Here at Titor industries, all employees are employee of the month.
       objectReference: {fileID: 0}
     - target: {fileID: 2890301800590052004, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: 'Thomas:'
+      value: 'Elizabeth:'
       objectReference: {fileID: 0}
     - target: {fileID: 2890301800590052004, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_fontColor.r
-      value: 0.07058824
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2890301800590052004, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_fontColor.g
+      value: 0.07058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890301800590052004, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_fontColor.b
       value: 0.45882353
       objectReference: {fileID: 0}
     - target: {fileID: 3151461846242334032, guid: 241fa098035e6fb1aa0c8e0d546624be,
@@ -20667,23 +20670,28 @@ PrefabInstance:
     - target: {fileID: 6246414375437708526, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: 'Thomas:'
+      value: 'Elizabeth:'
       objectReference: {fileID: 0}
     - target: {fileID: 6246414375437708526, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_fontColor.r
-      value: 0.07058824
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6246414375437708526, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_fontColor.g
+      value: 0.07058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246414375437708526, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_fontColor.b
       value: 0.45882353
       objectReference: {fileID: 0}
     - target: {fileID: 6961424182357502878, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: "You can\u2019t see my face, but I\u2019m quietly shedding a tear right
-        now. Get on the teleporter, you\u2019re nearly here."
+      value: Yes, even the guy who spent the last month playing Ultimate Fantasy
+        7 and will be fired in a week.
       objectReference: {fileID: 0}
     - target: {fileID: 7780825661063815938, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
