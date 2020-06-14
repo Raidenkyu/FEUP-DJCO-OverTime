@@ -6,6 +6,9 @@ public class PressurePlate : Interactable {
     //The set of the objects pressuring the plate
     HashSet<GameObject> weights;
 
+    // Contol Boolean
+    bool wasPressed = false;
+
     // Pressure plate timers
     public float activateDelay = 0;
     public float deactivateDelay = 3;
@@ -51,7 +54,7 @@ public class PressurePlate : Interactable {
 
             if (weights.Count == 1) {
                 pressEvent.Play();
-                Invoke("Interact", activateDelay);
+                if (!wasPressed) Invoke("Interact", activateDelay);
             }
         }
     }
@@ -66,7 +69,7 @@ public class PressurePlate : Interactable {
 
             if (weights.Count == 0) {
                 unpressEvent.Play();
-                Invoke("StopInteraction", deactivateDelay);
+                if (wasPressed) Invoke("StopInteraction", deactivateDelay);
             }
         }
     }
@@ -75,6 +78,7 @@ public class PressurePlate : Interactable {
         plateMesh.materials[0].EnableKeyword("_EMISSION");
         InvertAllLights();
 
+        wasPressed = true;
         Activated.Invoke();
     }
 
@@ -82,6 +86,7 @@ public class PressurePlate : Interactable {
         plateMesh.materials[0].DisableKeyword("_EMISSION");
         InvertAllLights();
 
+        wasPressed = false;
         Deactivated.Invoke();
     }
 
