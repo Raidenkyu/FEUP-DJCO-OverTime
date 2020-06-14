@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{b3e184ae-c63d-4c3b-a8bf-6a09fc3c7496}">
+		<property name="assetPath">
+			<value>Narrations/Ellie/E-6.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>8.0790929705215415</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{720651ab-7ce1-48f6-8e8a-92f78773d13b}</destination>
+		</relationship>
+	</object>
+</objects>
