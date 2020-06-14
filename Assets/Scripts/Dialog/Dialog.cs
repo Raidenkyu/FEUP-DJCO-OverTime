@@ -10,6 +10,7 @@ public class Dialog : MonoBehaviour {
     public float chainDelay = 0;
 
     IEnumerator ShowDialog() {
+        DialogController.SetActiveDialog(this);
         dialogEvent.Play();
         dialogText.SetActive(true);
 
@@ -28,8 +29,12 @@ public class Dialog : MonoBehaviour {
         StartCoroutine(ShowDialog());
     }
 
-    public virtual void ReEnable() {
+    public void StopDialog() {
         dialogEvent.Stop();
         dialogText.SetActive(false);
+    }
+
+    public virtual void ReEnable() {
+        StopDialog();
     }
 }
