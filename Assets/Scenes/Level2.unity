@@ -7111,6 +7111,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/2-4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639992, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_Name
@@ -7244,7 +7264,7 @@ PrefabInstance:
     - target: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: duration
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5689305042014125223, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -12169,7 +12189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: duration
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: chainedDialog
@@ -12186,6 +12206,26 @@ PrefabInstance:
       value: When you shoot it, you create a separate timeline branch in the space-time
         continuum with a...time-ghost of yours. Anything you shoot also gets stuck
         on that timeline with it, and you get brought back to the master branch.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/2-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -13323,12 +13363,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: duration
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: chainedDialog
       value: 
-      objectReference: {fileID: 382030600}
+      objectReference: {fileID: 0}
     - target: {fileID: 4536501996887774383, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -13340,6 +13380,26 @@ PrefabInstance:
       value: "The teleporters have a limited range, otherwise you\u2019d be here
         in a hot minute. Next it\u2019ll get a bit more dangerous. Beaming you up,
         scotty!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/2-5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -19201,7 +19261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: duration
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4536501996887774383, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -19214,6 +19274,26 @@ PrefabInstance:
       value: That way, you can freeze those anomalies and coordinate with yourself
         to reach the next teleporter. I know I talk a lot and the clock is ticking,
         so press the right mouse button to reset this branch.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/2-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -24100,6 +24180,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639992, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_Name
@@ -24233,7 +24333,7 @@ PrefabInstance:
     - target: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: duration
-      value: 5
+      value: 15.5
       objectReference: {fileID: 0}
     - target: {fileID: 5689305042014125223, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -24258,9 +24358,9 @@ PrefabInstance:
     - target: {fileID: 6495907408719219929, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_text
-      value: "If you ever feel stressed out by the current disaster, remember that
-        Titor Industries grants you 8 minutes of supervised crying time in the stairs
-        before you go back to work. We wish you luck in finding your supervisor.\r"
+      value: If you ever feel stressed by the current disaster, remember that Titor
+        Industries grants you 7 minutes of supervised crying time in the stairs before
+        you go back to work. We wish you luck in finding your supervisor.
       objectReference: {fileID: 0}
     - target: {fileID: 7787379003277246636, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -41865,7 +41965,27 @@ PrefabInstance:
     - target: {fileID: 385343962211458999, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 5
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-3
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1533714669947045192, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -41875,8 +41995,8 @@ PrefabInstance:
     - target: {fileID: 2173022563900820948, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: People die when they are killed. To help you remain tranquil in the
-        face of almost certain death, smooth jazz will be deployed in 3... 2... 1...
+      value: "People die when they are killed. To help you remain calm in the face
+        of almost certain death, smooth jazz will be deployed in 3... 2... 1\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 2890301800590052004, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -41901,7 +42021,7 @@ PrefabInstance:
     - target: {fileID: 3151461846242334032, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4232797843441764637, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -41994,6 +42114,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/2-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241fa098035e6fb1aa0c8e0d546624be, type: 3}
