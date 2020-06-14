@@ -41125,6 +41125,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/3-2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639992, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_Name
@@ -41258,7 +41278,7 @@ PrefabInstance:
     - target: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: duration
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5689305042014125223, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -41283,8 +41303,8 @@ PrefabInstance:
     - target: {fileID: 6495907408719219929, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_text
-      value: "Why that face? Did you expect a cake at the end? You know that cakes
-        aren\u2019t to be trusted! Just like those damn Japanese!"
+      value: "Why that expression? Did you expect a cake or something? You know fully
+        well that cakes aren\u2019t to be trusted!"
       objectReference: {fileID: 0}
     - target: {fileID: 7787379003277246636, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -70642,6 +70662,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 7.000004
       objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/3-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639992, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_Name
@@ -70775,7 +70815,7 @@ PrefabInstance:
     - target: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: duration
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5689305042014125223, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -74579,7 +74619,27 @@ PrefabInstance:
     - target: {fileID: 385343962211458999, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 3
+      value: 5.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-5
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1533714669947045192, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -74705,10 +74765,28 @@ PrefabInstance:
     - target: {fileID: 6961424182357502878, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: '[insert amusing fact here]
-
-        We are happy to comfort you in
-        these trying times.'
+      value: Insert amusing fact here. We are happy to comfort you in these trying
+        times.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241fa098035e6fb1aa0c8e0d546624be, type: 3}
