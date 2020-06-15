@@ -15,6 +15,9 @@
 		<property name="parameterType">
 			<value>3</value>
 		</property>
+		<property name="maximum">
+			<value>20</value>
+		</property>
 		<property name="initialValue">
 			<value>0</value>
 		</property>
