@@ -275,7 +275,7 @@
 	</object>
 	<object class="AutomationPoint" id="{761c2546-c8ec-4d27-b326-0ba47e1108e9}">
 		<property name="position">
-			<value>0.16260162601626016</value>
+			<value>0.24390243902439021</value>
 		</property>
 		<property name="value">
 			<value>3.81469727e-06</value>
@@ -283,7 +283,7 @@
 	</object>
 	<object class="AutomationPoint" id="{014c3dc0-9507-4514-8146-1f9bab91302f}">
 		<property name="position">
-			<value>19.89159891598916</value>
+			<value>29.837398373983739</value>
 		</property>
 		<property name="value">
 			<value>-27</value>
@@ -312,6 +312,7 @@
 		<relationship name="automationPoints">
 			<destination>{f747e441-4f61-408b-a34b-5326629f59b8}</destination>
 			<destination>{2d617d14-4844-47b6-8a79-d56f1c289b9f}</destination>
+			<destination>{2aee21de-6e6b-4e22-a6dc-1435401935e9}</destination>
 		</relationship>
 	</object>
 	<object class="AutomationCurve" id="{f899232b-d537-4967-9a1e-9bb2c86067cf}">
@@ -328,20 +329,28 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-30</value>
+			<value>-26</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{2d617d14-4844-47b6-8a79-d56f1c289b9f}">
 		<property name="position">
-			<value>20</value>
+			<value>30</value>
 		</property>
 		<property name="value">
 			<value>0</value>
 		</property>
 	</object>
+	<object class="AutomationPoint" id="{2aee21de-6e6b-4e22-a6dc-1435401935e9}">
+		<property name="position">
+			<value>2.0731707317073171</value>
+		</property>
+		<property name="value">
+			<value>-27.3344936</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{c1270b50-c5dd-455d-ae24-e1e53c495cd4}">
 		<property name="position">
-			<value>0.16260162601626016</value>
+			<value>0.24390243902439021</value>
 		</property>
 		<property name="value">
 			<value>0</value>
@@ -349,7 +358,7 @@
 	</object>
 	<object class="AutomationPoint" id="{327fa709-2302-4896-b0be-21ffc8f8efe7}">
 		<property name="position">
-			<value>20</value>
+			<value>30</value>
 		</property>
 		<property name="value">
 			<value>-30</value>
