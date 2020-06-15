@@ -16961,6 +16961,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639992, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_Name
@@ -24272,6 +24292,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1059931979}
     m_Modifications:
+    - target: {fileID: 385343962211458995, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 2.5698242
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211458995, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.17321052
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211458995, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.9043045
+      objectReference: {fileID: 0}
     - target: {fileID: 385343962211458996, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24296,6 +24331,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 4.39
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211458999, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: duration
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-9
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: TriggerOnce
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1533714669947045192, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -24337,7 +24402,7 @@ PrefabInstance:
     - target: {fileID: 3151461846242334032, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4232797843441764637, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -24435,6 +24500,26 @@ PrefabInstance:
       value: "Never tell me the odds! You\u2019ll make it Doc, you\u2019re a charming
         man who will certainly not suffer from terrible radiation poisoning after
         this!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/5-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 241fa098035e6fb1aa0c8e0d546624be, type: 3}

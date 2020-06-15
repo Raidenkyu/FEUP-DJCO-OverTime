@@ -20535,13 +20535,33 @@ PrefabInstance:
     - target: {fileID: 385343962211458999, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 385343962211458999, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: chainedDialog
       value: 
       objectReference: {fileID: 1069945053}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-10
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 385343962211459003, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 1533714669947045192, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -20590,7 +20610,7 @@ PrefabInstance:
     - target: {fileID: 3151461846242334032, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3716833761651885234, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -20707,6 +20727,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Ellie/E-11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 8929185200978049535, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -21389,6 +21429,26 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: Event
+      value: event:/Narration/Alvaro/6-1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideAttenuation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
+        type: 3}
+      propertyPath: OverrideMinDistance
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639992, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_Name
@@ -21503,11 +21563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: chainedDialog
       value: 
-      objectReference: {fileID: 1069945053}
+      objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: duration
-      value: 5
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5689305042014125223, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -21532,8 +21592,9 @@ PrefabInstance:
     - target: {fileID: 6495907408719219929, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_text
-      value: 'Fantastic! You remained resolute and resourceful in an atmosphere of
-        extreme pessimism. '
+      value: "Amazin\u2019! You remained resourceful and resolute in an atmosphere
+        of extreme pessimism. You can\u2019t see my face, but I\u2019m quietly shedding
+        a tear right now. Get on the teleporter, you\u2019re nearly here."
       objectReference: {fileID: 0}
     - target: {fileID: 7787379003277246636, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -26850,6 +26911,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FuturisticDoor34
+      objectReference: {fileID: 0}
+    - target: {fileID: 157564365510481626, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb3159c8f3f9cdc1fb1a2f8b6cee1ff2, type: 3}
