@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level6.unity
     guid: 369ef5a5a9a8c894ea530906477e00f9
   - enabled: 1
+    path: Assets/Scenes/Level7.unity
+    guid: ecdb9acf337b21d46902e76f44089e3b
+  - enabled: 1
     path: Assets/Scenes/TestOrcCloneIntegration.unity
     guid: f34c3bcb9a7be4450a5137b946f92cf5
   - enabled: 1
