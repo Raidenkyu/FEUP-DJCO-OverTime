@@ -12,7 +12,7 @@ public class AnimationsController : MonoBehaviour {
         List<PointInTime> ghostPath = movement.ghostPath;
         int currentGhostPoint = movement.currentGhostPoint;
 
-        if (currentGhostPoint == 0) return;
+        if (currentGhostPoint < 2) return;
 
         AnimationState newState = AnimationState.STOP;
 
@@ -22,11 +22,11 @@ public class AnimationsController : MonoBehaviour {
             newState = UpdateState(ghostPath, currentGhostPoint);
         }
 
-        if (state != newState) {
-            state = newState;
+        state = newState;
 
-            TriggerAnimation();
-        }
+        TriggerAnimation();
+
+        Debug.Log(state);
     }
 
     void TriggerAnimation() {
@@ -44,13 +44,17 @@ public class AnimationsController : MonoBehaviour {
     }
 
     AnimationState UpdateState(List<PointInTime> ghostPath, int currentGhostPoint) {
-        Vector3 distance = ghostPath[currentGhostPoint].position - ghostPath[currentGhostPoint - 1].position;
+        Vector3 distance1 = ghostPath[currentGhostPoint].position - ghostPath[currentGhostPoint - 1].position;
+        Vector3 distance2 = ghostPath[currentGhostPoint - 1].position - ghostPath[currentGhostPoint - 2].position;
+
+        bool stopped1 = distance1.y != 0 && distance1.x == 0 && distance1.z == 0;
+        bool stopped2 = distance2.y != 0 && distance2.x == 0 && distance2.z == 0;
+
         AnimationState newState = AnimationState.STOP;
 
-        if (distance.y != 0 && distance.x == 0 && distance.z == 0) {
+        if (stopped1 && stopped2) {
             newState = AnimationState.STOP;
-        }
-        else if (distance.magnitude != 0) {
+        } else if (distance1.magnitude != 0 || distance2.magnitude != 0) {
             newState = AnimationState.WALK;
         } else {
             newState = AnimationState.STOP;
