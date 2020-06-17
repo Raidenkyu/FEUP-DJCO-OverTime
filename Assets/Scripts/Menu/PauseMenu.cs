@@ -93,6 +93,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0;
         state = PauseState.IN_PAUSE_MENU;
         // m_MyAudioSource.Pause();
+        RuntimeManager.PauseAllEvents(true);
         SceneController.Instance.SetIsPaused(true);
     }
 
@@ -107,6 +108,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
         state = PauseState.NOT_PAUSED;
         // m_MyAudioSource.Play();
+        RuntimeManager.PauseAllEvents(false);
         SceneController.Instance.SetIsPaused(false);
     }
 
