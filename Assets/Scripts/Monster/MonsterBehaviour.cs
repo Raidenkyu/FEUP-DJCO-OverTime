@@ -58,6 +58,7 @@ public class MonsterBehaviour : MonoBehaviour {
     }
 
     public void Freeze() {
+        soundController.stepEvent.Stop();
         visionObject.SetActive(false);
         state = MonsterState.FREEZE;
         animator.enabled = false;
