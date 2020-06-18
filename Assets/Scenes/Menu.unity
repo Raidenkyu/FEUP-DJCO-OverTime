@@ -2008,6 +2008,8 @@ GameObject:
   - component: {fileID: 765172524}
   - component: {fileID: 765172523}
   - component: {fileID: 765172527}
+  - component: {fileID: 765172529}
+  - component: {fileID: 765172528}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -2110,11 +2112,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea3ae9e315f32fd4493b43a6a7c97e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickEvent: {fileID: 0}
-  enterEvent: {fileID: 0}
+  clickEvent: {fileID: 765172529}
+  enterEvent: {fileID: 765172528}
   mainMenu: {fileID: 1800037547}
   selectLevels: {fileID: 1269147133}
   options: {fileID: 1145224559}
+--- !u!114 &765172528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765172522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/UI/Enter
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 500
+  OverrideMaxDistance: 500
+--- !u!114 &765172529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765172522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/UI/Clicks
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 500
+  OverrideMaxDistance: 500
 --- !u!1 &787276860
 GameObject:
   m_ObjectHideFlags: 0
