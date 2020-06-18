@@ -122,12 +122,12 @@ public class PlayerMovement : MonoBehaviour {
                 Interact();
             }
 
-            // TODO: ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
+            // ANY NEW INPUT THAT THE GHOSTS HAVE TO REPLICATE MUST BE ADDED HERE
 
             // if player has fired gun, ignore rest of inputs
             if (SceneController.Instance.GetIsReseting()) return;
 
-            // reseting level actions // TODO: these actions might need to be called with invoke depending on where we want to control animations (ex: flashes)
+            // reseting level actions
             if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
                 if (Input.GetKeyDown(KeyCode.LeftControl)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
@@ -200,17 +200,11 @@ public class PlayerMovement : MonoBehaviour {
 
     public void SetAsGhost(List<PointInTime> path) {
         isGhost = true;
-        // controller.enabled = false;
         ghostPath = path;
-        // TODO: Maybe erase this line
-        //playerCamera.SetActive(false);
-        // TODO: change color to be transparent
     }
 
     public void TogglePlayerGun(bool activeValue) {
         playerGun.SetActive(activeValue);
-        // canFireGunInCurrentLevel = activeValue;
-        // ^ commented this to prevent the player from using the gun in level1 after picking it up
     }
 
     public PlayerState GetState() {
