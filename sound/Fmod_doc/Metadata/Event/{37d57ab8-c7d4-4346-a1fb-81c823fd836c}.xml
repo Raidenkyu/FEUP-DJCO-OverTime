@@ -180,6 +180,7 @@
 	<object class="MixerBusEffectChain" id="{47afe2fd-816b-4152-a508-38c364bdf85f}">
 		<relationship name="effects">
 			<destination>{9a55c1b1-33ec-484c-9839-4c173dd74d07}</destination>
+			<destination>{e6760db4-1359-4b3c-b48d-5524ccf91ecb}</destination>
 			<destination>{c5c7ccda-550e-47f1-ab14-a1577a2d8e70}</destination>
 			<destination>{b36351bc-0268-4859-aab2-64e518ebee75}</destination>
 			<destination>{4619981b-8bf3-495d-ad06-5be9c2817dc7}</destination>
@@ -229,6 +230,11 @@
 	<object class="CompressorEffect" id="{9a55c1b1-33ec-484c-9839-4c173dd74d07}">
 		<property name="gain">
 			<value>17.5</value>
+		</property>
+	</object>
+	<object class="LimiterEffect" id="{e6760db4-1359-4b3c-b48d-5524ccf91ecb}">
+		<property name="boost">
+			<value>8.19999981</value>
 		</property>
 	</object>
 	<object class="SFXReverbEffect" id="{c5c7ccda-550e-47f1-ab14-a1577a2d8e70}">

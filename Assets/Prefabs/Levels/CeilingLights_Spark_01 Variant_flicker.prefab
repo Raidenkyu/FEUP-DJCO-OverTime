@@ -68,25 +68,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 16.106165, y: 2.2567897, z: 6.075466}
   m_Center: {x: 0.024806023, y: -1.0935004, z: -0.25871563}
---- !u!114 &8963012440079621560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5276765845128560284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2ea09a893aa12044b4c0d2ba196b429, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lampLight: {fileID: 1279201507873919563}
-  min: 0.5
-  max: 1
-  particle: {fileID: 0}
-  shortCircuitEvent: {fileID: 8780864691849407227}
-  sparkEvent: {fileID: 911901880070453762}
-  box: {fileID: 8708677238528082220}
 --- !u!114 &911901880070453762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,9 +88,27 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  OverrideAttenuation: 1
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 2
+--- !u!114 &8963012440079621560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276765845128560284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2ea09a893aa12044b4c0d2ba196b429, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lampLight: {fileID: 1279201507873919563}
+  min: 0.5
+  max: 1
+  particle: {fileID: 0}
+  shortCircuitEvent: {fileID: 8780864691849407227}
+  sparkEvent: {fileID: 911901880070453762}
 --- !u!1001 &5278118503933420388
 PrefabInstance:
   m_ObjectHideFlags: 0

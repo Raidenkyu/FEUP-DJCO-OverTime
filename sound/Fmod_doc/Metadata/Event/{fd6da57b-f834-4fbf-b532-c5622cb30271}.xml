@@ -5,7 +5,7 @@
 			<value>SFX_shortcircuit</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{4bd9ce41-5222-45dc-a645-7540d0d882c5}</destination>
@@ -86,6 +86,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{0e448dc6-bee9-4f57-959f-24a16e529783}">
+		<property name="volume">
+			<value>-26</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{51a3c407-d98e-438c-8fd4-c93d64919dc9}</destination>
 		</relationship>
@@ -152,6 +155,7 @@
 	<object class="MixerBusEffectChain" id="{51a3c407-d98e-438c-8fd4-c93d64919dc9}">
 		<relationship name="effects">
 			<destination>{63e972d8-8106-48c6-be39-61a1855cda58}</destination>
+			<destination>{b315c4a3-2cbc-4b45-a90e-38830c7bcf9a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{c7618e06-334e-43c1-9e90-68114070d344}" />
@@ -171,6 +175,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{ae6fa00a-3327-4fff-895d-759b24d0f6af}" />
 	<object class="MixerBusFader" id="{63e972d8-8106-48c6-be39-61a1855cda58}" />
+	<object class="SpatialiserEffect" id="{b315c4a3-2cbc-4b45-a90e-38830c7bcf9a}">
+		<property name="maximumDistance">
+			<value>5.5999999</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{fc14204f-53df-4e76-85a5-9f7ccdd6de58}">
 		<relationship name="parameter">
 			<destination>{b530568c-f590-43b9-b426-ab7dca72e781}</destination>
