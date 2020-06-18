@@ -141,7 +141,7 @@ public class SceneController : MonoBehaviour {
 
     void ReloadScene() {
         canStartRun = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // TODO: Might change to build index
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         RepositionPlayer();
         ResetPlayerState();
         Invoke("ResetPlayerState", transitionTime); // here to make sure the player is in PLAY state (due to bug with orc killing mid animation)
@@ -166,6 +166,7 @@ public class SceneController : MonoBehaviour {
 
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
             if (SceneManager.GetActiveScene().buildIndex == 8) {
+                // if it's the last level, return to menu instead of trying to load the next level
                 SceneManager.LoadScene("Menu");
             } else {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -315,7 +316,7 @@ public class SceneController : MonoBehaviour {
     }
 
     public void SetupScene() {
-        Invoke("StartRun", 0.5f); // TODO: adjust this
+        Invoke("StartRun", 0.5f);
         StartAbilityLevelLoadedTransition();
         timeRecorded = 0f;
         RepositionPlayer();
@@ -332,10 +333,6 @@ public class SceneController : MonoBehaviour {
     public void LevelComplete() {
         Debug.Log("Level Complete");
         StartLevelEndedTransition();
-        // TODO: show some effect in between camaras
-        // (maybe add a camera to scenecontroller that just shows black and activate it here)
-        // (maybe don't delete player here, do the delete on awake)
-
         Invoke("LevelCompleteLogic", 1f);
     }
 

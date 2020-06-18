@@ -12,7 +12,7 @@ public class Level7Controller : MonoBehaviour {
         SceneController.Instance.GetMainPlayerMovement().controller.enabled = false;
         SceneController.Instance.GetMainPlayerLook().enabled = false;
         Invoke("StartVoiceLines", 2.0f);
-        Invoke("AllowSkipToMenu", 41.0f); // TODO: Adjust this value to match the sum of subtitles
+        Invoke("AllowSkipToMenu", 41.0f);
     }
 
     void StartVoiceLines () {
