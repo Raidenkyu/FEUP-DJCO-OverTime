@@ -17361,8 +17361,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\"Do not shoot yourself with the Primer gun\u201D. We can\u2019t exactly
-        pinpoint what element you\u2019ll turn into Doc, but it\u2019s probably not
-        one with breathing capabilities."
+        pinpoint what element you\u2019ll turn into, but it\u2019s probably not one
+        with breathing capabilities."
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
