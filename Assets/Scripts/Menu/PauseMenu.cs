@@ -201,6 +201,8 @@ public class PauseMenu : MonoBehaviour
         musicVolumeSlider.value = GlobalSettings.globalMusicVolume;
         narrationVolumeSlider.value = GlobalSettings.globalNarrationVolume;
         sfxVolumeSlider.value = GlobalSettings.globalSFXVolume;
+
+        masterBus.setVolume(GlobalSettings.globalMasterVolume);
     }
 
     void ReRenderScreen () {
