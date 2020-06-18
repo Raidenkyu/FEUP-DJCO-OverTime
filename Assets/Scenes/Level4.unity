@@ -44318,6 +44318,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2.05
       objectReference: {fileID: 0}
+    - target: {fileID: 385343962211458996, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.66
+      objectReference: {fileID: 0}
     - target: {fileID: 385343962211458999, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
