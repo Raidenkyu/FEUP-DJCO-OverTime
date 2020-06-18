@@ -16964,7 +16964,7 @@ PrefabInstance:
     - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: Event
-      value: 
+      value: event:/Narration/Alvaro/5-2
       objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -17099,7 +17099,7 @@ PrefabInstance:
     - target: {fileID: 4708299656659639994, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: duration
-      value: 6
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 6495907408719219929, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -17130,7 +17130,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: You euthanized your faithful time ghosts more quickly than any test
-        subject on record. Congratulations, you're a monster.
+        subject on record! Congratulations!
       objectReference: {fileID: 0}
     - target: {fileID: 7787379003277246636, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
