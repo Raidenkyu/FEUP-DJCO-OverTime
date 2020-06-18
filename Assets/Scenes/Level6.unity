@@ -18654,6 +18654,21 @@ PrefabInstance:
       propertyPath: maxRecordingTime
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 4190894218339117543, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190894218339117543, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190894218339117543, guid: ada74473d94d14499960d6c3fddc1b4d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 4399943509541969794, guid: ada74473d94d14499960d6c3fddc1b4d,
         type: 3}
       propertyPath: m_textInfo.characterCount
