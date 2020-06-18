@@ -7109,7 +7109,7 @@ PrefabInstance:
     - target: {fileID: 3455723728486130191, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -12198,13 +12198,13 @@ PrefabInstance:
     - target: {fileID: 4536501996887774383, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_text
       value: When you shoot it, you create a separate timeline branch in the space-time
-        continuum with a...time-ghost of yours. Anything you shoot also gets stuck
+        continuum with a...time-ghost of yours. Anything you shoot also gets frozen
         on that timeline with it, and you get brought back to the master branch.
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485846, guid: e9bb2e73f4d67379590925c0f10b9442,
@@ -13372,7 +13372,7 @@ PrefabInstance:
     - target: {fileID: 4536501996887774383, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -19266,7 +19266,7 @@ PrefabInstance:
     - target: {fileID: 4536501996887774383, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -24178,7 +24178,7 @@ PrefabInstance:
     - target: {fileID: 3455723728486130191, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 4708299656659639990, guid: ef01a21f648c39836a2ba1c992941c6d,
         type: 3}
@@ -41990,7 +41990,7 @@ PrefabInstance:
     - target: {fileID: 1533714669947045192, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.03
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2173022563900820948, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -42114,6 +42114,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780825661063815938, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780825661063815938, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
