@@ -41,7 +41,8 @@ public class PlayerMovement : MonoBehaviour {
     // sound variables
     public StudioEventEmitter soundEvent;
     public StudioEventEmitter timeTravelEvent;
-    public StudioEventEmitter noClonesSound;
+    public StudioEventEmitter noClonesEvent;
+    public StudioEventEmitter jumpEvent;
     public StudioEventEmitter fallEvent;
     public float soundDelay = 0.5f;
     float soundTimer;
@@ -105,7 +106,7 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             if (Input.GetButtonDown("Jump") && isGrounded) {
-                // Debug.Log("JUMP");
+                jumpEvent.Play();
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
                 hasJumped = true;
             }
@@ -135,7 +136,7 @@ public class PlayerMovement : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.LeftControl)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
                 if (!SceneController.Instance.CanCreateClones()) {
-                    noClonesSound.Play();
+                    noClonesEvent.Play();
                     return;
                 }
 
