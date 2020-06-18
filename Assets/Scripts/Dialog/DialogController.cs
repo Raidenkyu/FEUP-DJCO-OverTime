@@ -27,9 +27,7 @@ public class DialogController : MonoBehaviour {
     }
 
     public static void SetActiveDialog(Dialog dialog) {
-        if (SceneManager.GetActiveScene().buildIndex != 8) {
-            _instance.activeDialog?.StopDialog(); // TODO: alterar/tirar este if, maior martelada que eu já dei
-        }
+        _instance.activeDialog?.StopDialog();
         _instance.activeDialog = dialog;
     }
 }

@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
+using FMODUnity;
 
 public class Level7Controller : MonoBehaviour {
     public GameObject startingDialog;
     public bool canSkipToMenu = false;
+
+    //Level Dialog Event
+    public StudioEventEmitter dialogEvent;
 
     void Start() {
         SceneController.Instance.GetMainPlayerMovement().controller.enabled = false;
@@ -12,6 +16,7 @@ public class Level7Controller : MonoBehaviour {
     }
 
     void StartVoiceLines () {
+        dialogEvent.Play();
         startingDialog.GetComponent<Dialog>().StartDialog();
     }
 
