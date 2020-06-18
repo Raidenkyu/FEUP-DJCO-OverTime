@@ -93,6 +93,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void BackToMainMenu(){
+        masterBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        RuntimeManager.PauseAllEvents(false);
         clickEvent.Play();
         SceneManager.LoadScene("Menu");
     }
