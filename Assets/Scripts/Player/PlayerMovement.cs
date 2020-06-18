@@ -41,8 +41,10 @@ public class PlayerMovement : MonoBehaviour {
     public StudioEventEmitter soundEvent;
     public StudioEventEmitter timeTravelEvent;
     public StudioEventEmitter noClonesSound;
+    public StudioEventEmitter fallEvent;
     public float soundDelay = 0.5f;
     float soundTimer;
+    bool hasJumped = false;
 
     // death animation variables
     Quaternion deathAngle;
@@ -92,12 +94,17 @@ public class PlayerMovement : MonoBehaviour {
             // jumping/vertical movement
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
             if (isGrounded && velocity.y < 0) {
+                if (hasJumped) {
+                    hasJumped = false;
+                    fallEvent.Play();
+                }
                 velocity.y = -2f;
             }
 
             if (Input.GetButtonDown("Jump") && isGrounded) {
                 // Debug.Log("JUMP");
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                hasJumped = true;
             }
             velocity.y += gravity * Time.deltaTime;
 
