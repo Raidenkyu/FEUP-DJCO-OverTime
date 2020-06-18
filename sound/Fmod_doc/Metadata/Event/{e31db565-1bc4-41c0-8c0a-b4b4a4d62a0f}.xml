@@ -92,6 +92,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{0faba849-1b84-41b7-8dcc-55293e1363ac}">
+		<property name="volume">
+			<value>-20.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{e15848fb-ee08-4e7d-a401-ddeee1115a68}</destination>
 		</relationship>
@@ -193,6 +196,7 @@
 		<relationship name="effects">
 			<destination>{a41d1e7d-7d6c-47d3-b0d2-303e31cd6689}</destination>
 			<destination>{13299e16-611b-45c9-aefe-925db0c591e1}</destination>
+			<destination>{1e5b3632-3d20-41d7-8d01-17cb8cc6371a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4919b9c0-0205-4ca7-9e97-b604daa957da}" />
@@ -218,6 +222,23 @@
 	<object class="MixerBusPanner" id="{2b8ed28a-bb65-4e8f-a8fc-a6c6676b37fa}" />
 	<object class="MixerBusFader" id="{a41d1e7d-7d6c-47d3-b0d2-303e31cd6689}" />
 	<object class="SpatialiserEffect" id="{13299e16-611b-45c9-aefe-925db0c591e1}" />
+	<object class="SFXReverbEffect" id="{1e5b3632-3d20-41d7-8d01-17cb8cc6371a}">
+		<property name="decayTime">
+			<value>450</value>
+		</property>
+		<property name="lowShelfFrequency">
+			<value>630</value>
+		</property>
+		<property name="lowShelfGain">
+			<value>12</value>
+		</property>
+		<property name="highCut">
+			<value>140</value>
+		</property>
+		<property name="wetLevel">
+			<value>-16</value>
+		</property>
+	</object>
 	<object class="MixerBusFader" id="{97b7f8dd-bac4-4fc9-beb1-01ec4fd8c29f}" />
 	<object class="MixerBusFader" id="{961b8841-b680-4bfe-964d-948c56d604e2}" />
 	<object class="ThreeEQEffect" id="{00a6991f-96d4-4087-b279-f32f0cb4872c}">
