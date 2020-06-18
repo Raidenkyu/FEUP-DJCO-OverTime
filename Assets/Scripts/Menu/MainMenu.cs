@@ -55,7 +55,7 @@ public class MainMenu : MonoBehaviour {
     }
 
     public void LevelSelect() {
-        enterEvent.Play();
+        clickEvent.Play();
         mainMenu.SetActive(false);
         selectLevels.SetActive(true);
     }
