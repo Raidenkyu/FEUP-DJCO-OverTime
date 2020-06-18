@@ -74765,7 +74765,7 @@ PrefabInstance:
     - target: {fileID: 6961424182357502878, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: Insert amusing fact here. We are happy to comfort you in these trying
+      value: <insert amusing fact here>. We are happy to comfort you in these trying
         times.
       objectReference: {fileID: 0}
     - target: {fileID: 7780825661063815938, guid: 241fa098035e6fb1aa0c8e0d546624be,

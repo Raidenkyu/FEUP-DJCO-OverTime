@@ -26,8 +26,12 @@ public class DialogController : MonoBehaviour {
         }
     }
 
-    public static void SetActiveDialog(Dialog dialog) {
+    public static void StopActiveDialog () {
         _instance.activeDialog?.StopDialog();
+    }
+
+    public static void SetActiveDialog(Dialog dialog) {
+        StopActiveDialog();
         _instance.activeDialog = dialog;
     }
 }

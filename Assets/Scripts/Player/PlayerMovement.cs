@@ -51,6 +51,7 @@ public class PlayerMovement : MonoBehaviour {
     float deathTime = 0;
     float deathRange = 0;
     public float deathRotationSpeed = 1.0f;
+    public PlayerLook playerLook;
 
     private void Awake() {
         canFireGunInCurrentLevel = SceneController.Instance.GetCanFireGunInCurrentLevel();
@@ -219,6 +220,7 @@ public class PlayerMovement : MonoBehaviour {
         if (!isGhost) {
             if (state != PlayerState.PLAY) return;
             controller.enabled = false;
+            playerLook.enabled = false;
             this.state = PlayerState.PREYED;
 
             Vector3 deathView = monster.position;

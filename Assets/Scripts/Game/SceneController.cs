@@ -149,6 +149,7 @@ public class SceneController : MonoBehaviour {
 
     // Reposition the player in the spawnpoint
     void RepositionPlayer() {
+        playerLook.enabled = true;
         playerController.enabled = false;
         playerController.transform.position = levelSpawnpoint.position;
         playerController.transform.rotation = levelSpawnpoint.rotation;
@@ -161,6 +162,8 @@ public class SceneController : MonoBehaviour {
     }
 
     void LevelCompleteLogic () {
+        DialogController.StopActiveDialog();
+
         Destroy(playerObject);
         Destroy(this.gameObject);
 
