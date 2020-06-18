@@ -21908,6 +21908,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1144647588}
     m_Modifications:
+    - target: {fileID: 7800660364611516256, guid: 97202cf26caeefb41b43c3be6d862496,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800660364611516256, guid: 97202cf26caeefb41b43c3be6d862496,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7800660364611516257, guid: 97202cf26caeefb41b43c3be6d862496,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21987,6 +21997,16 @@ PrefabInstance:
     - target: {fileID: 7800660365381546818, guid: 97202cf26caeefb41b43c3be6d862496,
         type: 3}
       propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800660365381546818, guid: 97202cf26caeefb41b43c3be6d862496,
+        type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7800660365381546818, guid: 97202cf26caeefb41b43c3be6d862496,
+        type: 3}
+      propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
