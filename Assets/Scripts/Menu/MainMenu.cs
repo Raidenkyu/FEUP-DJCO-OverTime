@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour {
 
     private void Awake() {
         Time.timeScale = 1; // here to reset the light "flicking" after coming to this menu from pause state
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         if (SceneController.Instance != null) {
             SceneController.Instance.DestroyCurrentPlayerAndSceneController();
         }

@@ -956,6 +956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogCase
       objectReference: {fileID: 0}
+    - target: {fileID: 4232797843441764637, guid: 241fa098035e6fb1aa0c8e0d546624be,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4232797843441764639, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_LocalPosition.x
