@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.01.00">
-	<object class="ParameterPreset" id="{29040bf0-7ddf-427e-9505-a057421c77a7}">
+	<object class="ParameterPreset" id="{da4bec65-b9a0-42b3-a2cc-852d3b4d398f}">
 		<property name="name">
-			<value>ReverbWET</value>
+			<value>Distance 2</value>
 		</property>
 		<relationship name="folder">
 			<destination>{7a990352-4679-413e-b3a4-10dab0838e1e}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{70639a31-972e-4f65-ad18-28d10eb03242}</destination>
+			<destination>{acb9c4f7-c14a-417e-876a-42ad792c42aa}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{70639a31-972e-4f65-ad18-28d10eb03242}">
+	<object class="GameParameter" id="{acb9c4f7-c14a-417e-876a-42ad792c42aa}">
+		<property name="parameterType">
+			<value>3</value>
+		</property>
 		<property name="maximum">
-			<value>5</value>
+			<value>20</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
 		</property>
 	</object>
 </objects>
