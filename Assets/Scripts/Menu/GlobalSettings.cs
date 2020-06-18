@@ -7,5 +7,9 @@ public class GlobalSettings : MonoBehaviour {
     public static int globalResolution = -1;
     public static FullScreenMode globalFullscreenMode = FullScreenMode.FullScreenWindow;
     public static int globalFullscreenIndex = 0;
+    public static float globalMasterVolume = 1f;
+    public static float globalMusicVolume = 1f;
+    public static float globalNarrationVolume = 1f;
+    public static float globalSFXVolume = 1f;
 
 }

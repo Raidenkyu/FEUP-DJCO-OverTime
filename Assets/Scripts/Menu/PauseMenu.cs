@@ -36,11 +36,31 @@ public class PauseMenu : MonoBehaviour
     public TMP_Dropdown resolutionDropdown;
     public TMP_Dropdown fullScreenDropdown;
 
+    // volume settings elements
+    public Slider masterVolumeSlider;
+    public Slider musicVolumeSlider;
+    public Slider narrationVolumeSlider;
+    public Slider sfxVolumeSlider;
+
+    // fmod buses
+    FMOD.Studio.Bus masterBus;
+    FMOD.Studio.Bus musicBus;
+    FMOD.Studio.Bus narrationBus;
+    FMOD.Studio.Bus sfxBus;
+
     // settings multipliers
     public float sensitivityMultiplier = 200f;
 
     // resolution variables
     Resolution[] resolutions;
+
+    private void Awake() {
+        // set fmod buses
+        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
+        narrationBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Narration");
+        sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Sound Effects");
+    }
 
     private void Start() {
         Resume();
@@ -170,20 +190,20 @@ public class PauseMenu : MonoBehaviour
     }
 
     void UpdateSettingsUI () {
-        // Debug.Log(GlobalSettings.globalSensitivity);
-        // Debug.Log(GlobalSettings.globalGraphicsQuality);
-        // Debug.Log(GlobalSettings.globalResolution);
-        // Debug.Log(GlobalSettings.globalFullscreenIndex);
-
         sensitivitySlider.value = GlobalSettings.globalSensitivity / sensitivityMultiplier;
         graphicsDropdown.value = GlobalSettings.globalGraphicsQuality;
         resolutionDropdown.value = GlobalSettings.globalResolution;
         fullScreenDropdown.value = GlobalSettings.globalFullscreenIndex;
+
+        masterVolumeSlider.value = GlobalSettings.globalMasterVolume;
+        musicVolumeSlider.value = GlobalSettings.globalMusicVolume;
+        narrationVolumeSlider.value = GlobalSettings.globalNarrationVolume;
+        sfxVolumeSlider.value = GlobalSettings.globalSFXVolume;
     }
 
     void ReRenderScreen () {
         // Not really sure why this makes it work, but it was caused by the dropdowns freezing the screen after being used
-        // Its a known unity bug
+        // Its a known unity bug with fixed resolution
 
         if (state == PauseState.IN_SETTINGS_MENU) {            
             globalMenuUI.SetActive(false);
@@ -239,6 +259,32 @@ public class PauseMenu : MonoBehaviour
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreenMode, 60);
         GlobalSettings.globalResolution = newResolutionIndex;
         ReRenderScreen();
+    }
+
+    // volume settings
+
+    public void SetMasterValue (float value) {
+        // Value: [0.0; 1.0]
+        masterBus.setVolume(value);
+        GlobalSettings.globalMasterVolume = value;
+    }
+
+    public void SetMusicValue (float value) {
+        // Value: [0.0; 1.0]
+        musicBus.setVolume(value);
+        GlobalSettings.globalMusicVolume = value;
+    }
+
+    public void SetNarrationValue (float value) {
+        // Value: [0.0; 1.0]
+        narrationBus.setVolume(value);
+        GlobalSettings.globalNarrationVolume = value;
+    }
+
+    public void SetSfxValue (float value) {
+        // Value: [0.0; 1.0]
+        sfxBus.setVolume(value);
+        GlobalSettings.globalSFXVolume = value;
     }
 
 }
