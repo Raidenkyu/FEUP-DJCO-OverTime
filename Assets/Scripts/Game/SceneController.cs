@@ -164,9 +164,12 @@ public class SceneController : MonoBehaviour {
         Destroy(playerObject);
         Destroy(this.gameObject);
 
-        // TODO: adjust exception for final level (return to menu)
         if (SceneManager.GetActiveScene().buildIndex + 1 < SceneManager.sceneCountInBuildSettings) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            if (SceneManager.GetActiveScene().buildIndex == 8) {
+                SceneManager.LoadScene("Menu");
+            } else {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 

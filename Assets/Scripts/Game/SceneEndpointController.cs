@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-public class SceneEndpointController : MonoBehaviour
-{
+public class SceneEndpointController : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogController : MonoBehaviour {
     // Singleton methods
@@ -26,7 +27,9 @@ public class DialogController : MonoBehaviour {
     }
 
     public static void SetActiveDialog(Dialog dialog) {
-        _instance.activeDialog?.StopDialog();
+        if (SceneManager.GetActiveScene().buildIndex != 8) {
+            _instance.activeDialog?.StopDialog(); // TODO: alterar/tirar este if, maior martelada que eu já dei
+        }
         _instance.activeDialog = dialog;
     }
 }
