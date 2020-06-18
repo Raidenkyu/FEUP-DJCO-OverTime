@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour {
     private PlayerState state;
 
     // control variables
-    bool canFireGunInCurrentLevel = true;
+    bool canFireGunInCurrentLevelLeft = true;
+    bool canFireGunInCurrentLevelRight = true;
 
     // sound variables
     public StudioEventEmitter soundEvent;
@@ -54,9 +55,10 @@ public class PlayerMovement : MonoBehaviour {
     public PlayerLook playerLook;
 
     private void Awake() {
-        canFireGunInCurrentLevel = SceneController.Instance.GetCanFireGunInCurrentLevel();
+        canFireGunInCurrentLevelLeft = SceneController.Instance.GetCanFireGunInCurrentLevel();
+        canFireGunInCurrentLevelRight = SceneController.Instance.GetCanFireGunInCurrentLevel();
 
-        if (!canFireGunInCurrentLevel) {
+        if (!canFireGunInCurrentLevelLeft) {
             TogglePlayerGun(false);
         }
     }
@@ -129,7 +131,7 @@ public class PlayerMovement : MonoBehaviour {
             if (SceneController.Instance.GetIsReseting()) return;
 
             // reseting level actions
-            if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire1")) {
+            if (canFireGunInCurrentLevelLeft && Input.GetButtonDown("Fire1")) {
                 if (Input.GetKeyDown(KeyCode.LeftControl)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
                 if (!SceneController.Instance.CanCreateClones()) {
@@ -145,20 +147,20 @@ public class PlayerMovement : MonoBehaviour {
                 Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithSave();
             }
-            if (canFireGunInCurrentLevel && Input.GetButtonDown("Fire2")) {
+            if (canFireGunInCurrentLevelRight && Input.GetButtonDown("Fire2")) {
                 if (Input.GetKeyDown(KeyCode.LeftAlt)) return;
                 if (SceneController.Instance.GetIsPaused()) return;
 
                 Invoke("TimeTravelSound", 0.1f);
                 SceneController.Instance.ResetWithoutSave();
             }
-            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.R)) {
+            if (canFireGunInCurrentLevelRight && Input.GetKeyDown(KeyCode.R)) {
                 if (SceneController.Instance.GetIsPaused()) return;
 
                 TimeTravelSound();
                 SceneController.Instance.ResetAndDeletePrevious();
             }
-            if (canFireGunInCurrentLevel && Input.GetKeyDown(KeyCode.L)) {
+            if (canFireGunInCurrentLevelRight && Input.GetKeyDown(KeyCode.L)) {
                 if (SceneController.Instance.GetIsPaused()) return;
 
                 TimeTravelSound();
@@ -205,6 +207,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void TogglePlayerGun(bool activeValue) {
+        canFireGunInCurrentLevelLeft = activeValue;
         playerGun.SetActive(activeValue);
     }
 
