@@ -25,8 +25,6 @@ public class AnimationsController : MonoBehaviour {
         state = newState;
 
         TriggerAnimation();
-
-        Debug.Log(state);
     }
 
     void TriggerAnimation() {

@@ -387,7 +387,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: duration
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: chainedDialog
@@ -421,7 +421,8 @@ PrefabInstance:
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_text
-      value: "But, what\u2019s that? You can\u2019t move? Is there something wrong?"
+      value: When a time ghost reaches the end of the loop, that's what happens.
+        I expected you to smarten up already.
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -943,7 +944,7 @@ PrefabInstance:
     - target: {fileID: 3151461846242334032, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: duration
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3151461846242334032, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -1093,7 +1094,8 @@ PrefabInstance:
     - target: {fileID: 6961424182357502878, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
       propertyPath: m_text
-      value: Here you are doc, we finally meet face to face!
+      value: 'Hey there, we finally meet! Wait, you can''t move? Well, I mean, that''s
+        to be expected. '
       objectReference: {fileID: 0}
     - target: {fileID: 8929185200978049521, guid: 241fa098035e6fb1aa0c8e0d546624be,
         type: 3}
@@ -1471,8 +1473,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: duration
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
+      propertyPath: chainedDialog
+      value: 
+      objectReference: {fileID: 1666688830}
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1501,8 +1507,8 @@ PrefabInstance:
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
       propertyPath: m_text
-      value: Well, I suppose that only makes sense - you reached the end of the loop,
-        right? Like all of the other ghosts?
+      value: I mean, you are my time ghost, you know? But I guess the clones can
+        never match the original.
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -1726,6 +1732,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
+--- !u!114 &1666688830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442,
+    type: 3}
+  m_PrefabInstance: {fileID: 2106881265}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eeac627bafa8f5baccf0fc01f9fdac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1854065689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1946,7 +1964,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 199214263, guid: e9bb2e73f4d67379590925c0f10b9442, type: 3}
       propertyPath: duration
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
@@ -1972,6 +1990,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5415525445575441017, guid: e9bb2e73f4d67379590925c0f10b9442,
+        type: 3}
+      propertyPath: m_text
+      value: "Truth is, game was rigged from the start. I merged all of the timelines
+        now, we're in the master branch. There's one thing left for you to do. \nClose
+        the loop."
       objectReference: {fileID: 0}
     - target: {fileID: 5789073287537485848, guid: e9bb2e73f4d67379590925c0f10b9442,
         type: 3}
