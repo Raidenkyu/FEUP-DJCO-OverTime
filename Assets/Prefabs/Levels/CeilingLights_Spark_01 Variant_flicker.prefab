@@ -80,12 +80,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ea09a893aa12044b4c0d2ba196b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1279201507873919563}
+  lampLight: {fileID: 1279201507873919563}
   min: 0.5
   max: 1
   particle: {fileID: 0}
-  soundEvent: {fileID: 8780864691849407227}
+  shortCircuitEvent: {fileID: 8780864691849407227}
+  sparkEvent: {fileID: 911901880070453762}
   box: {fileID: 8708677238528082220}
+--- !u!114 &911901880070453762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5276765845128560284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/SFX_bulb
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &5278118503933420388
 PrefabInstance:
   m_ObjectHideFlags: 0

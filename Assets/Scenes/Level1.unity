@@ -7023,6 +7023,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1642258037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &401994723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401994722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/SFX/SFX_bulb
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!114 &401994726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7035,11 +7058,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ea09a893aa12044b4c0d2ba196b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1303542321}
+  lampLight: {fileID: 946013316}
   min: 0
   max: 1
   particle: {fileID: 1682409726}
-  soundEvent: {fileID: 0}
+  shortCircuitEvent: {fileID: 0}
+  sparkEvent: {fileID: 401994723}
   box: {fileID: 0}
 --- !u!1001 &406382486
 PrefabInstance:
@@ -8785,6 +8809,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Shadows.m_Type
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7700362702773432542, guid: 83703d1837d1d4d4fa3dfdcb40a2c372,
+        type: 3}
+      propertyPath: m_Name
+      value: Spot Light Flicker
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83703d1837d1d4d4fa3dfdcb40a2c372, type: 3}
@@ -12902,11 +12931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2ea09a893aa12044b4c0d2ba196b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  light: {fileID: 1716007591}
+  lampLight: {fileID: 1716007591}
   min: 1
   max: 2
   particle: {fileID: 0}
-  soundEvent: {fileID: 0}
+  shortCircuitEvent: {fileID: 0}
+  sparkEvent: {fileID: 0}
   box: {fileID: 0}
 --- !u!1001 &772285299
 PrefabInstance:
@@ -15888,6 +15918,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4160519767647610, guid: c73151b2c863d094393f47d50c325553,
     type: 3}
   m_PrefabInstance: {fileID: 1829070046}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &946013316 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 7538989865765089379, guid: 46e737d850ee4bc408b9efb436349b3f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632863820}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &949866177
 PrefabInstance:
@@ -21500,12 +21536,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4a11ac89ec3635a4b896556552983d54, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c73151b2c863d094393f47d50c325553, type: 3}
---- !u!108 &1303542321 stripped
-Light:
-  m_CorrespondingSourceObject: {fileID: 6412851193292665135, guid: 83703d1837d1d4d4fa3dfdcb40a2c372,
-    type: 3}
-  m_PrefabInstance: {fileID: 1642258037}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1304778832
 PrefabInstance:
   m_ObjectHideFlags: 0
